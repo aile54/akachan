@@ -6,12 +6,11 @@
 ?>
 <div id="bannermenu">
     <aside class="support">
-        <div id="lbsupport">
-            <span><strong>
-            	<a href="../Views/News.php" style="padding-left:10px"> Góc Chia Sẻ </a>
-            </strong></span>
-        </div>
-        <marquee behavior="scroll"  direction="up" scrollamount="2" height="230px" style="" onMouseOver="this.stop()" onMouseOut="this.start()">
+    	<a href="../Views/News.php" style="padding-left:10px">
+            <div id="lbsupport">
+            </div>
+        </a>
+        <marquee behavior="scroll"  direction="up" scrollamount="2" height="210px" style="" onMouseOver="this.stop()" onMouseOut="this.start()">
         <div id="chatlist" >
             <ul>
             	<?php
