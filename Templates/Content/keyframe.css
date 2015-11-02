@@ -1,0 +1,54 @@
+.groupProduct-content ul#ul-products-hot li img
+{
+    -webkit-transition: 0.5s linear;
+    -moz-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    -ms-transition: 0.5s linear;
+    transition: 0.5s linear;
+}
+
+.groupProduct-content ul#ul-products-hot li img:hover
+{
+	transform: scale(1.125, 1.125) rotate(10deg);
+	-webkit-transform: scale(1.125, 1.125) rotate(10deg);
+	-moz-transform: scale(1.125, 1.125) rotate(10deg);
+	-o-transform: scale(1.125, 1.125) rotate(10deg);
+	-ms-transform: scale(1.125, 1.125) rotate(10deg);
+	z-index: 10;
+}
+
+.groupProduct-header a.subMenu img
+{
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+
+.groupProduct-header a.subMenu img:hover 
+{
+	-webkit-transform: scale(1.15,1.15);
+	-moz-transform: scale(1.15,1.15);
+	-o-transform: scale(1.15,1.15);
+	-ms-transform: scale(1.15,1.15);
+	transform: scale(1.15,1.15);
+}
+
+.cart
+{
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+
+.cart:hover
+{
+	-webkit-transform: scale(1.15,1.15);
+	-moz-transform: scale(1.15,1.15);
+	-o-transform: scale(1.15,1.15);
+	-ms-transform: scale(1.15,1.15);
+	transform: scale(1.15,1.15);
+}

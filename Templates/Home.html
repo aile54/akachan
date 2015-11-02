@@ -1,0 +1,1671 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="shortcut icon" href="./Content/images/icon/icon2.png">
+    <!-- CSS Style -->
+    <link href="./Content/Site.css" rel="stylesheet" type="text/css">
+    <link href="./Content/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="./Content/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="./Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+		<!--section#main
+		{
+			background-color: transparent;
+		}-->
+	</style>
+    <!-- Scripts -->
+    <script src="./Scripts/dialog.js" type="text/javascript"></script>
+    <script src="./Scripts/imageover.js" type="text/javascript"></script>
+    <script src="./Scripts/jquery-ui.js" type="text/javascript"></script>
+    <script src="./Scripts/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="./Scripts/jquery.innerfade.js" type="text/javascript"></script>
+    <script src="./Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="./Scripts/modernizr-1.7.min.js" type="text/javascript"></script>
+    <script src="./Scripts/bootstrap/bootstrap.js" type="text/javascript"></script>
+    <script src="./Scripts/jquery/jquery.rateit.js" type="text/javascript"></script>
+    <script src="./Scripts/jquery-ui-1.9.0.custom.js" type="text/javascript"></script>
+    <script src="./Scripts/cycle.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 10000
+            });
+        });
+        $(document).ready(function () {
+            $("#logOnDialog").live("click", function (e) {
+                e.preventDefault();
+                //loadDialog(this);
+                $("<div></div>")
+                        .addClass("dialog")
+                        .attr("id", $(this)
+                        .attr("data-dialog-id"))
+                        .appendTo("body")
+                        .dialog({
+                            title: $(this).attr("data-dialog-title"),
+                            close: function () { $(this).remove() },
+                            modal: true
+                        })
+                        .load(this.href);
+            });
+
+            $(".close").live("click", function (e) {
+                e.preventDefault();
+                $(this).closest(".dialog").dialog("close");
+            });
+
+            $(function () {
+                var button = $('#loginButton');
+                var box = $('#loginBox');
+                var form = $('#loginForm');
+                button.removeAttr('href');
+                button.mouseup(function (login) {
+                    box.toggle();
+                    button.toggleClass('active');
+                    $("#username").focus();
+                });
+                form.mouseup(function () {
+                    return false;
+                });
+                $(this).mouseup(function (login) {
+                    if (!($(login.target).parent('#loginButton').length > 0)) {
+                        button.removeClass('active');
+                        box.hide();
+                    }
+                });
+            });
+
+            $(".changedisplay a").click(function () {
+                $("#logindisplay").slideDown('slow');
+                $(".changedisplay").slideUp();
+            });
+
+            $(".closedisplay").click(function () {
+                $("#logindisplay").slideUp();
+                $(".changedisplay").slideDown('slow');
+            });
+
+            $("#block_inquiry").animate({ width: "190px" }, { queue: false, duration: 500 })
+            setTimeout(function () {
+                $("#block_inquiry").animate({ width: "58px" }, { queue: false, duration: 500 })
+            }, 2000);
+            $("#block_inquiry").mouseover(function () {
+                $("#block_inquiry").animate({ width: "190px" }, { queue: false, duration: 500 })
+            });
+            $("#block_inquiry").mouseout(function () {
+                $("#block_inquiry").animate({ width: "58px" }, { queue: false, duration: 500 })
+            });
+        });
+
+        $('#s2').cycle({
+            fx: 'scrollDown',
+            easing: 'easeOutBounce',
+            delay: -2000
+        });
+				(function($, window, undefined) {
+    // outside the scope of the jQuery plugin to
+    // keep track of all dropdowns
+    var $allDropdowns = $();
+
+    // if instantlyCloseOthers is true, then it will instantly
+    // shut other nav items when a new one is hovered over
+    $.fn.dropdownHover = function(options) {
+
+        // the element we really care about
+        // is the dropdown-toggle's parent
+        $allDropdowns = $allDropdowns.add(this.parent());
+
+        return this.each(function() {
+            var $this = $(this),
+                $parent = $this.parent(),
+                defaults = {
+                    delay: 500,
+                    instantlyCloseOthers: true
+                },
+                data = {
+                    delay: $(this).data('delay'),
+                    instantlyCloseOthers: $(this).data('close-others')
+                },
+                settings = $.extend(true, {}, defaults, options, data),
+                timeout;
+
+            $parent.hover(function(event) {
+                // so a neighbor can't open the dropdown
+                if(!$parent.hasClass('open') && !$this.is(event.target)) {
+                    return true;
+                }
+
+                if(settings.instantlyCloseOthers === true)
+                    $allDropdowns.removeClass('open');
+
+                window.clearTimeout(timeout);
+                $parent.addClass('open');
+            }, function() {
+                timeout = window.setTimeout(function() {
+                    $parent.removeClass('open');
+                }, settings.delay);
+            });
+
+            // this helps with button groups!
+            $this.hover(function() {
+                if(settings.instantlyCloseOthers === true)
+                    $allDropdowns.removeClass('open');
+
+                window.clearTimeout(timeout);
+                $parent.addClass('open');
+            });
+
+            // handle submenus
+            $parent.find('.dropdown-submenu').each(function(){
+                var $this = $(this);
+                var subTimeout;
+                $this.hover(function() {
+                    window.clearTimeout(subTimeout);
+                    $this.children('.dropdown-menu').show();
+                    // always close submenu siblings instantly
+                    $this.siblings().children('.dropdown-menu').hide();
+                }, function() {
+                    var $submenu = $this.children('.dropdown-menu');
+                    subTimeout = window.setTimeout(function() {
+                        $submenu.hide();
+                    }, settings.delay);
+                });
+            });
+        });
+    };
+
+    $(document).ready(function() {
+        // apply dropdownHover to all elements with the data-hover="dropdown" attribute
+        $('[data-hover="dropdown"]').dropdownHover();
+    });
+})(jQuery, this);
+
+$(document).ready(function() {
+	$("ul li.dropdown").mouseenter(function(){
+		var index = $(this).index() + 1;
+		OrderMenu(index);
+	});
+	function OrderMenu(id){
+	var num = 1;
+	$("ul li.dropdown:nth-child("+id+") ul.dropdown-menu li:nth-child(3n)").each(function(){
+		var temp3 = $("ul li.dropdown:nth-child("+id+") ul.dropdown-menu li:nth-child("+(3*num)+")").css("height");
+		var temp2 = $("ul li.dropdown:nth-child("+id+") ul.dropdown-menu li:nth-child("+(3*num-1)+")").css("height");
+		var temp1 = $("ul li.dropdown:nth-child("+id+") ul.dropdown-menu li:nth-child("+(3*num-2)+")").css("height");
+		var temp = "523px";
+		if(temp1>=temp2 && temp1>=temp3)
+		{	
+			temp=temp1;
+		}
+		else if(temp2>=temp1 && temp2>=temp3)
+		{
+			temp=temp2;
+		}
+		else if(temp3>=temp1 && temp3>=temp2)
+		{
+			temp=temp3;
+		}
+		$("ul li.dropdown:nth-child("+id+") ul.dropdown-menu li:nth-child("+(3*num-1)+")").height(temp);
+		$("ul li.dropdown:nth-child("+id+") ul.dropdown-menu li:nth-child("+(3*num-2)+")").height(temp);
+		$("ul li.dropdown:nth-child("+id+") ul.dropdown-menu li:nth-child("+(3*num)+")").height(temp);
+		num++;
+	});
+	};
+    });
+	
+	<!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+	/*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Version: 0.2.5
+ * 
+ */
+    $(document).ready(function() {(function($) {
+
+    jQuery.fn.extend({
+        slimScroll: function(o) {
+
+            var ops = o;
+            //do it for every element that matches selector
+            this.each(function(){
+
+            var isOverPanel, isOverBar, isDragg, queueHide, barHeight,
+                divS = '<div></div>',
+                minBarHeight = 30,
+                wheelStep = 30,
+                o = ops || {},
+                cwidth = o.width || 'auto',
+                cheight = o.height || '250px',
+                size = o.size || '7px',
+                color = o.color || '#000',
+                position = o.position || 'right',
+                opacity = o.opacity || .4,
+                alwaysVisible = o.alwaysVisible === true;
+            
+                //used in event handlers and for better minification
+                var me = $(this);
+
+                //wrap content
+                var wrapper = $(divS).css({
+                    position: 'relative',
+                    overflow: 'hidden',
+                    width: cwidth,
+                    height: cheight
+                }).attr({ 'class': 'slimScrollDiv' });
+
+                //update style for the div
+                me.css({
+                    overflow: 'hidden',
+                    width: cwidth,
+                    height: cheight
+                });
+
+                //create scrollbar rail
+                var rail  = $(divS).css({
+                    width: '15px',
+                    height: '100%',
+                    position: 'absolute',
+                    top: 0
+                });
+
+                //create scrollbar
+                var bar = $(divS).attr({ 
+                    'class': 'slimScrollBar ', 
+                    style: 'border-radius: ' + size 
+                    }).css({
+                        background: color,
+                        width: size,
+                        position: 'absolute',
+                        top: 0,
+                        opacity: opacity,
+                        display: alwaysVisible ? 'block' : 'none',
+                        BorderRadius: size,
+                        MozBorderRadius: size,
+                        WebkitBorderRadius: size,
+                        zIndex: 99
+                });
+
+                //set position
+                var posCss = (position == 'right') ? { right: '1px' } : { left: '1px' };
+                rail.css(posCss);
+                bar.css(posCss);
+
+                //wrap it
+                me.wrap(wrapper);
+
+                //append to parent div
+                me.parent().append(bar);
+                me.parent().append(rail);
+
+                //make it draggable
+                bar.draggable({ 
+                    axis: 'y', 
+                    containment: 'parent',
+                    start: function() { isDragg = true; },
+                    stop: function() { isDragg = false; hideBar(); },
+                    drag: function(e) 
+                    { 
+                        //scroll content
+                        scrollContent(0, $(this).position().top, false);
+                    }
+                });
+
+                //on rail over
+                rail.hover(function(){
+                    showBar();
+                }, function(){
+                    hideBar();
+                });
+
+                //on bar over
+                bar.hover(function(){
+                    isOverBar = true;
+                }, function(){
+                    isOverBar = false;
+                });
+
+                //show on parent mouseover
+                me.hover(function(){
+                    isOverPanel = true;
+                    showBar();
+                    hideBar();
+                }, function(){
+                    isOverPanel = false;
+                    hideBar();
+                });
+
+                var _onWheel = function(e)
+                {
+                    //use mouse wheel only when mouse is over
+                    if (!isOverPanel) { return; }
+
+                    var e = e || window.event;
+
+                    var delta = 0;
+                    if (e.wheelDelta) { delta = -e.wheelDelta/120; }
+                    if (e.detail) { delta = e.detail / 3; }
+
+                    //scroll content
+                    scrollContent(0, delta, true);
+
+                    //stop window scroll
+                    if (e.preventDefault) { e.preventDefault(); }
+                    e.returnValue = false;
+                }
+
+                var scrollContent = function(x, y, isWheel)
+                {
+                    var delta = y;
+
+                    if (isWheel)
+                    {
+                        //move bar with mouse wheel
+                        delta = bar.position().top + y * wheelStep;
+
+                        //move bar, make sure it doesn't go out
+                        delta = Math.max(delta, 0);
+                        var maxTop = me.outerHeight() - bar.outerHeight();
+                        delta = Math.min(delta, maxTop);
+
+                        //scroll the scrollbar
+                        bar.css({ top: delta + 'px' });
+                    }
+
+                    //calculate actual scroll amount
+                    percentScroll = parseInt(bar.position().top) / (me.outerHeight() - bar.outerHeight());
+                    delta = percentScroll * (me[0].scrollHeight - me.outerHeight());
+
+                    //scroll content
+                    me.scrollTop(delta);
+
+                    //ensure bar is visible
+                    showBar();
+                }
+
+                var attachWheel = function()
+                {
+                    if (window.addEventListener)
+                    {
+                        this.addEventListener('DOMMouseScroll', _onWheel, false );
+                        this.addEventListener('mousewheel', _onWheel, false );
+                    } 
+                    else
+                    {
+                        document.attachEvent("onmousewheel", _onWheel)
+                    }
+                }
+
+                //attach scroll events
+                attachWheel();
+
+                var getBarHeight = function()
+                {
+                    //calculate scrollbar height and make sure it is not too small
+                    barHeight = Math.max((me.outerHeight() / me[0].scrollHeight) * me.outerHeight(), minBarHeight);
+                    bar.css({ height: barHeight + 'px' });
+                }
+
+                //set up initial height
+                getBarHeight();
+
+                var showBar = function()
+                {
+                    //recalculate bar height
+                    getBarHeight();
+                    clearTimeout(queueHide);
+                    
+                    //show only when required
+                    if(barHeight >= me.outerHeight()) {
+                        return;
+                    }
+                    bar.fadeIn('fast');
+                }
+
+                var hideBar = function()
+                {
+                    //only hide when options allow it
+                    if (!alwaysVisible)
+                    {
+                        queueHide = setTimeout(function(){
+                            if (!isOverBar && !isDragg) { bar.fadeOut('slow'); }
+                        }, 1000);
+                    }
+                }
+
+            });
+            
+            //maintain chainability
+            return this;
+        }
+    });
+
+    jQuery.fn.extend({
+        slimscroll: jQuery.fn.slimScroll
+    });
+
+})(jQuery);
+
+
+//invalid name call
+              $('#chatlist').slimscroll({
+                  color: '#000000',
+                  size: '10px',
+                  maxheight: 'auto'                  
+              });
+			   });
+			   
+	$(document).ready(function(){
+
+	// hide #back-top first
+	$("#back-top").hide();
+	
+	// fade in #back-top
+	$(function () {
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 100) {
+				$('#back-top').fadeIn();
+			} else {
+				$('#back-top').fadeOut();
+			}
+		});
+
+		// scroll body to 0px on click
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
+
+});		   
+			   
+    </script>
+</head>
+<body>
+			<img src="./Content/images/icon/tem.png" style="position:absolute; z-index:100; width: 150px; right: 50%;top: 75px; margin-right: 470px;" />
+    <div style="display: none; position: absolute; z-index: 110; left: -800px" id="trailimageid">
+    </div>
+    <div id="global-common-message" class="commonMessage">
+    </div>
+    <div id="loading-layer" style="width: 100%; height: 100%; opacity: 0.5; z-index: 2000;
+        background-color: White; display: none; position: fixed;">
+    </div>
+    <div id="dialog">
+    </div>
+    <div id="dialog_bg" style="background-color: rgba(51,43,46,0.7);">
+    </div>
+    <header>
+        <div id="title">
+            <!--<img class="logoImage" src="./Content/images/logo/logo+print.png" />-->
+			<a href="Home.html">
+            <img class="logoImage" src="./Content/images/logo/logo.png"/>
+			</a>
+            <div id="sitetag">
+                <div id="s2" style="position: relative; width: 260px; height: 31px; overflow: hidden;">
+                    <img style="padding-top: 3px; padding-left: 50px; position: absolute;
+                        left: 0px; display: block; z-index: 3; opacity: 1; width: 210px; height: 28px;"
+                        src="./Content/images/promotion/carters_FS_nav_banner_slide1.jpg">
+                    <img style="padding-top: 3px; padding-left: 50px; position: absolute;
+                        left: 0px; display: block; z-index: 2; opacity: 1; width: 210px; height: 28px;"
+                        src="./Content/images/promotion/carters_FS_nav_banner_slide2.jpg">
+                </div>
+            </div>
+            <!--<img src="./Content/images/icon/tem.png" style="padding: 25px 0px 0px 25%; width: 10%" />-->
+        </div>
+    </header>
+    <div id="clearbetween">
+    </div>
+	<section class="sectionEmail" id="dTopSubMenu">
+        <header class="header">
+            <div class="bg-header" style="margin: auto;">
+                <ul id="ulSubTopMenu" class="sub-nav-inner">
+                    <li class="dropdown menubar">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="100" on>
+							<em>Cho bé</em>
+						</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Thực Phẩm">Thực Phẩm</a></div>
+										<div class="menu_sub_left">												
+											<div class="menu_sub_left_text"><a href="" title="Bánh ăn dặm">Bánh ăn dặm</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Trà & Nước trái cây">Trà & Nước trái cây</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Ruốc cá hồi & Thực phẩm khác">Ruốc cá hồi & Thực phẩm khác</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Thức ăn sẵn cho bé 5m +">Thức ăn sẵn cho bé 5m +</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Thức ăn sẵn cho bé 7m +">Thức ăn sẵn cho bé 7m +</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Thức ăn sẵn cho bé 9m +">Thức ăn sẵn cho bé 9m +</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Thức ăn sẵn cho bé 12m +">Thức ăn sẵn cho bé 12m +</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/carotbe.jpg"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Sữa Nhật">Sữa Nhật</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Sữa Nhật cho bé 0-9m">Sữa Nhật cho bé 0-9m</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Sữa Nhật cho bé 9-3m">Sữa Nhật cho bé 9-3m</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Sữa cho bé dị ứng">Sữa cho bé dị ứng</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Sữa cho bé 3y +">Sữa cho bé 3y +</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/suanhat.jpg"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Chăm sóc sức khỏe">Chăm sóc sức khỏe</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Sức khỏe y tế">Sức khỏe y tế</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Sản phẩm hổ trợ tiêu hóa, táo bón">Sản phẩm hổ trợ tiêu hóa, táo bón</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Nhiệt kế đo độ">Nhiệt kế đo độ</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Chăm sóc răng miệng">Chăm sóc răng miệng</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Vê sinh chăm sóc da">Vệ sinh chăm sóc da</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Sản phẩm chống nắng">Sản phẩm chống nắng</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Sản phẩm chống muỗi & công trùng">Sản phẩm chống muỗi & côn trùng</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Thực phẩm bổ sung">Thực phẩm bổ sung</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Dụng cụ tắm gội, vệ sinh">Dụng cụ tắm gội, vệ sinh</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/suckhoechobe.jpg"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Bé bú bình">Bé bú bình</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Bình nấu nước pha sữa">Bình nấu nước pha sữa</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Bình ủ & Bình giữ nhiệt">Bình ủ & Bình giữ nhiệt</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Bình sữa & Phụ kiện">Bình sữa & Phụ kiện</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Bình uống & Phụ kiện">Bình uống & Phụ kiện</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/bebubinh.jpg"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Bé ăn dặm">Bé ăn dặm</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Đồ dùng chế biến">Đồ dùng chế biến</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Đồ dùng ăn dặm">Đồ dùng ăn dặm</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Đồ dùng giữ nhiệt">Đồ dùng giữ nhiệt</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Ghế tập ngôi, ghế ăn">Ghế tập ngôi, ghế ăn</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Dụng cụ làm cơm bento">Dụng cụ làm cơm bento</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/beandam.jpg"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Đồ chơi">Đồ chơi</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Đồ chơi cho bé sơ sinh">Đồ chơi cho bé sơ sinh</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Đồ chơi cho bé 1-3y">Đồ chơi cho bé 1-3y</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Đồ chơi cho bé 3y +">Đồ chơi cho bé 3y +</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/dochoichobe.jpg"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Thời trang">Bé đi ra ngoài</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Bé trai">Xe đẩy & Phụ Kiện</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Bé gái">Địu & các sp khác</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/bedirangoai.jpg"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Quần áo & Phụ kiện">Quần áo & Phụ kiện</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Quần áo sơ sinh">Quần áo sơ sinh</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Quần áo bé trai">Quần áo bé trai</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Quần áo bé gái">Quần áo bé gái</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Phụ kiện">Phụ kiện</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/thoitrangchobe.jpg"></div>
+									</div>
+								</li>
+							</ul>
+					</li>
+                    <li class="dropdown menubar">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="100">
+							<em>Cho Mẹ</em>
+						</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Cho mẹ mang thai và cho con bú">Cho mẹ mang thai và cho con bú</a></div>
+										<div class="menu_sub_left">												
+											<div class="menu_sub_left_text"><a href="" title="Thực phẩm bổ sung">Thực phẩm bổ sung</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Mỹ phẩm cho mẹ mang thai">Mỹ phẩm cho mẹ mang thai</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Chăm sóc mẹ sau sinh">Chăm sóc mẹ sau sinh</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/banchay_com_thoi-trang.png"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Sản phẩm làm đẹp">Sản phẩm làm đẹp</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Collagen – tảo biển">Collagen – tảo biển</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Thực phẩm giảm cân">Thực phẩm giảm cân</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Chăm sóc sức khỏe">Chăm sóc sức khỏe</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Mỹ phẩm dưỡng da">Mỹ phẩm dưỡng da</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Mỹ phẩm Make-up">Mỹ phẩm Make-up</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/banchay_com_thoi-trang.png"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Quần áo phụ kiện">Quần áo & phụ kiện</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Quần áo">Quần áo</a></div>
+											<div class="menu_sub_left_text"><a href="" title="phụ kiện">phụ kiện</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/banchay_com_thoi-trang.png"></div>
+									</div>
+								</li>
+							</ul>
+					</li>
+                    <li class="dropdown menubar">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="100">
+							<em>Cho Gia Đình</em>
+						</a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Sản phẩm dành cho bố">Sản phẩm dành cho bố</a></div>
+										<div class="menu_sub_left">												
+											<div class="menu_sub_left_text"><a href="" title="Quần áo & Phụ Kiện">Quần áo & Phụ Kiện</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Mỹ phẩm cho nam">Mỹ phẩm cho nam</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/banchay_com_thoi-trang.png"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Chăm sóc sức khỏe">Chăm sóc sức khỏe</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Thực phẩm bổ sung chất">Thực phẩm bổ sung chất</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Chăm sóc sức khỏe">Chăm sóc sức khỏe</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/banchay_com_thoi-trang.png"></div>
+									</div>
+								</li>
+								<li>
+									<div class="menu_category_left">
+										<div class="menu_title"><a href="" title="Đồ dùng gia đình">Đồ dùng gia đình</a></div>
+										<div class="menu_sub_left">
+											<div class="menu_sub_left_text"><a href="" title="Đồ dùng nhà bếp">Đồ dùng nhà bếp</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Đồ dùng phòng tắm">Đồ dùng phòng tắm</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Thực phẩm gia đình">Thực phẩm gia đình</a></div>
+											<div class="menu_sub_left_text"><a href="" title="Máy lọc nước">Máy lọc nước</a></div>
+										</div>
+										<div class="menu_sub_img"><img src="./Content/images/LargeMenu/banchay_com_thoi-trang.png"></div>
+									</div>
+								</li>
+							</ul>
+					</li>
+                    <li class="menubar">
+						<a href=""><em>Khuyến mãi</em></a>
+					</li>
+                    <li class="menubar">
+						<a href=""><em>Order hàng Nhật</em></a>
+					</li>
+					<li class="menubar">
+						<a href=""><em>Hướng dẫn</em></a>
+					</li>
+					<li class="menubar">
+						<a href=""><em>Liên hệ</em></a>
+					</li>
+						<!--<li><a href=""><em>Giá tốt gần đây</em></a></li>
+						<li style="display:none;"><a href=""><em>Event Deal</em></a><img width="13" height="24" src="http://www.nhommuahotdeals.net/tp-ho-chi-minh-test/images_v4/notification_hot.png" style="position: absolute;top: -5px;right: -5px;"></li>
+						<li id="selected" style=""></li>
+						<li id="blob" style="width: 0px; height: 35px; left: 893px; top: 15px; background-color: rgb(255, 255, 255); overflow: hidden;"></li>-->
+                </ul>
+            </div>
+        </header>
+    </section>
+    <div id="clearbetween">
+    </div>
+    <div class="page">
+        <section id="main">
+            <article class="home">
+                <div id="commonMessage">
+                </div>
+                <div id="orderMessage" class="commonMessage">
+                    <p>
+                    </p>
+                </div>
+                <div id="bannermenu">
+                    <aside class="support">
+                        <div id="lbsupport">
+                            <span><strong>What's New<br>
+                            </strong></span>
+                            <img src="./Content/images/News/btn-new.png" style="width: 200px; height: 1px;
+                                padding: 5px 0 0 10px;" />
+                            <img src="./Content/images/News/btn-new.png" style="width: 200px; height: 1px;
+                                padding: 1px 0 0 15px;" />
+                        </div>
+						<div id="chatlist" class="mousescroll">
+							<ul>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">01</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">lên là lên là lên là lên lên nóc nhà là bắt con gà chọc tiết gà là chọc tiết gà vặt﻿ lông gà là vặt lông gà ăn thịt gà là ăn thịt gà
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">02</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">anh em mình là một gia đình một gia đình là chơi hết mình chơi hết mình là lên thiên đình lên thiên đình rồi nhảy xập xình nhảy xập xình là nhảy xập xình
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">03</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">lắc cái đầu là lắc cái đầu lắc cái đầu để cho sạch gầu lắc cái mông là lắc cái mông lắc cái mông để giống con công bay 
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">04</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">lên nào là bay lên nào lên trời cao là lên trời cao lên trời cao ta gặp chị hằng gặp chị hằng ta nói với chị Ilove YOU là Ilove You..::))
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">01</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">lên là lên là lên là lên lên nóc nhà là bắt con gà chọc tiết gà là chọc tiết gà vặt﻿ lông gà là vặt lông gà ăn thịt gà là ăn thịt gà
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">02</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">anh em mình là một gia đình một gia đình là chơi hết mình chơi hết mình là lên thiên đình lên thiên đình rồi nhảy xập xình nhảy xập xình là nhảy xập xình
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">03</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">lắc cái đầu là lắc cái đầu lắc cái đầu để cho sạch gầu lắc cái mông là lắc cái mông lắc cái mông để giống con công bay 
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="news">
+										<div class="bodynews" style="width:30px; float:left;">
+											<img src="./Content/images/News/1382736218_calendar.png" />
+											<p class="date">04</p>
+										</div>
+										<div class="bodynews" style="width:165px; float:left; padding-left: 10px">
+											<div class="infornews">lên nào là bay lên nào lên trời cao là lên trời cao lên trời cao ta gặp chị hằng gặp chị hằng ta nói với chị Ilove YOU là Ilove You..::))
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+                    </aside>
+                    <div id="this-carousel-id" class="carousel slide">
+                        <ol class="carousel-indicators" style="z-index:1">
+                            <li data-target="#this-carousel-id" data-slide-to="0" class="active"></li>
+                            <li data-target="#this-carousel-id" data-slide-to="1" class=""></li>
+                            <li data-target="#this-carousel-id" data-slide-to="2" class=""></li>
+                            <li data-target="#this-carousel-id" data-slide-to="3" class=""></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <a href="#">
+                                    <img src="./Content/images/Slide/1.jpg" alt="Antennae Galaxies" />
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                    <img src="./Content/images/Slide/2.jpg" alt="Carina Caterpillar" />
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                    <img src="./Content/images/Slide/3.jpg" alt="Light Echo" />
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="#">
+                                    <img src="./Content/images/Slide/4.jpg" alt="Galaxy NGC5866" />
+                                </a>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">
+							<span class="icon-prev" style="color:white"></span>
+						</a>
+                        <a class="carousel-control right" href="#this-carousel-id" data-slide="next">
+							<span class="icon-next" style="color:white"></span>
+						</a>
+                    </div>
+                </div>
+                <div id="clearbetween">
+                </div>
+                <section id="content">
+                    <div class="groupProduct">					
+						<!--<div class="groupProduct-header">
+                            <img src="./Content/images/icon/hot.png" />
+                            <div>
+                                Được quan tâm nhiều nhất
+                            </div>
+                        </div>-->
+                        <div class="groupProduct-content marginCenter" id="featured_products">
+                            <ul id="ul-products-hot">
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot1.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot2.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot3.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot4.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot5.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot6.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot7.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Popular/Hot8.png" alt="" border="0" align="middle">
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div id="clearbetween">
+                </div>
+                <section id="content">
+                    <div class="groupProduct">
+                        <div class="groupProduct-header">
+                            <img src="./Content/images/icon/sptieubieu.png" />
+                            <div>
+                                Sản phẩm tiêu biểu
+                            </div>
+                        </div>
+                        <div class="groupProduct-content marginCenter" id="featured_products">
+                            <ul id="ul-products">
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A13"></a>
+                                                <a class="exclusive btnAddFavorite" id="A14"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp4.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp4.jpg','San Pham 2','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 4</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A15" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A16" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A17"></a>
+                                                <a class="exclusive btnAddFavorite" id="A18"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp4.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp4.jpg','San Pham 2','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 4</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A19" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A20" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div id="clearbetween">
+                </div>
+                <section id="content">
+                    <div class="groupProduct">
+                        <div class="groupProduct-header">
+                            <img src="./Content/images/icon/spbaby.png" />
+                            <div>
+                                Cho bé
+                            </div>
+							<a class="subMenu" href="" title="Thức ăn cho bé">
+								<img src="./Content/images/Submenu/Food.png"/>
+							</a>
+							<a class="subMenu" href="" title="Sữa Nhật">
+								<img src="./Content/images/Submenu/JapanMilk.gif"/>
+							</a>
+							<a class="subMenu" href="" title="Sức khoẻ">
+								<img src="./Content/images/Submenu/Healthy.jpg"/>
+							</a>
+							<a class="subMenu" href="" title="Bình Sữa">
+								<img src="./Content/images/Submenu/MilkBottle.jpg"/>
+							</a>
+							<a class="subMenu" href="" title="Ăn dặm">
+								<img src="./Content/images/Submenu/FoodMiles.png"/>
+							</a>
+							<a class="subMenu" href="" title="Đồ chơi">
+								<img src="./Content/images/Submenu/Toy.png"/>
+							</a>
+							<a class="subMenu" href="" title="Ra ngoài">
+								<img src="./Content/images/Submenu/goout.png"/>
+							</a>
+							<a class="subMenu" href="" title="Quần áo cho bé">
+								<img src="./Content/images/Submenu/babycloth.png"/>
+							</a>
+                        </div>
+                        <div class="groupProduct-content marginCenter" id="featured_products">
+                            <ul id="ul-products">
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=1" title="Quan Jean K1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp1.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp1.jpg','San Pham 1','','$100,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=1"
+                                                    title="Quan Jean K1">San Pham 1</a><span class="price" style="color: red;">$100,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="btnAddToCart" onClick="addToCart(1)"></a>
+                                                <a class="exclusive btnAddFavorite" id="btnAddFavorite" onClick="showMessage(1)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=2" title="Quan Jean K2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp2.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp2.jpg','San Pham 2','','$23,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=2"
+                                                    title="Quan Jean K2">San Pham 2</a><span class="price" style="color: red;">$23,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="btnAddToCart" onClick="addToCart(2)"></a>
+                                                <a class="exclusive btnAddFavorite" id="btnAddFavorite" onClick="showMessage(2)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 3','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="btnAddToCart"></a>
+                                                <a class="exclusive btnAddFavorite" id="btnAddFavorite"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp4.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp4.jpg','San Pham 4','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 4</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="btnAddToCart" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="btnAddFavorite" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=1" title="Quan Jean K1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp5.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp5.jpg','San Pham 5','','$100,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=1"
+                                                    title="Quan Jean K1">San Pham 5</a><span class="price" style="color: red;">$100,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A1" onClick="addToCart(1)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A2" onClick="showMessage(1)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=2" title="Quan Jean K2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp6.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp6.jpg','San Pham 6','','$23,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=2"
+                                                    title="Quan Jean K2">San Pham 6</a><span class="price" style="color: red;">$23,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A3" onClick="addToCart(2)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A4" onClick="showMessage(2)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp7.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp7.jpg','San Pham 7','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 7</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A5"></a>
+                                                <a class="exclusive btnAddFavorite" id="A6"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp8.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp8.jpg','San Pham 8','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 8</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A7" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A8" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div id="clearbetween">
+                </div>
+                <section id="content">
+                    <div class="groupProduct">
+                        <div class="groupProduct-header">
+                            <img src="./Content/images/icon/mommy.png" style="width: 25px" />
+                            <div>
+								Cho mẹ
+                            </div>
+							<a class="subMenu" href="" title="Mẹ mang thai">
+								<img src="./Content/images/Submenu/Prenant.jpg"/>
+							</a>
+							<a class="subMenu" href="" title="Làm đẹp">
+								<img src="./Content/images/Submenu/Makeup.jpg"/>
+							</a>
+							<a class="subMenu" href="" title="Quần áo">
+								<img src="./Content/images/Submenu/fashion.jpg"/>
+							</a>
+                        </div>
+                        <div class="groupProduct-content marginCenter" id="featured_products">
+                            <ul id="ul-products">
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A13"></a>
+                                                <a class="exclusive btnAddFavorite" id="A14"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp4.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp4.jpg','San Pham 2','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 4</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A15" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A16" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A17"></a>
+                                                <a class="exclusive btnAddFavorite" id="A18"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp4.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp4.jpg','San Pham 2','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 4</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A19" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A20" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div id="clearbetween">
+                </div>
+                <section id="content">
+                    <div class="groupProduct">
+                        <div class="groupProduct-header">
+                            <img src="./Content/images/icon/family.png" />
+                            <div>
+								Cho gia đình
+                            </div>
+							<a class="subMenu" href="" title="Cho bố">
+								<img src="./Content/images/Submenu/fordad.jpg"/>
+							</a>
+							<a class="subMenu" href="" title="Sức khoẻ">
+								<img src="./Content/images/Submenu/healthy.jpg"/>
+							</a>
+							<a class="subMenu" href="" title="Gia dụng">
+								<img src="./Content/images/Submenu/housewares.jpg"/>
+							</a>
+                        </div>
+                        <div class="groupProduct-content marginCenter" id="featured_products">
+                            <ul id="ul-products">
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A21"></a>
+                                                <a class="exclusive btnAddFavorite" id="A22"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp4.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp4.jpg','San Pham 2','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 4</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A23" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A24" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A25"></a>
+                                                <a class="exclusive btnAddFavorite" id="A26"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div id="clearbetween">
+                </div>
+                <section id="content">
+                    <div class="groupProduct">
+                        <div class="groupProduct-header">
+                            <img src="./Content/images/icon/promotion.jpg" />
+                            <div>
+								Sản phẩm khuyến mãi
+                            </div>
+                        </div>
+                        <div class="groupProduct-content marginCenter" id="featured_products">
+                            <ul id="ul-products">
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A21"></a>
+                                                <a class="exclusive btnAddFavorite" id="A22"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Product/sp4.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp4.jpg','San Pham 2','','$11,000.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=4"
+                                                    title="San Pham 2">San Pham 4</a><span class="price" style="color: red;">$11,000.00</span>
+                                                <a class="exclusive btnAddToCart" id="A23" onClick="addToCart(4)"></a>
+                                                <a class="exclusive btnAddFavorite" id="A24" onClick="showMessage(4)"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class=""><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Product/sp3.jpg" alt="" onMouseOver="showtrail('./Content/images/Product/sp3.jpg','San Pham 1','','$1,100.00'); "
+                                        onmouseout="hidetrail();" border="0" align="middle">
+                                </a>
+                                    <div class="info home">
+                                        <div class="vertical">
+                                            <div>
+                                                <a class="product_link" style="color: Black; font-size: 16px;" href="/Product/ProductViewDetail?productID=7"
+                                                    title="San Pham 1">San Pham 3</a><span class="price" style="color: red;">$1,100.00</span>
+                                                <a class="exclusive btnAddToCart" id="A25"></a>
+                                                <a class="exclusive btnAddFavorite" id="A26"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <div id="clearbetween">
+                </div>
+                <section id="content">
+                    <div class="groupProduct">					
+						<div class="groupBrand-header">
+                            <div>
+                                Các thương hiệu có mặt tại Akachan-shop
+                            </div>
+                        </div>
+                        <div class="groupProduct-content marginCenter" id="featured_products">
+                            <ul id="ul-products-hot" style="margin:0px 0px 0px 20px">
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Brand/wakodo.gif" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Brand/kanebo.jpg" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Brand/combi.jpg" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Brand/glico.jpg" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Brand/meiji.jpg" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Brand/thermos.png" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=4" title="San Pham 2">
+                                    <img class="image-wrap" src="./Content/images/Brand/richell.jpg" alt="" border="0" align="middle">
+                                </a></li>
+                                <li class="brand"><a class="" href="/Product/ProductViewDetail?productID=7" title="San Pham 1">
+                                    <img class="image-wrap" src="./Content/images/Brand/zojirushi.jpg" alt="" border="0" align="middle">
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <div style="clear: both">
+            </div>
+        </section>
+    </div>
+        <!--=================== FOOTER ============================-->
+    <div id="footer-logo3">
+    </div>
+    <div id="footer-logo2">
+		<div class="groupTransport">
+			<div class = "groupTransport-header">
+				<div class="groupTransport-header-content">
+					Hướng dẫn đặt hàng
+				</div>
+			</div>
+			<div class="transportImage">
+				<img src="./Content/images/Transport/model.png"/>
+			</div>
+			<div style="float:left">
+				<div class="transport">
+					<div class="transport-header">
+						<img src="./Content/images/Transport/transport.png"/>
+						<div>
+							Vận chuyển
+						</div>
+					</div>
+					<div class="transport-content">
+						<div>
+							<!--<img src="./Content/images/Transport/dot.jpg"/>-->
+							Giao hàng trong nội thành TPHCM
+							<div class="transport-content-details">
+								Đơn hàng sẽ được giao trong ngày hoặc tối đa là ngày hôm sau bởi nhân viên giao hang của Akachan-shop. Từ 10 – 20k/ đơn hang tùy vào khoảng cách.
+							</div>
+						</div>
+						<div>
+							<!--<img src="./Content/images/Transport/dot.jpg"/>-->
+							Chuyển phát nhanh
+							<div class="transport-content-details">
+								Dịch vụ CPN giao hàng tối đa 24h trên toàn quốc.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="transport">
+					<div class="transport-header">
+						<img src="./Content/images/Transport/payment.png"/>
+						<div>
+							Thanh Toán
+						</div>
+					</div>
+					<div class="transport-content">
+						<div>
+							<div class="transport-content-details">							
+								Thanh toán bằng hình thức chuyển khoản qua hệ thống ngân hàng.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="transport">
+					<div class="transport-header">
+						<img src="./Content/images/Transport/gift.png"/>
+						<div>
+							Dịch vụ gói quà theo yêu cầu
+						</div>
+					</div>
+					<div class="transport-content">
+						<div>
+							<div class="transport-content-details">
+								Gói quà và giao quà theo yêu cầu khách hang cho các sự kiện sinh nhật, event…
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div id="clearbetween">
+        </div>
+		<footer>
+            <div id="footer-cell">
+                <div id="footer-content">
+                    <p style="font-weight: bold">
+                        AKACHAN SHOP - HÀNG NỘI ĐỊA NHẬT
+                    </p>
+                    <p>
+                        172 Trần Kế Xương, P.7, Q.Phú Nhuận, Tp.HCM
+                    </p>
+                    <p>
+                        0983 766 177 - 0919 791 225
+                    </p>
+                    <p>
+                        Copyright © 2013 – A2H Team
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!--=================== FOOTER END ============================-->
+    </div>
+    <!-- ================================== -->
+    <!-- ==============Survey============== -->
+    <div style="position: fixed; left: 0px; bottom: 50px; background-image: url(./Content/images/feedback/userSurvey-02.png);
+        width: 58px; z-index: 1000; overflow: hidden; background-position: 100% 50%;
+        background-repeat: no-repeat no-repeat;" id="block_inquiry">
+        <a data-toggle="modal" href="#feedbackModal" onClick="loadFeedback()">
+            <img src="./Content/images/feedback/userSurvey-01.png" style="margin-top: 8px; padding-bottom: 12px"
+                id="go1">
+        </a>
+    </div>
+    <!-- ================ Modal for Survey ================ -->
+    <div id="feedbackModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true" style="display: none; width: 500px">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="myModalLabel" style="font-size: 20px;">
+                Feedback for
+                <label id="nameOnlineShop" style="font-style: oblique; font-size: 20px; color: red">
+                </label>
+            </h3>
+        </div>
+        <div class="modal-body" id="feedbackBody">
+        </div>
+        <div class="modal-footer">
+            <input type="submit" value="Send" onClick="sendFeedback()" class="btn btn-success">
+        </div>
+    </div>
+    <!-- ================ END Modal for Survey ================ -->
+    <!-- ================================ END Survey ================================ -->
+    <!-- ================================ Contact Display ================================ -->
+    <div class="contact">
+        <div class="span4" style="float: right; width: auto;">
+            <div class="yahoo" style="float: right; margin-left: 10px; margin-right: 10px; margin-top: 4px;">
+                <a href="ymsgr:sendim?akachan_shop" style="font-family: 'OpenSans-Bold'; color: #333;
+                    text-decoration: none; color: black; font-weight: bold;">
+                    <img src="http://opi.yahoo.com/online?u=akachan_shop&amp;t=5" alt="" style="vertical-align: -1px;
+                        margin-right: 4px;">Hỗ trợ 1</a> <a href="ymsgr:sendim?hangnhatchobe" style="padding-left: 7px;
+                            color: #000; font-family: 'OpenSans-Bold'; text-decoration: none; color: black;
+                            font-weight: bold;">
+                            <img src="http://opi.yahoo.com/online?u=hangnhatchobe&amp;t=5" alt="" style="vertical-align: -1px;
+                                margin-right: 4px;">Hỗ trợ 2</a>
+            </div>
+            <div class="phone">
+                <img src="./Content/images/phone.png" style="margin-top: 8px; margin-right: 5px;
+                    float: left">
+                <strong style="margin-top: 4px; margin-right: 20px; float: right; color: black">0983
+                    766 177 - 0919 791 225</strong>
+            </div>
+        </div>
+    </div>
+    <!-- ================================ END Contact Display ================================ -->
+    <!-- ================================ Login Display ================================ -->
+    <div class="changedisplay dropdown" style="position: fixed">
+        <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="" style="color: White;
+            font-weight: bold; text-decoration: none; outline: none; background">Login <span
+                class="caret"></span></a>
+    </div>
+    <div id="logindisplay">
+        <div id="updateDialog" title="Change Password">
+        </div>
+        <div id="headerbar">
+            <div id="bar">
+                <div id="login-bar" class="clearfix root-wrapper right">
+                    <div class="main-root">
+                        <div id="login-bar-left" class="wrapper-login-bar right">
+                            <div id="block-menu-menu-top-login" class="wrapper clear-block block block-menu">
+                                <ul class="menu">
+                                    <li class=""><a data-toggle="modal" href="#forgotModal" onClick="loadForgot()" title="Trying to recover lost password?">
+                                        Forgot your password</a> </li>
+                                    <li class=""><a data-toggle="modal" href="#regisModal" onClick="loadRegister()" title="Not a member yet? Register with us now.">
+                                        Register</a></li>
+                                    <li class=""><a style="cursor: pointer" id="loginButton"><span>Login</span></a>
+                                    </li>
+                                    <li class="closedisplay" style="padding: 10px 0px 0px 5px; margin-right: -10px"><a
+                                        style="cursor: pointer;"><span><i class="icon-chevron-up icon-white"></i></span>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="loginBox" style="display: none;">
+                    <form id="loginForm">
+                    <div id="errorMsg" style="color: White; font-size: 16px; font-style: normal;">
+                    </div>
+                    <fieldset id="body">
+                        <fieldset>
+                            <label for="email">
+                                Username</label>
+                            <input type="text" name="username" id="username">
+                        </fieldset>
+                        <fieldset>
+                            <label for="password">
+                                Password</label>
+                            <input type="password" name="password" id="password">
+                        </fieldset>
+                        <input type="button" id="btnlogin" value="Sign in">
+                        <label for="checkbox">
+                            <input type="checkbox" id="checkbox" name="ckbRememverme">Remember me</label>
+                    </fieldset>
+                    <span></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ================================ END Login Display ================================ -->
+    <!-- ================= ForgotPassword Dialog =============== -->
+    <div id="forgotModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="H1" style="font-size: 20px;">
+                Forgot your password</h3>
+        </div>
+        <div class="modal-body" id="forgotBody">
+        </div>
+        <div class="modal-footer">
+            <input type="submit" value="Send" onClick="sendForgot()" class="btn btn-success">
+        </div>
+    </div>
+    <!-- ====================== End=============================== -->
+    <!-- ================= Register Dialog =============== -->
+    <div id="regisModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true" style="display: none; width: 512px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+            <h3 id="H2" style="font-size: 20px;">
+                Register</h3>
+        </div>
+        <div class="modal-body" id="regisBody" style="overflow: visible">
+        </div>
+        <div class="modal-footer">
+            <input type="submit" value="Sign-Up" onClick="sendRegister()" class="btn btn-success">
+        </div>
+    </div>
+    <!-- ===================================================== -->
+    <!-- ================= Back Top =============== -->
+	<p id="back-top">
+		<a href="#top">
+			<span>
+				<img src="./Content/images/layout/up.png"/>
+			</span>
+			Go to top
+		</a>
+	</p>
+    <!-- ===================================================== -->
+	
+</body>
+</html>

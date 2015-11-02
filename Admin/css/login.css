@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+input.login{
+		border:none;
+		background:url(../img/login.gif);
+		width:148px;
+		height:18px;
+	}
+input.signin{
+		border:none;
+		background:url(../img/signin.gif);
+		width:61px;
+		height:20px;
+	}

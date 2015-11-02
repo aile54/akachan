@@ -1,0 +1,28 @@
+RewriteEngine Off
+
+#lang
+RewriteRule ^(.*)/$ index.php?lang=$1 [L]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AuthType Basic
+AuthName "bao mat"
+AuthUserFile "/home/hangnhat/.htpasswds/public_html/FasoBB/passwd"
+require valid-user
