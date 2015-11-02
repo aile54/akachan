@@ -6,8 +6,9 @@ to use a different color start by replacing all instances of
 ----------------------------------------------------------*/
 @font-face
 {
-    font-family: "UVNBaiSau_R";
-    src: url("../Content/fonts/UVNBaiSau_R.TTF") format("truetype");
+	font-family:”Times New Roman”,Tohama,sans-serif;
+    /*font-family: "UVNBaiSau_R";*/
+    /*src: url("../Content/fonts/UVNBaiSau_R.TTF") format("truetype");*/
 }
 
 html body
@@ -17,7 +18,8 @@ html body
 	*/
     background-position: 0px 180px;
     font-size: .85em;
-    font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;
+	/*font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;*/
+    font-family: font-family:”Times New Roman”,Tohama,sans-serif;
     margin: 0 auto;
     padding-top: 30px;
     color: #696969;
@@ -3367,9 +3369,10 @@ div.upcart
 
 .product-header div
 {
-    background-image: -webkit-gradient(     linear,     left top,     right top,     color-stop(0.03, rgb(250,3,3)),     color-stop(0.76, rgb(42,24,173)),     color-stop(0.52, rgb(173,255,127)));
+    /*background-image: -webkit-gradient(     linear,     left top,     right top,     color-stop(0.03, rgb(250,3,3)),     color-stop(0.76, rgb(42,24,173)),     color-stop(0.52, rgb(173,255,127)));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;*/
+	color: #0066DA;
     width: auto;
     float: left;
     padding: 5px 10px 10px 10px;
