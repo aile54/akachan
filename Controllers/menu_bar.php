@@ -140,9 +140,12 @@ function divScroll()
 						$first = $result[$j]['firstname'];
 						$second1 = $result[$j]['secondname'];
 						$secondimage = $result[$j]['secondimage'];
+						//var_dump($result[$j]);
+						
 						if($j >0)
 						{
 							$second2 = $result[$j-1]['secondname'];
+							
 							if($second1 != $second2)
 							{
 								$isSecondOk = true;
@@ -171,6 +174,7 @@ function divScroll()
                                 $first = $result[$k]['firstname'];
                                 $second = $result[$k]['secondname'];
                                 $third1 = $result[$k]['thirdname'];
+								
                                 if($k >0)
                                 {
                                     $third2 = $result[$k-1]['thirdname'];
@@ -179,11 +183,12 @@ function divScroll()
                                         $isThirdOk = true;
                                     }
                                 }
-                                else
+                                else 
                                 {
                                     $isThirdOk = true;
                                 }
-                                if($isThirdOk && $first == $first1 && $second == $second1)
+								
+                                if($isThirdOk && $first == $first1 && $second == $second1 && $third1 != null)
                                 {
                         ?>
                              <div class="menu_sub_left_text">
