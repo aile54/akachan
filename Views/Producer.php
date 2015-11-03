@@ -697,7 +697,7 @@ $('.btnAddToCart').on('click', function () {
     
     <!-- ================================== -->
     <!-- ==============Survey============== -->
-    <!-- <?php include_once("../Controllers/survey.php"); ?> -->
+    <?php include_once("../Controllers/survey.php"); ?> 
     <!-- ================================ END Survey ================================ -->
     
     <!-- ================================ Contact Display ================================ -->
