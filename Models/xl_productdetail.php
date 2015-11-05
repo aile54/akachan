@@ -7,10 +7,10 @@
 			$id = isset($_GET['id']) ? $_GET['id'] : "";
 			$_SESSION['proId']=$id;
 			$result = array();
-			$fieldName = array('pro.id','pro.mavach','pro.name','img.name AS color',
+			$fieldName = array('pro.id','pro.mavach','pro.name','img.name AS color', 'pro.status',
 								'IF(img.image IS NULL, pro.image, IF(img.image = "", pro.image, img.image)) image',
 								'pro.catid3','tp.id AS tbid', 'pro.details', 'pro.huongdan',
-								'tp.proid', 'tp.price AS tbprice', 'tp.size AS tbsize',
+								'tp.proid', 'tp.price AS tbprice', 'tp.size AS tbsize', 'pro.ghichu',
 								'tp.`price_promo` AS tbprice_promo, pro.promo, pro.nsx as nsxID,
 								 nsx.`name` as nsxName, nsx.`image` as nsxImg, pro.love as love');
 			$table = array ('products AS pro 

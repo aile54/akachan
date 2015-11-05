@@ -44,7 +44,8 @@
 	}
 	$details = $result[0]['details'];
 	$huongdan = $result[0]['huongdan'];
-	
+	$status = $result[0]['status'];
+	$remark = $result[0]['ghichu'];
 	$CheckPromo = $result[0]['promo'];
 	$priceNew = $result[0]['tbprice_promo'];
 	$priceOld = $result[0]['tbprice'];
@@ -287,7 +288,12 @@ $(document).ready(function () {
 								</a>
                             </div>
                             <br><br>
-                            <div class="price">
+                            <div class="price" style="">
+                                <span class="text-price">Tình trạng:</span>
+                                <span class="price-new" style="font-style:italic"><?php echo $status ?></span>
+                            </div>
+                            <br><br>
+                            <div class="price" style="width: 350px;">
                                 <span class="text-price">Giá:</span>
 								<?php if($IsPromo)
 									{
@@ -298,7 +304,7 @@ $(document).ready(function () {
 								<?php
 									}
 								?>
-                                <span class="price-new" style="color: #EE0000; font-size: 20px; font-weight:bolder;" id="price">
+                                <span class="price-new" style="color: #EE0000; font-size: 19px; font-weight:bolder;" id="price">
                                     <?php 
                                         if ($price == null
                                             || $price == ''
@@ -437,6 +443,10 @@ $(document).ready(function () {
                                     </div>
                                     <?php } ?>
                                 </div>
+                            </div>
+                            <div class="price" style="">
+                                <!--<span class="text-price">Tình trạng:</span>-->
+                                <span class="price-new" style="font-style:italic"><?php echo $remark ?></span>
                             </div>
                         </div>
                     </div>

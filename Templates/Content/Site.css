@@ -1210,10 +1210,11 @@ a.exclusive:hover
 
 .cart-top > a.btnAddFavorite, .cart-top > a.btnAddFavoriteActive
 {
-	background: url("../Content/images/Layout/navi.png");
+	background: url("../../Templates/Content/images/like.png") no-repeat;
 	width: 30px;
 	height: 30px;
-	background-position: -124px -234px;
+	background-position: 0px 0px;
+	background-size: 100%;
 	display: block;
 	z-index: 3;
 	cursor: pointer;
@@ -1223,12 +1224,14 @@ a.exclusive:hover
 
 .cart-top > a.btnAddFavorite, .cart-top > a.btnAddFavoriteActive
 {
-	transform: scale(1.5,1.5);
+	transform: scale(2, 2);
 }
 
 a.btnAddFavorite:hover, .cart-top > a.btnAddFavoriteActive
 {
-	background-position:-124px -190px;
+	background: url("../../Templates/Content/images/like2.png") no-repeat;
+	background-position: 0px 0px;
+	background-size: 100%;
 }
 
 a.btnAddFavoriteActive:hover
@@ -1238,10 +1241,11 @@ a.btnAddFavoriteActive:hover
 
 a.btnAddToCart
 {
-	background: url("../Content/images/Cart/add-button.png");
+	background: url("../../Templates/Content/images/cart.png") no-repeat;
 	width: 37px;
 	height: 36px;
-	background-position: 0px -37px;
+	background-position: 0px 0px;
+	background-size: 100%;
 	display: block;
 	z-index: 3;
 	cursor: pointer;
@@ -1250,12 +1254,14 @@ a.btnAddToCart
 
 .cart-top > a.btnAddToCart
 {
-	transform: scale(1.28, 1.28);
+	transform: scale(2, 2);
 }
 
 a.btnAddToCart:hover
 {
+	background: url("../../Templates/Content/images/cart2.png") no-repeat;
 	background-position: 0px 0px;
+	background-size: 100%;
 }
 /*--------------------END-PRODUCT-------------------------------------------*/
 
@@ -3226,7 +3232,7 @@ div#title .productimg
 	float: left;
 	width: 546px;
 	padding: 0px 0px 0px 10px;
-	height: 360px;
+	height: 460px;
 }
 
 .view_source:hover {
