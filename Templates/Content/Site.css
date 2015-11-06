@@ -1055,7 +1055,7 @@ ul
     position: relative;
     border-radius: 4px 4px 4px 4px;
     width: 20%; 
-	min-height: 295px;
+	min-height: 310px;
 	/*height: 290px;*/
 	/* 	border-color: rgba(0, 0, 0, 0.2); 	box-shadow: 0 1px 1px 1px rgba(70,70,70, 0.2); 	border: 1px solid; 	*/
 }
@@ -3780,6 +3780,17 @@ div.scrollingHotSpotRight {
 div.scrollWrapper
 {
 	margin-left: 35px;
+}
+
+.linkFB
+{
+	float:left;
+	padding: 10px 0 0 50px;
+}
+
+div#title .linkFB > a > img
+{
+	width: 100%;
 }
 
 @media only screen 

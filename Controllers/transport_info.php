@@ -6,6 +6,10 @@
 	$(document).ready(function () {
 		$("#footer-logo2 .groupTransport").css("color", "white");
 		$("article.home .groupTransport").css("color", "#0066DA");
+		
+		$("#transportImage_Parent, #transportImage_Parent > img").css("overflow", "hidden").css("max-height", $("#tranportDetail_Parent").height());
+		//chơi vs hidden + click vào xem thêm
+		//$("#transportImage_Parent").css("overflow", "hidden").css("max-height", $("#tranportDetail_Parent").height());
 	});
 </script>
 <div class="groupTransport">
@@ -14,7 +18,7 @@
             Hướng dẫn đặt hàng
         </div>
     </div>
-    <div class="transportImage">
+    <div class="transportImage" id="transportImage_Parent">
     	<?php 
 			if(count($result_transport_info) > 3)
 			{
@@ -37,7 +41,7 @@
 			}
         ?>
     </div>
-    <div style="float:left">
+    <div style="float:left" id="tranportDetail_Parent">
         <div class="transport">
             <div class="transport-header">
                 <img src="../Templates/Content/images/Transport/transport.png"/>
@@ -80,4 +84,5 @@
             </div>
         </div>
     </div>
+    <div class="clearBoth"></div>
 </div>

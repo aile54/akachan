@@ -11,15 +11,26 @@ if (!isset($_SESSION)) {
 }
 ?>
 <div class="cart">
-		<a data-toggle="modal" href="#DetailCartModal">
-			<img class="cartimg shopping-cart cartEmpty" src="../Templates/Content/images/Cart/shinkansen.png"/>
-			<img class="cartimg shopping-cart cartFill" style = "display: none" src="../Templates/Content/images/Cart/shinkansen1.png"/>
-        </a>
-        <img class="productimg" src="../Templates/Content/images/Cart/box.jpg"/>
-        <p class="productx" style="z-index: 1">x</p>
-        <p class="productnumber" style="padding-left: 10px;">
-        	<strong></strong>
-       	</p>
+    <a data-toggle="modal" href="#DetailCartModal">
+        <img class="cartimg shopping-cart cartEmpty" src="../Templates/Content/images/Cart/shinkansen.png"/>
+        <img class="cartimg shopping-cart cartFill" style = "display: none" src="../Templates/Content/images/Cart/shinkansen1.png"/>
+    </a>
+    <img class="productimg" src="../Templates/Content/images/Cart/box.jpg"/>
+    <p class="productx" style="z-index: 1">x</p>
+    <p class="productnumber" style="padding-left: 10px;">
+        <strong></strong>
+    </p>
+</div>
+<div class="linkFB">
+	<script>
+	function hover(element) {
+    element.setAttribute('src', '../Templates/Content/images/icon/facebook-hover.png');
+	}
+	function unhover(element) {
+		element.setAttribute('src', '../Templates/Content/images/icon/facebook.png');
+	}
+    </script>
+    <a href="https://www.facebook.com/AkachanShop.hangnhatchobe" target="_blank"><img src="../Templates/Content/images/icon/facebook.png" name="Image65" border="0" id="Image65" onmouseover="hover(this);" onmouseout="unhover(this);" /></a>
 </div>
 
 <!-- ================ Modal for Detail ================ -->
