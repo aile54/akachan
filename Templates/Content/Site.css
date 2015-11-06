@@ -3793,6 +3793,11 @@ div#title .linkFB > a > img
 	width: 100%;
 }
 
+input#username, input#password
+{
+	height:30px;
+}
+
 @media only screen 
 and (max-device-width : 1024px) {
 	.imageLogo{
