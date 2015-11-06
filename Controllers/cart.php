@@ -24,7 +24,7 @@ if (!isset($_SESSION)) {
 <div class="linkFB">
 	<script>
 	function hover(element) {
-    element.setAttribute('src', '../Templates/Content/images/icon/facebook-hover.png');
+    	element.setAttribute('src', '../Templates/Content/images/icon/facebook-hover.png');
 	}
 	function unhover(element) {
 		element.setAttribute('src', '../Templates/Content/images/icon/facebook.png');
