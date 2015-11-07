@@ -60,13 +60,14 @@
                         {
                             foreach($titles as $title)
                             {
-								$details = $title['detailsInfo'];
+								$details = $title['details'];
                     ?>
                             <li style ="width: 47%; margin: 0 20px 0px 0px;">
                                 <div class="newsdetails">		
                                     <!--echo '<a href="../Views/News_detail.php?id='.$title['id'].'" -->
                                     <div id = "link-newsdetails"> 
-                                        <a href="../Views/News_detail.php?id=<?php echo $title['id'] ?>">
+                                        <a href="../Views/News_detail.php?id=<?php echo $title['id'] ?>"
+                                        style="color:#000066">
                                             <?php echo $title['name']; ?>
                                         </a></br>
                                     </div>
@@ -88,11 +89,16 @@
                                             </a>
                                         </div>
                                         <div class="newsinfo">
-                                            <?php echo mb_substr($details, 0, 230,'UTF-8') ?>
+                                            <?php echo mb_substr($details, 0, 150,'UTF-8') ?>
                                             <?php if ( strlen ($details) > 0)
                                             {
                                             ?>
-                                                ...
+                                                ... 
+                                                <a href="../Views/News_detail.php?id=<?php echo $title['id'] ?>" 
+                                                style="font-size:12px; ">
+                                                 Đọc thêm
+                                                </a>
+                                                
                                             <?php
                                             }
                                             ?>
@@ -108,6 +114,7 @@
             	</div>
                 <div id="clearbetween">
                 </div>
+                
             </section>
             <div id="clearbetween">
             </div>

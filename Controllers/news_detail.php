@@ -1,8 +1,19 @@
+<style>
+ul#others li a {
+    color: #000066;
+    border-radius: 4px 4px 0 0;
+}
+
+ul#others li a:hover {
+    color: blue;
+}
+</style>
 <?php
 	require_once('../Models/xl_news.php');
 	$id_news = $_GET['id'];
 	$xl_slide_db = new xl_news_db();
 	$result = $xl_slide_db->GetNews($id_news);
+	$result2 = $xl_slide_db->SelectNews();
 	//var_dump($result);
 ?>
 	<section id="content">
@@ -41,4 +52,36 @@
     </section>
     <div id="clearbetween">
     </div>
-    
+    <section id="content">
+      <div class="groupProduct" style="padding:10px 0px 0px 0px">
+        <div class="product-header" >
+            <div class="header-news">
+                Các tin khác
+            </div>
+        </div>
+      </div>
+      <br>
+      <div class="details-Info">
+        <ul id="others">
+		  <?php 
+			  for($i = 0; $i < count($result2); $i++)
+			  {
+				  if($result2[$i]["id"] != $result[0]['id'])
+				  {
+		  ?>
+          			<li>
+                    	<a href="../Views/News_detail.php?id=<?php echo $result2[$i]["id"] ?>" style="float:left">
+                        	- <?php echo $result2[$i]["name"] ?>
+                        </a>
+                        <p style="font-size:12px; font-style:italic"> &nbsp; 
+							<?php echo date('d-m-Y', $result2[$i]["date_add"]) ?>
+                        </p>
+                    </li>
+		  <?php
+				  }
+			  }
+		  ?>
+        </ul> 
+      </div>
+   </section>
+      

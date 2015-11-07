@@ -5,7 +5,7 @@
 		function SelectNews()
 		{
 			$result = array();
-			$fieldName = array('name', 'details', 'id', 'image', 'detailsInfo');
+			$fieldName = array('name', 'details', 'id', 'image', 'detailsInfo', 'date_add');
 			$table = array("news");
 			$query = $this->createQuery($fieldName, $table);
 			$this->setQuery($query);
