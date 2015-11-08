@@ -7,7 +7,7 @@
 		function userExists($userid)
 		{
 			$userid = mysql_real_escape_string($userid);
-			$sql = "SELECT pass FROM USER WHERE id = '$userid';";
+			$sql = "SELECT pass FROM user WHERE id = '$userid';";
 			$query = mysql_query($sql);
 			//echo ($sql);
 			return $query;

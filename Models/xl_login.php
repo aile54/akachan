@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require_once('database.php');
 	
 	class xl_login extends database
@@ -7,7 +8,7 @@
 		{
 			$u = mysql_real_escape_string($u);
 			$p = mysql_real_escape_string($p);
-			$sql = "SELECT * FROM USER WHERE username = '$u' AND pass = '$p';";
+			$sql = "SELECT * FROM user WHERE username = '$u' AND pass = '$p';";
 			$query = mysql_query($sql);
 			return $query;
 		}
@@ -29,9 +30,6 @@
 		}
 		else
 		{
-			if (!isset($_SESSION)) {
-			  session_start();
-			}
 			$_SESSION['userid'] = $row['id'];
 			$_SESSION['username'] = $row['username'];
 			$success = true;
