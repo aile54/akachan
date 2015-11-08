@@ -381,20 +381,19 @@ $(document).ready(function () {
 								});
 							</script>
                             <div style="color: Black; font-size: 13px; font-style: normal; padding: 20px 0px 0px 50px;">
-                            	<!--<div class ="share-button"></div>-->
+                            	<div class ="share-button"></div>
                                 <!-- AddThis Button BEGIN -->
-                                <div class="addthis_toolbox addthis_default_style addthis_16x16_style" style="padding:3px 0px 0px 0px;">     
+                                <!--<div class="addthis_toolbox addthis_default_style addthis_16x16_style" style="padding:3px 0px 0px 0px;">     
                                     <a class="addthis_button_tumblr addthis_button_preferred_1 at300b" target="_blank" title="Tumblr" href="#"><span class="at4-icon-left at4-icon aticon-tumblr" style="background-color: rgb(56, 72, 83);"><span class="at_a11y">Share on tumblr</span></span></a>
                                     <a class="addthis_button_facebook addthis_button_preferred_2 at300b" title="Facebook" href="#"><span class="at4-icon-left at4-icon aticon-facebook" style="background-color: rgb(48, 88, 145);"><span class="at_a11y">Share on facebook</span></span></a>
                                     <a class="addthis_button_twitter addthis_button_preferred_3 at300b" title="Tweet" href="#"><span class="at4-icon-left at4-icon aticon-twitter" style="background-color: rgb(44, 168, 210);"><span class="at_a11y">Share on twitter</span></span></a>
                                     <a class="addthis_button_email addthis_button_preferred_4 at300b" target="_blank" title="Email" href="#"><span class="at4-icon-left at4-icon aticon-email" style="background-color: rgb(115, 138, 141);"><span class="at_a11y">Share on email</span></span></a>
                                     <a class="addthis_button_print addthis_button_preferred_5 at300b" title="Print" href="#"><span class="at4-icon-left at4-icon aticon-print" style="background-color: rgb(115, 138, 141);"><span class="at_a11y">Share on print</span></span></a>
-                                    <!--<a class="addthis_button_compact"></a>-->    
              						<div class="atclear">
                                 	</div>
                                 </div>
                                 <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-                                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4db63523310d475b"></script>
+                                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4db63523310d475b"></script>-->
                                 <!-- AddThis Button END -->
                             </div>                            
                             <div class="productcart"  style="padding-top:45px;">

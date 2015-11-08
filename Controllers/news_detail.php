@@ -21,6 +21,15 @@ ul#others li a:hover {
             <div class="groupProduct-header">
                 <div class = "header-news">
                     <?php echo $result[0]['name']?>
+                    
+					<script>
+                        $(document).ready(function() {
+                            new Share(".share-button");
+                        });
+                    </script>
+                    <div style="color: Black; font-size: 13px; font-style: normal; padding: 0px 15px 0px 0px; float:right">
+                        <div class ="share-button"></div>
+                    </div>
                 </div>
             </div>
         </div>
