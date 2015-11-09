@@ -11,7 +11,7 @@
 			$table = array("(SELECT A.id, A.name firstname, B.secondname, 
 						B.secondimage, B.secondalias, 
 						B.cid2, A.ordering AS Firstordering,
-						b.ordering AS Secondordering
+						B.ordering AS Secondordering
 					FROM 
 						(SELECT * FROM category1) A 
 						LEFT JOIN (
