@@ -50,7 +50,7 @@ ul#others li a:hover {
             </div>
             <div>
     <p align="right">
-        <a href="http://localhost:1803/akachan/Views/News.php">
+        <a href="../../Views/News.php">
             Trở về "Góc Chia Sẻ"
         </a>
     </p>
