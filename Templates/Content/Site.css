@@ -3790,7 +3790,16 @@ div.scrollWrapper
 
 div#title .linkFB > a > img
 {
-	width: 100%;
+	height: 20%;
+	width: auto;
+	padding: 12% 0 0 4%;
+}
+
+div#title .linkFB > a > img.imgActive
+{
+	height: 22%;
+	width: auto;
+	padding: 10% 0 0 2%;
 }
 
 input#username, input#password

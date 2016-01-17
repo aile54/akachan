@@ -24,10 +24,10 @@ if (!isset($_SESSION)) {
 <div class="linkFB">
 	<script>
 	function hover(element) {
-    	element.setAttribute('src', '../Templates/Content/images/icon/facebook-hover.png');
+    	element.setAttribute('class', 'imgActive');
 	}
 	function unhover(element) {
-		element.setAttribute('src', '../Templates/Content/images/icon/facebook.png');
+		element.removeAttribute('class', 'imgActive');
 	}
     </script>
     <a href="https://www.facebook.com/AkachanShop.hangnhatchobe" target="_blank"><img src="../Templates/Content/images/icon/facebook.png" name="Image65" border="0" id="Image65" onmouseover="hover(this);" onmouseout="unhover(this);" /></a>
