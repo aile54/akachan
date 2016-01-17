@@ -16,7 +16,7 @@
 		window.location.href = "http://www.facebook.com";
 	}
 </script>
-<div class="groupProduct-content marginCenter" id="featured_products">
+<div class="groupProduct-content marginCenter" id="featured_products" style="padding: 0">
     <ul id="ul-products-hot">
         	<?php
             	$range_num = array();
@@ -97,6 +97,7 @@
 				}
 			?>
     </ul>
+    <div id="clearbetween" style="padding-bottom:50px"></div>
 </div>
 </div>
 <div id="clearbetween">

@@ -42,4 +42,5 @@
         </marquee>
     </aside>
     <?php include('../Controllers/slide.php'); ?>
+    <div id="clearbetween"></div>
 </div>

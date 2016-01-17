@@ -43,6 +43,7 @@
 					}
 				?>
             </ul>
+            <div id="clearbetween"></div>
         </div>
     </div>
 </section>

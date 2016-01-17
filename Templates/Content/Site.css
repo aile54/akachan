@@ -921,9 +921,7 @@ ul
 	background-color: #FFFFFF;
     width: 230px;
     max-height: 310px;
-    height: 310px;
 	font-family: ”Times New Roman”,Tohama,sans-serif;
-	margin-bottom: 25px;
 	/*border: 1px solid #d6d6d6;*/
 	box-shadow: 3px 3px 3px #d7d7d7;
 	-moz-box-shadow:3px 3px 3px #d7d7d7;
@@ -2650,18 +2648,22 @@ a, a img
 #featured_products ul#ul-products-hot li
 {
     float: left;
-    margin: 0 1px 1px;
+    margin: 0 3px 1px 0;
     position: relative;
     border: 1px solid;
     border-radius: 4px 4px 4px 4px;
     border-color: rgba(0, 0, 0, 0.2);
-    width: 220px;
+    width: 245px;
+}
+
+#featured_products ul#ul-products-hot li:nth-child(4)
+{
+    margin: 0 0 1px 0;
 }
 
 #featured_products ul#ul-products-hot
 {
-    overflow: hidden;
-    margin: 0 5px 0 45px;
+    margin: 0 0 25px 0;
 }
 
 div#title img.logoImage
@@ -3474,8 +3476,6 @@ td.jcart-item-qty input{
 
 marquee 
 {
-	padding-top:11px;
-	margin-top: 15px;
 }
 
 div.infornews a:link, div.infornews a:visited, div#lbsupport a:link, div#lbsupport a:visited
@@ -3790,16 +3790,16 @@ div.scrollWrapper
 
 div#title .linkFB > a > img
 {
-	height: 20%;
+	height: 70px;
 	width: auto;
-	padding: 12% 0 0 4%;
+	padding: 7px 0 0 4px;
 }
 
 div#title .linkFB > a > img.imgActive
 {
-	height: 22%;
+	height: 72px;
 	width: auto;
-	padding: 10% 0 0 2%;
+	padding: 6px 0 0 3px;
 }
 
 input#username, input#password
