@@ -41,3 +41,4 @@ $( document ).ready(function() {
 <?php } ?>
 
 <?php include_once('main_product_promo.php')?>
+<?php include_once('useronline.php')?>
