@@ -3,7 +3,7 @@
 	
 	if(isset($_POST["done"])){
 		
-			$field = array('logo','favicon','visitall','online','noimg','footer','design','link_orders','link_ykien','email');
+			$field = array('logo','favicon','visitall','online','noimg','footer','design','link_orders','link_ykien','email','facebook','fanpage');
 						
 			$filename1=$_FILES['noimg']['name'];
 			if($filename1=='')
@@ -40,7 +40,9 @@
 							format($_POST["design"],0),
 							format($_POST["link_orders"],0),
 							format($_POST["link_ykien"],0),
-							format($_POST["email"],0)
+							format($_POST["email"],0),
+							format($_POST["facebook"],0),
+							format($_POST["fanpage"],0)
 							);
 			$res = $tbl->updateObject($field,$values,'id=1');
 			
@@ -113,6 +115,24 @@
                         <input type="hidden" name="tmpnoimg" value="<?php echo $row->noimg; ?>"  /><img src="../<?php echo $row->noimg; ?>" height="50" align="absmiddle" />                         </td>
 						
 					</tr>
+                    <tr>
+						<td class="first"><strong>Akachans` email:</strong></td>
+						<td colspan="2" class="last">
+                        	<input name="email" type="text" class="text" value="<?php echo $row->email; ?>" />
+                        </td>
+					</tr>
+                    <tr>
+						<td class="first"><strong>Akachans` facebook:</strong></td>
+						<td colspan="2" class="last">
+                        	<input name="facebook" type="text" class="text" value="<?php echo $row->facebook; ?>" />
+                        </td>
+					</tr>
+                    <tr>
+						<td class="first"><strong>Akachans` Fanpages:</strong></td>
+						<td colspan="2" class="last">
+                        	<input name="fanpage" type="text" class="text" value="<?php echo $row->fanpage; ?>" />
+                        </td>
+					</tr>
                     <? if($perid==0) {?>
                     <tr><td colspan="3"><strong>Only SupperAdmin</strong></td></tr>
                     <tr class="bg">
@@ -135,12 +155,7 @@
                             <img src="../<?php echo $row->favicon; ?>" height="50" align="absmiddle" />              
                     	</td>
 					</tr>
-                    <tr>
-						<td class="first"><strong>Akachans` email:</strong></td>
-						<td colspan="2" class="last">
-                        	<input name="email" type="text" class="text" value="<?php echo $row->email; ?>" />
-                        </td>
-					</tr>
+                    
                     <? }?>
 					<tr class="bg">
 					  <td class="first">&nbsp;</td>
