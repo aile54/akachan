@@ -464,4 +464,3 @@ if (!isset($_SESSION)) {
 		}
 	}
 </script>
-<!-- ================ END Modal for Survey ================ -->

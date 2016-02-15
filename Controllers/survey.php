@@ -1,4 +1,4 @@
-<div style="position: fixed; left: 0px; bottom: 50px; background-image: url(../Templates/Content/images/feedback/userSurvey-02.png);
+<div style="position: fixed; left: 0px; bottom: 150px; background-image: url(../Templates/Content/images/feedback/userSurvey-02.png);
     width: 58px; z-index: 1000; overflow: hidden; background-position: 100% 50%;
     background-repeat: no-repeat no-repeat;" id="block_inquiry">
     <a data-toggle="modal" href="#feedbackModal" onclick="loadFeedback()">

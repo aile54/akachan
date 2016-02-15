@@ -117,11 +117,7 @@
                 $(".changedisplay").slideDown('slow');
 				$(".search-menu").select();
             });
-
-            $("#block_inquiry").animate({ width: "190px" }, { queue: false, duration: 500 })
-            setTimeout(function () {
-                $("#block_inquiry").animate({ width: "58px" }, { queue: false, duration: 500 })
-            }, 2000);
+			
             $("#block_inquiry").mouseover(function () {
                 $("#block_inquiry").animate({ width: "190px" }, { queue: false, duration: 500 })
             });
@@ -698,6 +694,9 @@ $('.btnAddToCart').on('click', function () {
     <!-- ==============Survey============== -->
     <?php include_once("../Controllers/survey.php"); ?> 
     <!-- ================================ END Survey ================================ -->
+    <!-- ==============Counter Visitors============== -->
+    <?php include_once("../Controllers/countervisitors.php"); ?> 
+    <!-- ================================ END Counter Visitors ================================ -->
     
     <!-- ================================ Contact Display ================================ -->
    <?php include_once("../Controllers/contact_display.php"); ?>
