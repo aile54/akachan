@@ -1,5 +1,5 @@
 <div style="margin-left:10px; margin-top:10px; width:190px; line-height:1.5">
-	<? include('counter.php')?>
+	<? //include('counter.php')?>
     <div>Thành viên: <span style='color:#b10000'>
 	<?
         $tbl = new table('user');

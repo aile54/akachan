@@ -1,21 +1,29 @@
+<? include('counter.php')?>
 <div style="position: fixed; left: -271px; bottom: 50px; z-index: 1000; cursor: pointer; background-image: url(../Templates/Content/images/icon/paper.png); background-size: 100% 100%" id="counter_visitors">
 	<div style="" class="form-horizontal">
         <div class="control-group">
-            <label class="control-label">Tổng số lượt truy cậ̣p:</label>
+            <label class="control-label">Lượt truy đang truy cập:</label>
             <div class="controls">
-            	200.000.000
+            	<?php echo ($row_set->online+online()) ?>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">Lượt truy cậ̣p hôm nay:</label>
+            <label class="control-label">Tổng lượt truy cập:</label>
             <div class="controls">
-            	1.000.000
+            	<?php echo ($row_set->visitall+$_SESSION['counter']['allcounter'])?>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">Lượt truy cậ̣p hiện tại:</label>
+            <label class="control-label">Thành viên:</label>
             <div class="controls">
-            	999.999
+            	<span style='color:#b10000'>
+					<?
+                        $tbl = new table('user');
+                        $res = $tbl -> loadAll();
+                        $num = mysql_num_rows($res);
+                        echo $num;
+                    ?>
+                </span>
             </div>
         </div>
 	</div>

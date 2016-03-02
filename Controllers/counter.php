@@ -110,9 +110,9 @@ if(substr_count($_SERVER['HTTP_USER_AGENT'],"Googlebot")==0)
 				$tbl_set = new table('setting');
 				$res_set = $tbl_set->loadOne('id=1');
 				$row_set = mysql_fetch_object($res_set);
-				echo"
-				<div>Online: <span style='color:#b10000'>".($row_set->online+online())."</span></div>
-				<div>Total: <span style='color:#b10000'>".($row_set->visitall+$_SESSION['counter']['allcounter'])."</span></div>				";
+				//echo"
+//				<div>Online: <span style='color:#b10000'>".($row_set->online+online())."</span></div>
+//				<div>Total: <span style='color:#b10000'>".($row_set->visitall+$_SESSION['counter']['allcounter'])."</span></div>				";
 			}
 			else
 			{
@@ -175,9 +175,9 @@ if(substr_count($_SERVER['HTTP_USER_AGENT'],"Googlebot")==0)
 			$tbl_set = new table('setting');
 			$res_set = $tbl_set->loadOne('id=1');
 			$row_set = mysql_fetch_object($res_set);
-			echo"
-				<div>Online: <span style='color:#b10000'>".($row_set->online+online())."</span></div>
-				<div>Total: <span style='color:#b10000'>".($row_set->visitall+$_SESSION['counter']['allcounter'])."</span></div>				";
+			//echo"
+//				<div>Online: <span style='color:#b10000'>".($row_set->online+online())."</span></div>
+//				<div>Total: <span style='color:#b10000'>".($row_set->visitall+$_SESSION['counter']['allcounter'])."</span></div>				";
 		}
 }
 ?>
