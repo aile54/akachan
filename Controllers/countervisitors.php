@@ -1,5 +1,5 @@
 <? include('counter.php')?>
-<div style="position: fixed; left: -271px; bottom: 50px; z-index: 1000; cursor: pointer; background-image: url(../Templates/Content/images/icon/paper.png); background-size: 100% 100%" id="counter_visitors">
+<div style="position: fixed; left: 0; bottom: 50px; z-index: 1000; cursor: pointer; background-image: url(../Templates/Content/images/icon/paper.png); background-size: 100% 100%" id="counter_visitors">
 	<div style="" class="form-horizontal">
         <div class="control-group">
             <label class="control-label">Lượt truy đang truy cập:</label>
@@ -30,7 +30,9 @@
 </div>
 <style>	
 	#counter_visitors .control-group {
-		margin: 0;
+		margin: 0 0 5px 0;
+		color: white;
+		font-weight: bolder;
 	}
 	
 	#counter_visitors .control-label {
@@ -44,14 +46,16 @@
 	#counter_visitors .controls {
 		text-align: right;
 		margin-top: 8px;
-		margin-left: 190px;
+		margin-left: 200px;
 		padding-right: 25px;
 	}
 </style>
 <script>
  $(document).ready(function(){	
+    var counterLeft = "-" + ($("#counter_visitors").width() - 16);
+    $("#counter_visitors").css("left", counterLeft);
 	$("#counter_visitors").mouseout(function () {
-		$("#counter_visitors").animate({ left: "-271px" }, { queue: false, duration: 500 })
+		$("#counter_visitors").animate({ left: counterLeft }, { queue: false, duration: 500 })
 	});
 	$("#counter_visitors").mouseover(function () {
 		$("#counter_visitors").animate({ left: "0" }, { queue: false, duration: 500 })
