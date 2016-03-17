@@ -31,8 +31,6 @@
 <style>	
 	#counter_visitors .control-group {
 		margin: 0 0 5px 0;
-		color: white;
-		font-weight: bolder;
 	}
 	
 	#counter_visitors .control-label {
