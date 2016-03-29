@@ -1,7 +1,7 @@
 <? include('counter.php')?>
 <style>	
 	#counter_visitors .control-group {
-		margin: 0;
+		margin: 0 0 5px 0;
 	}
 	
 	#counter_visitors .control-label {
@@ -15,16 +15,16 @@
 	#counter_visitors .controls {
 		text-align: right;
 		margin-top: 8px;
-		margin-left: 190px;
+		margin-left: 200px;
 		padding-right: 25px;
 	}
 </style>
 <script>
- $(document).ready(function(){
-	 
-	 debugger;
+ $(document).ready(function(){	
+    var counterLeft = "-" + ($("#counter_visitors").width() - 16);
+    $("#counter_visitors").css("left", counterLeft);
 	$("#counter_visitors").mouseout(function () {
-		$("#counter_visitors").animate({ left: "-271px" }, { queue: false, duration: 500 })
+		$("#counter_visitors").animate({ left: counterLeft }, { queue: false, duration: 500 })
 	});
 	$("#counter_visitors").mouseover(function () {
 		$("#counter_visitors").animate({ left: "0" }, { queue: false, duration: 500 })
