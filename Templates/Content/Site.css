@@ -2699,11 +2699,12 @@ div#title img.logoImage
 }
 .sub-nav-inner
 {
-    /*padding-left: 10px;
+    /*
     margin-left: 40px;*/
     margin-top: 15px;
     float: left;
 	width: 1000px;
+	padding-left: 20px;
 }
 .sub-nav-inner li.menubar
 {

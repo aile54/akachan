@@ -17,10 +17,10 @@ $(document).ready(function(e) {
 
 function divScroll()
 {
-	$("#ulSubTopMenu").smoothDivScroll({
-		hotSpotScrolling: true,
-		mousewheelScrolling: "",
-	});
+	//$("#ulSubTopMenu").smoothDivScroll({
+		//hotSpotScrolling: true,
+		//mousewheelScrolling: "",
+	//});
 }
 </script>
 <div class="bg-header" style="margin: auto;">
