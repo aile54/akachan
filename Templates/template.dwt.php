@@ -234,10 +234,10 @@
 			var attrThis = $(this).find("a:first-child").attr('id');
 			var elementShow = $(this).parent().parent().parent().parent();
 			if(attrThis == 'dropdownMenu99')
-		   {
-			$("[aria-labelledby=" + attrThis + "]").width(200)
-			 .css('left', $("#" + attrThis).parent().offset().left - $("#" + attrThis).parent().width() - 10)
-		   }
+			{
+				$("[aria-labelledby=" + attrThis + "]").width(200)
+				.css('left', $("#" + attrThis).parent().position().left);
+			}
 			$(".dropdown-menu[aria-labelledby]").removeClass("open");
 			$(".dropdown-menu[aria-labelledby=" + attrThis + "]").addClass("open");
 			$(".dropdown-menu[aria-labelledby=" + attrThis + "]").show('slideDown');
