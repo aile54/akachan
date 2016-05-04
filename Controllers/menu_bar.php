@@ -71,21 +71,6 @@ function divScroll()
         <li class="menubar">
             <a href="Contact.php"><em>Khuyến Mãi</em></a>
         </li>
-        <li class="menubar">
-        <script>
-			$( document ).ready(function() {
-				$("a.icon").click(function(){
-					$(".search-menu .sub-menu-wrapper").hide();
-				})
-				$("a.icon").mouseenter(function(){
-					$(".search-menu .sub-menu-wrapper").show();
-				})
-			});
-        </script>
-        	<div class="search-menu">
-                <a class="icon"></a>
-          	</div>	
-        </li>
     </ul>
     <!-- Detail dropdownmenu -->
     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu99" style="width:900px">
@@ -229,16 +214,4 @@ function divScroll()
 			}
 		}
 	?>
-    
-    <!-- Search Box -->
-    <div class="search-menu">
-        <div class="sub-menu-wrapper sub-menu-search">
-            <div class="sub-menu">
-                <form name="search-box" action="../Views/Search_result.php" class="form-search-box">
-                    <input type="text" name="q" value="" class="search-textbox" placeholder="Bạn cần tìm gì?" autocomplete="off" role="textbox">
-                    <input type="submit" class="search-button" value="">
-                </form>
-            </div>
-        </div>
-   	</div>	
 </div>

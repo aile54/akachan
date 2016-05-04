@@ -3404,7 +3404,7 @@ div.upcart
 }
 
 a.icon {
-	background: url("../Content/images/icon/search.png") no-repeat 50% 50%;
+	background: url("../Content/images/icon/search.png") no-repeat 20% 30%;
 	display: block;
 	height: 35px;
 	width: 35px;
@@ -3412,8 +3412,6 @@ a.icon {
 }
 
 .search-menu .sub-menu-wrapper {
-	display: none;
-	position: absolute;
 	width: 226px;
 	top: 52px;
 	right: -25;

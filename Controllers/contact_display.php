@@ -4,8 +4,19 @@
 ?>
 <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
 <div class="contact">
+	<div class="span4" style="float: left; width: auto;">
+        <!-- Search Box -->
+        <div style="padding-top:3px; float:left">
+            <form name="search-box" action="../Views/Search_result.php" class="form-search-box">
+                <input type="text" name="q" value="" class="search-textbox" placeholder="Bạn cần tìm gì?" autocomplete="off" role="textbox">
+                <input type="submit" hidden="hidden" />
+            </form>
+        </div>
+        <a class="icon" style="float:right" onclick='$("[name=search-box]").submit();'></a>
+        <div class="clear"></div>
+    </div>
     <div class="span4" style="float: right; width: auto;">
-        <div class="yahoo" style="float: right; margin-left: 10px; margin-right: 10px; margin-top: 4px;">
+        <div class="yahoo" style="float: right; margin-left: 10px; margin-right: 10px;">
         	<?php
             	for($i=0; $i < count($result_contact); $i++)
 				{
