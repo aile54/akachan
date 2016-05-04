@@ -117,7 +117,10 @@ $(document).ready(function () {
 			$(this).find("a img").width(Math.ceil(imgWidth/2));
 			$(this).find("a img").height(Math.ceil(imgHeight/2));
 			var liWidth = $(this).width();
-			$(this).width(Math.ceil(liWidth/2));	
+			$(this).width(Math.ceil(liWidth/2));
+			$(this).height(Math.ceil(imgHeight/2));
+			$(this).css("min-height", Math.ceil(imgHeight/2) + 10);	
+			$(this).css("margin", "0 30px 0");
 		}
 	});
 	$('div.zoom-wrapper div.zoom-left div#gallery_01 a:first').addClass("active");

@@ -1,0 +1,462 @@
+/*************************************
+ * styling generico elementi als
+ ************************************/
+.als-container {
+	position: relative;
+	width: auto;
+	margin: 0px auto;
+	z-index: 0;
+}
+
+.als-viewport {
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto;
+	min-height: 75px;
+}
+
+.als-wrapper {
+	position: relative;
+	list-style: none;
+}
+
+.als-item {
+	position: relative;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	float: left;
+}
+
+.als-prev, .als-next {
+	position: absolute;
+	cursor: pointer;
+	clear: both;
+}
+
+/***************************************
+ * styling specifico per elementi als
+ * di header
+ ***************************************/
+
+#als-header {
+	margin: 50px auto 30px auto;
+}
+
+#als-header .als-prev, #als-header .als-next {
+	top: 3px;
+}
+
+#als-header .als-prev {
+	left: -20px;
+}
+
+#als-header .als-next {
+	right: -20px;
+}
+
+#als-header .als-item {
+	margin: 0px 20px;
+	padding: 5px 0px;
+	text-align: center;
+	
+	min-width: 180px;
+}
+
+#als-header .als-item a {
+	display: block;
+	border: 3px dashed transparent;
+	border-radius: 10px;
+}
+
+#als-header .als-item a:hover {
+	border: 3px dashed #000;
+}
+
+#als-header .als-item img {
+	vertical-align: middle;
+	display: block;
+	margin: 0 auto;
+}
+
+/******************************
+ * styling content e sections
+ ******************************/
+
+#content section {
+	position: relative;
+	margin: 80px auto 120px auto;
+	text-align: left;
+	border-bottom: 1px dashed #000;
+	padding: 10px 0px;
+}
+
+#content section h1 {
+	position: relative;
+	margin-bottom: 12px;
+	width: 960px;
+	border-bottom: 1px dashed #000;
+}
+
+#content section h1 span {
+	position: absolute;
+	right: 0px;
+	display: inline-block;
+}
+
+#content section h1 span.up {
+	top: -44px;
+}
+
+#content section h1 span a {
+	font-size: 18px;
+	padding-top: 3px;
+}
+
+#content section h2, #content section h3, #content section h4 {
+	margin-bottom: 7px;
+}
+
+#content section p, #content section li {
+	line-height: 120%;
+	margin-bottom: 8px;
+}
+
+#content section a {
+	text-decoration: underline;
+}
+
+#lista_caratteristiche, #lista problemi {
+	margin: 15px auto 25px auto;
+}
+
+#lista_caratteristiche li, #lista_problemi li {
+	background: url('../images/thin_right_arrow_333.png') left center no-repeat;
+	padding-left: 26px;
+}
+
+pre {
+	position: relative;
+	width: 938px;
+	border: 1px dashed #000;
+	margin: 0 auto 20px auto;
+	border-radius: 10px;
+	background: #fafafa;
+	font-size: 12px;
+	padding: 10px;
+	overflow: visible;
+	overflow-x: auto;
+}
+
+pre code {
+	line-height: 150%;
+	margin: 0px auto;
+	padding: 0;
+	font-family: "Courier New", Courier, monospace, sans-serif;
+	text-align: left;
+}
+
+.cinquanta, .cinquanta_last {
+	position: relative;
+	width: 47.5%;
+	float: left;
+	margin-right: 5%;
+}
+
+.cinquanta_last {
+	margin-right: 0;
+}
+
+.unterzo, .unterzo_last {
+	position: relative;
+	width: 30%;
+	float: left;
+	margin-right: 5%;
+}
+
+.unterzo_last {
+	margin-right: 0;
+}
+
+.unquarto {
+	position: relative;
+	width: 25%;
+	float: left;
+}
+
+.demo_container {
+	margin-bottom: 40px;
+}
+
+.codice_trigger {
+	cursor: pointer;
+	text-align: right;
+	font-style: italic;
+}
+
+.codice_trigger span {
+	margin-left: 5px;
+}
+
+.codice_trigger img {
+	vertical-align: middle;
+}
+
+.codice_demo {
+	display: none;
+}
+
+.advertising {
+	position: relative;
+	margin: 20px auto 0px auto;
+	border-top: 1px dashed #000;
+	text-align: center;
+	padding-top: 10px;
+}
+
+/***********************************
+ * styling specifico elementi als
+ * di content e delle demo
+ **********************************/
+
+#demo1, #demo2, #demo3, #demo4 {
+	margin: 0px auto;
+	/*border: 1px dashed #000;
+	border-radius: 10px;
+	background: #fafafa;*/
+}
+
+#demo1 .als-item, #demo2 .als-item,
+#demo3 .als-item, #demo4 .als-item, 
+#demo5 .als-item {
+	margin: 0px 5px;
+	padding: 4px 0px;
+	min-height: 40px;
+	min-width: 100px;
+	text-align: center;
+}
+
+#demo1 .als-item img, #demo2 .als-item img,
+#demo3 .als-item img, #demo4 .als-item img,
+#demo5 .als-item img {
+	display: block;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+#demo1 .als-prev, #demo1 .als-next,
+#demo2 .als-prev, #demo2 .als-next,
+#demo3 .als-prev, #demo3 .als-next,
+#demo4 .als-prev, #demo4 .als-next {
+	top: 28px;
+}
+
+#demo1 .als-prev, #demo2 .als-prev, #demo3 .als-prev,
+#demo4 .als-prev {
+	left: 15px;
+}
+
+#demo1 .als-next,#demo2 .als-next, #demo3 .als-next,
+#demo4 .als-next {
+	right: 15px;
+}
+
+/***************
+ * istruzioni
+ ***************/
+
+#istruzioni #img_struttura, #instructions #img_struttura {
+	display: block;
+	margin: 0 auto;
+}
+
+#istruzioni pre, #instructions pre {
+	margin-bottom: 30px;
+}
+
+#istruzioni h4, #instructions h4 {
+	font-style: italic;
+}
+
+#istruzioni h4.primo, #instructions h4.primo {
+	margin-top: 15px;
+}
+
+#istruzioni h4 span, #instructions h4 span {
+	font-style: normal;
+}
+
+/*********************************
+ * downloads
+ *********************************/
+#downloads h3 {
+	text-align: center;
+}
+
+#downloads h3 a {
+	text-decoration: none;
+	display: inline-block;
+	padding-left: 10px;
+	border: 3px dashed transparent;
+	border-radius: 5px;
+}
+
+#downloads h3 a:hover {
+	border: 3px dashed #000;
+}
+
+.download_button {
+	vertical-align: middle;
+}
+
+/******************
+ * contatti
+ ******************/
+
+#content #contatti, #content #contacts {
+	margin-bottom: 20px;
+}
+
+#contatti img, #contacts img {
+	vertical-align: middle;
+}
+
+#message_form, #message_form fieldset {
+	position: relative;
+	width: 100%;
+}
+
+#message_form input, #message_form textarea, #message_form label {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	line-height: 120%;
+}
+
+#message_form label, #message_form input {
+	margin-bottom: 8px;
+}
+
+#message_form input {
+	width: 385px;
+}
+
+#message_form #abcdefg {
+	width: 282px;
+}
+
+#message_form #abcdefg_en {
+	width: 244px;
+}
+
+#message_form #your_email {
+	margin-left: 2px;
+}
+
+#message_form textarea {
+	width: 97%;
+	margin-bottom: 16px;
+	height: 150px;
+}
+
+#message_form input, #message_form textarea {
+	border: 1px solid #eee;
+	padding: 5px;
+	background: #fafafa;
+}
+
+#message_form input:focus, #message_form textarea:focus {
+	border: 1px dashed #000;
+	outline: none;
+}
+
+#message_form input.send {
+	float: right;
+	width: auto;
+	margin-right: 2px;
+	cursor: pointer;
+}
+
+#social {
+	position: absolute;
+	bottom: 0px;
+	left: 220px;
+}
+
+#social span {
+	display: inline-block;
+	cursor: pointer;
+}
+
+#offerta {
+	padding-left: 54px;
+}
+
+#offerta img {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+#offerta_paypal {
+	position: absolute;
+	bottom: 10px;
+	left: 220px;
+}
+
+.paypal-new {
+	position: relative;
+	margin-top: 20px;
+}
+
+#donation-button {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+}
+
+/*******************************
+ * 	la fuori
+ ******************************/
+#lafuori .unterzo, #lafuori .unterzo_last,
+#inthewild .unterzo, #inthewild .unterzo_last {
+	margin-bottom: 20px;
+}
+
+#lafuori .unterzo a, #lafuori .unterzo_last a,
+#inthewild .unterzo a, #inthewild .unterzo_last a {
+	position: relative;
+	display: block;
+	border: 1px dashed #000;
+	border-radius: 10px;
+	text-align: center;
+}
+
+#lafuori .unterzo a:hover, #lafuori .unterzo_last a:hover,
+#inthewild .unterzo a:hover, #inthewild .unterzo_last a:hover  {
+	border: 1px dashed #000;
+}
+
+#lafuori .unterzo a img, #lafuori .unterzo_last a img,
+#inthewild .unterzo a img, #inthewild .unterzo_last a img {
+	border-radius: 10px 10px 0px 0px;
+}
+
+/********************
+ * footer
+ ********************/
+footer {
+	position: relative;
+	padding: 10px 0px;
+	bottom: 0;
+}
+
+footer p, footer a, footer span, footer span a {
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
+	font-size: 12px;
+}
+
+footer p {
+	margin-bottom: 8px;
+}

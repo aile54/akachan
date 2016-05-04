@@ -6,7 +6,7 @@
 			$result = array();
 			$fieldName = array('*');
 			$table = array("nsx");
-			$condition =  array('1 = 1 order by RAND() limit 8');
+			$condition =  array('1 = 1 order by RAND()');
 			//$condition =  array('image != null or image != "" order by RAND() limit 8');
 			$query = $this->createQuery($fieldName, $table, $condition);
 			$this->setQuery($query);
