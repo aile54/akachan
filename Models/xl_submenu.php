@@ -44,7 +44,7 @@
 								'pro.image',
 								'pro.catid1','tp.id AS tbid', 'cat2.cat2id',
 								'tp.proid', 'tp.price AS tbprice', 'tp.size AS tbsize',
-								'tp.`price_promo` AS tbprice_promo, cat3.cat3id', 'pro.promo');
+								'tp.`price_promo` AS tbprice_promo, cat3.cat3id', 'pro.promo', 'pro.love as love');
 			$table = array ('products AS pro 
 					 LEFT JOIN (SELECT id, proid, IFNULL(MAX(price), 0) AS price, price_promo, size FROM tabprice GROUP BY proid) AS tp ON pro.`id` = tp.`proid`
 					 LEFT JOIN img AS img ON pro.`id` = img.`proid`',
@@ -91,7 +91,7 @@
 								'pro.image',
 								'pro.catid1','tp.id AS tbid',
 								'tp.proid', 'tp.price AS tbprice', 'tp.size AS tbsize', 'pro.promo',
-								'tp.`price_promo` AS tbprice_promo');
+								'tp.`price_promo` AS tbprice_promo', 'pro.love as love');
 			$table = array ('products AS pro 
 					 LEFT JOIN (SELECT id, proid, IFNULL(MAX(price), 0) AS price, price_promo, size FROM tabprice GROUP BY proid) AS tp ON pro.`id` = tp.`proid`
 					 LEFT JOIN img AS img ON pro.`id` = img.`proid`');
@@ -149,7 +149,7 @@
 								'pro.catid1','tp.id AS tbid',
 								'tp.proid', 'tp.price AS tbprice', 'tp.size AS tbsize', 'pro.promo',
 								'tp.`price_promo` AS tbprice_promo', 'nsx.`name` as nsxName', 
-								'nsx.`image` as nsxImg');
+								'nsx.`image` as nsxImg', 'pro.love as love');
 			$table = array ('products AS pro 
 					 LEFT JOIN (SELECT id, proid, IFNULL(MAX(price), 0) AS price, price_promo, size FROM tabprice GROUP BY proid) AS tp ON pro.`id` = tp.`proid`
 					 LEFT JOIN img AS img ON pro.`id` = img.`proid`

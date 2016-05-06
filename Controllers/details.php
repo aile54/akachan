@@ -409,30 +409,8 @@ $(document).ready(function () {
                                     <?php //if(!empty($_SESSION["username"]))
 									{
 									?>
-									<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
                                     <script>
-									$(document).ready(function(){								
-										$(".btnAddFavorite").click(function(e){
-											if($(".btnAddFavorite").length == 0){
-												return false;
-											}
-											$.post("../Models/xl_like.php", { productId: <?php echo $id?> })
-												.done(function(data) {
-													//$(".cart-top").html(data);
-													var result = $.parseJSON(data);
-													if(result == "Fail")
-													{
-													}
-													else
-													{
-														$("a.btnAddFavorite").addClass("btnAddFavoriteActive")
-															.removeClass("btnAddFavorite")
-															.append("<label>" + numeral(result).format('0,0') + "</label>");
-													}
-												})
-												.fail(function() {
-												});
-										});
+									$(document).ready(function(){
 									});
                                     </script>
                                     <div class="prod-row">
@@ -441,7 +419,7 @@ $(document).ready(function () {
 										if(!isset($_COOKIE[$cookie_name])) 
 										{
 										?>
-                                            <a class="exclusived btnAddFavorite"></a>
+                                            <a class="exclusived btnAddFavorite" onclick="clickAddFavorite(this, <?php echo $id?>);"></a>
                                         <?php 
 										}
 										else

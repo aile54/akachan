@@ -143,51 +143,75 @@
                                         onmouseout="hidetrail();" border="0" align="middle">
                                 </a>
                                     <div class="info home">
-                                        <div class="vertical">
+                                        <div class="vertical" style="margin: 0 auto;">
                                             <div>
-                                            	<h4 id = "product_linkID">Mã sản phẩm: <?php echo $items[$range_num[$i]]['mavach']?></h4>
-                                                <a class="product_link" href="Detail.php?id=<?php echo $items[$range_num[$i]]['id']?>"
-                                                    title="<?php echo $items[$range_num[$i]]['name']?>">
-													<h4><?php echo $items[$range_num[$i]]['name']?></h4>
-                                                </a>
-												<?php if($IsPromo)
-													{
-												?>
-												<span class="price-old" style="text-align:left">
-													<?php echo number_format($priceOld)." VNĐ"; ?>
-												</span>
-                                                <br/>
-												<?php
-													}
-												?>
-                                                <span class="price" style="text-align:left">
-                                                    <?php 
-                                                        if ($price == null
-                                                            || $price == ''
-                                                            || $price == '0')
-                                                        {
-                                                            echo "Liên hệ để biết giá!";
-                                                        }
-                                                        else
-                                                        {
-                                                            echo number_format($price)." VNĐ";
-                                                        }
-                                                    ?>
-                                                </span>
-											<?php if($IsPromo)
+                                            <?php 
+                                                if ($price == null
+                                                    || $price == ''
+                                                    || $price == '0')
                                                 {
                                             ?>
-                                                <a class="exclusive btnAddToCart" style = "margin: -25px 0px 15px 20px;"></a>
+                                                <span class="price" style="color:red">
+                                            <?php
+                                                     echo "Liên hệ để biết giá!";
+                                            ?>
+                                                </span>
                                             <?php
                                                 }
                                                 else
                                                 {
                                             ?>
-                                                <a class="exclusive btnAddToCart"></a>
+                                                <span class="price">
+                                            <?php
+                                                    echo number_format($price)."đ";
+                                            ?>
+                                                </span>
                                             <?php
                                                 }
                                             ?>
-                                                <a class="exclusive btnAddFavorite"></a>
+                                            <?php if($IsPromo)
+                                                {
+                                            ?>
+                                                <span class="price-old" style="text-align:left">
+                                                    <?php echo number_format($priceOld)."đ"; ?>
+                                                </span>
+                                            <?php
+                                                }
+                                            ?>
+                                                <div class="clear"></div>
+                                                <div>
+                                                    <a class="product_link" 
+                                                        href="Detail.php?id=<?php echo $items[$range_num[$i]]['id']?>"
+                                                        title="<?php echo $items[$range_num[$i]]['name']?>">
+                                                        <h4><?php echo $items[$range_num[$i]]['name']?></h4>
+                                                    </a>
+                                                    <a class="exclusive btnAddToCart">
+                                                    </a>   
+                                                <?php 
+                                                    $id = $items[$range_num[$i]]['id'];
+                                                    $numberlove = $items[$range_num[$i]]['love'];
+                                                ?>
+                                                
+                                                <?php $cookie_name = "product_" . $id . "_like";
+                                                if(!isset($_COOKIE[$cookie_name])) 
+                                                {
+                                                ?>
+                                                    <a class="exclusived btnAddFavorite" onclick="clickAddFavorite(this, <?php echo $id?>);"></a>
+                                                <?php 
+                                                }
+                                                else
+                                                {
+                                                ?>
+                                                    <a class="exclusived btnAddFavoriteActive" title="<?php echo number_format($numberlove) ?>">
+                                                        <label>
+                                                        <?php echo number_format($numberlove) ?>
+                                                        </label>
+                                                    </a>
+                                                <?php 
+                                                } 
+                                                ?>
+                                                    <div class="clear"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>     

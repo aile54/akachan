@@ -8,7 +8,7 @@
 								'IF(img.image IS NULL, pro.image, IF(img.image = "", pro.image, img.image)) image',
 								'pro.catid1','tp.id AS tbid',
 								'tp.proid', 'IFNULL(MAX(tp.price), 0) AS tbprice', 'tp.size AS tbsize',
-								'tp.`price_promo` AS tbprice_promo', 'pro.promo');
+								'tp.`price_promo` AS tbprice_promo', 'pro.promo', 'pro.love as love');
 			$table = array ('products AS pro LEFT JOIN tabprice AS tp ON pro.`id` = tp.`proid`
 					 LEFT JOIN img AS img ON pro.`id` = img.`proid`',
 					'(SELECT catid3 id FROM products WHERE id = '.$_SESSION["proId"].') as cat3');
@@ -23,7 +23,7 @@
 		}
 	}
 	$xl_sp_cungloai = new xl_sp_cungloai_db();
-	$items_same = array();
+	$items = array();
 	$result = array();
-	$items_same = $xl_sp_cungloai->getProduct();
+	$items = $xl_sp_cungloai->getProduct();
 ?>
