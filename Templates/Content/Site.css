@@ -1056,7 +1056,7 @@ ul
     position: relative;
     border-radius: 4px 4px 4px 4px;
     width: 20%; 
-	min-height: 310px;
+	min-height: 318px;
 	/*height: 290px;*/
 	/* 	border-color: rgba(0, 0, 0, 0.2); 	box-shadow: 0 1px 1px 1px rgba(70,70,70, 0.2); 	border: 1px solid; 	*/
 }
@@ -1229,11 +1229,12 @@ a.btnAddFavorite, a.btnAddFavoriteActive
 	/*transform: scale(2, 2);*/
 }
 
-a.btnAddFavorite:hover, a.btnAddFavoriteActive
+a.btnAddFavorite:hover, a.btnAddFavoriteActive, a.btnAddFavoriteActive:hover
 {
 	background: url("../../Templates/Content/images/like2.png") no-repeat;
 	background-position: 0px 0px;
 	background-size: 100%;
+	text-decoration: none;
 }
 
 a.btnAddToCart
@@ -2636,8 +2637,8 @@ a, a img
 
 .groupProduct-content ul#ul-products li img
 {
-    width: 228px;
-    height: 171px;
+    width: 194px;
+    height: 181px;
 }
 
 .groupProduct-content ul#ul-products-hot li img
@@ -3216,9 +3217,9 @@ div#title .productimg
 }
 
 .zoomWrapper img{
-	min-height:274px;
+	min-height:383.4587629px;
 	min-width:411px;
-	max-height:274px;
+	max-height:383.4587629px;
 	max-width:411px;
 }
 
@@ -3285,7 +3286,7 @@ div.extra-wrap h1
 	margin: 0 auto;
 	padding: 0px 0px 10px 0px;
 	color: #0066DA;
-	font-size: 30px;
+	font-size: 28px;
 	font-weight: bolder;
 	text-align: center;
 	line-height: 50px;
@@ -3297,17 +3298,25 @@ div.extra-wrap h1
 {
 	padding: 5px 0px 0px 0px;
 	border-top: 1px dashed red;
+    font-size: 15px;
 }
 
 div.price
 {
 	margin: 0px 0px 10px 0px;
 	float:left;
+	color: darkblue;
 }
 
-div.price span.text-price
+span.text-price
 {
 	padding	:0px 10px 0px 0px;
+	color: darkblue;
+}
+
+div.price span.price-new
+{
+	color: #0066DA;
 }
 
 div.upcart 
@@ -3367,15 +3376,14 @@ div.upcart
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     height: 30px;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     margin: 0px 5px;
     padding: 5px;
     color: red;
     box-shadow: 4px 2px 10px rgba(0,149,218,0.5);	
 	-moz-box-shadow: 4px 2px 10px rgba(0,149,218,0.5);	
-	-webkit-box-shadow: 4px 2px 10px rgba(0,149,218,0.5);	
-    font-family: UVNBaiSau_R;
+	-webkit-box-shadow: 4px 2px 10px rgba(0,149,218,0.5);
 }
 
 .product-header div
@@ -3393,7 +3401,6 @@ div.upcart
 {
 	margin: 20px 25px 40px 20px;
 	font-size: 18;
-	font-family: UVNBaiSau_R, arial;
 }
 
 .groupProduct-header a.subMenu img
@@ -3666,10 +3673,10 @@ table.noborder td
 
 .price-old
 {
-	color: gray;
+	color: #E46D0D;
 	font-size: 12px;
 	font-weight: bold;
-	padding-right: 20px;
+	padding-left: 20px;
 	text-decoration: underline overline line-through;
 }
 

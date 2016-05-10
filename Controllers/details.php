@@ -86,7 +86,7 @@ $(document).ready(function () {
 							lensFadeOut: 500,
 							easing : true,
 							zoomWindowWidth:400,
-							zoomWindowHeight:340,
+							zoomWindowHeight:400,
 							zoomWindowOffetx: 10}); 
 
 	$("#zoom_03").bind("click", function(e) {  
@@ -182,7 +182,7 @@ $(document).ready(function () {
 	}
 });
 </script>
-<section id="content">
+<section id="content" style="font-family: Calibri">
     <div class = "zoom-wrapper">
         <div class="zoom-left">
         	<?php if ($IsPromo)
@@ -194,7 +194,7 @@ $(document).ready(function () {
             <?php
 			}
             ?>
-        	<img style="border: 1px solid rgb(232, 232, 230); position: absolute; height: 274px; width:411px" id="zoom_03" 
+        	<img style="border: 1px solid rgb(232, 232, 230); position: absolute; height: 383.4587629px; width:411px" id="zoom_03" 
             src="../<?php echo $image ?>" data-zoom-image="../<?php echo $image ?>">
             <?php if($hasImage)
 				{
@@ -276,64 +276,36 @@ $(document).ready(function () {
             <div class="product-info">
                 <div class="wrapper indent-bot">
                     <div class="extra-wrap">
-                        <h1>
+                        <h1 style="text-transform: capitalize !important;">
                             <?php echo $name ?>
                         </h1>
                         <div class="description">
-                            <div class="price" style="float:left; font-size:1.2em">
-                                <span class="text-price">Mã sản phẩm:</span>
-                                <span class="price-new" style="font-style:italic"><?php echo $mavach ?></span>
-                            </div>
-                            <div style="float:right"> 
-                            	Nhà sản xuất: 
+                            <div class="price">
+                            	<b>Nhà sản xuất:</b> 
                                 <a href="sub_menu.php?cid=nsx&nsx=<?php echo $nsxID?>">
-									<?php echo $nsxName ?> 
+                                	<img class="image-wrap" src="../<?php echo $nsx ?>" align="middle" style="height:32px; width: 80px;"/>
 								</a>
                             </div>
-                            <br><br>
+                            <div class="clear"></div>
+                            <div class="price">
+                                <span class="text-price"><b>Mã sản phẩm:</b></span>
+                                <span class="price-new" style="font-weight:bold"><?php echo $mavach ?></span>
+                            </div>
+                            <div class="clear"></div>
                             <div class="price" style="">
-                                <span class="text-price">Tình trạng:</span>
-                                <span class="price-new" style="font-style:italic"><?php echo $status ?></span>
+                                <span class="text-price"><b>Tình trạng hàng:</b></span>
+                                <span class="price-new" style="font-weight:bold"><?php echo $status ?></span>
                             </div>
-                            <br><br>
-                            <div class="price" style="width: 350px;">
-                                <span class="text-price">Giá:</span>
-								<?php if($IsPromo)
-									{
-								?>
-								<span class="price-old" style="">
-                                	<?php echo number_format($priceOld)." VNĐ"; ?>
-                                </span>
-								<?php
-									}
-								?>
-                                <span class="price-new" style="color: #EE0000; font-size: 19px; font-weight:bolder;" id="price">
-                                    <?php 
-                                        if ($price == null
-                                            || $price == ''
-                                            || $price == '0')
-                                        {
-                                            echo "Liên hệ để biết giá!";
-                                        }
-                                        else
-                                        {
-                                            echo number_format($price)." VNĐ";
-                                        }
-                                    ?>
-                                </span>
-                            </div>
-                            <div style="float:right; height:40px; width: 100px;">
-                            	<img class="image-wrap" src="../<?php echo $nsx ?>" align="middle" />
-                            	<br></br>
-                            </div>
-                            <br><br>
+                            <div class="clear"></div>
                             <div>
+                                <span class="text-price"><b>Tùy chọn mua hàng:</b></span>
+                                <br>
                             	<?php
 									if($resultSize != false && $resultSize != NULL &&
 										count($resultSize) > 0 && $resultSize[0]["tbsize"] != NULL)
 									{
 								?>
-                                        <span class="text-price">Size: </span>
+                                        <span class="text-price" style="padding: 0px 10px 0 15px">Size/Loại: </span>
                                         <select id="cboSize">
                             	<?php
 										for($i = 0; $i < count($resultSize); $i++)
@@ -358,7 +330,7 @@ $(document).ready(function () {
 									if($resultColor != false)
 									{
 								?>
-                                		<span class="text-price">Màu: </span>
+                                		<span class="text-price" style="padding: 0px 13px 0 15px">Màu sắc: </span>
 										<select id="cboColor">
                             	<?php
 										for($i = 0; $i < count($resultColor); $i++)
@@ -378,28 +350,41 @@ $(document).ready(function () {
 									}
 								?>
                             </div>
-                        	<script>
-								$(document).ready(function() {
-									new Share(".share-button");
-								});
-							</script>
-                            <div style="color: Black; font-size: 13px; font-style: normal; padding: 20px 0px 0px 50px;">
-                            	<div class ="share-button"></div>
-                                <!-- AddThis Button BEGIN -->
-                                <!--<div class="addthis_toolbox addthis_default_style addthis_16x16_style" style="padding:3px 0px 0px 0px;">     
-                                    <a class="addthis_button_tumblr addthis_button_preferred_1 at300b" target="_blank" title="Tumblr" href="#"><span class="at4-icon-left at4-icon aticon-tumblr" style="background-color: rgb(56, 72, 83);"><span class="at_a11y">Share on tumblr</span></span></a>
-                                    <a class="addthis_button_facebook addthis_button_preferred_2 at300b" title="Facebook" href="#"><span class="at4-icon-left at4-icon aticon-facebook" style="background-color: rgb(48, 88, 145);"><span class="at_a11y">Share on facebook</span></span></a>
-                                    <a class="addthis_button_twitter addthis_button_preferred_3 at300b" title="Tweet" href="#"><span class="at4-icon-left at4-icon aticon-twitter" style="background-color: rgb(44, 168, 210);"><span class="at_a11y">Share on twitter</span></span></a>
-                                    <a class="addthis_button_email addthis_button_preferred_4 at300b" target="_blank" title="Email" href="#"><span class="at4-icon-left at4-icon aticon-email" style="background-color: rgb(115, 138, 141);"><span class="at_a11y">Share on email</span></span></a>
-                                    <a class="addthis_button_print addthis_button_preferred_5 at300b" title="Print" href="#"><span class="at4-icon-left at4-icon aticon-print" style="background-color: rgb(115, 138, 141);"><span class="at_a11y">Share on print</span></span></a>
-             						<div class="atclear">
-                                	</div>
-                                </div>
-                                <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
-                                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4db63523310d475b"></script>-->
-                                <!-- AddThis Button END -->
-                            </div>                            
-                            <div class="productcart"  style="padding-top:45px;">
+                            <div class="clear"></div><br />
+                            <div class="price" style="width: 350px;">
+                                <span class="text-price" style="font-size: 20px"><b>Giá:</b></span>
+							<?php 
+                                if ($price == null
+                                    || $price == ''
+                                    || $price == '0')
+                                {
+							?>
+                                <span class="price-new" style="color: #EE0000; font-size: 19px; font-weight:bolder;" id="price">
+							<?php 
+                                    echo "Liên hệ để biết giá!";
+                                }
+                                else
+                                {
+							?>
+                                <span class="price-new" style="color: #00B04F; font-size: 19px; font-weight:bolder;" id="price">
+							<?php 
+                                    echo number_format($price)." VNĐ";
+                                }
+                            ?>
+                                </span>
+                                
+							<?php if($IsPromo)
+                                {
+                            ?>
+								<span class="price-old" style="">
+                                	<?php echo number_format($priceOld)." VNĐ"; ?>
+                                </span>
+							<?php
+                                }
+                            ?>
+                            </div>
+                            <div class="clear"></div>                     
+                            <div class="productcart"  style="float:right; margin-top:-15%">
                                 <div class="upcart">
                                     <div class="prod-row">
                                         <div class="cart-top">	
@@ -438,10 +423,25 @@ $(document).ready(function () {
                                     <?php } ?>
                                 </div>
                             </div>
+                            <div class="clear"></div>
+                            <br />
                             <div class="price" style="">
                                 <!--<span class="text-price">Tình trạng:</span>-->
-                                <span class="price-new" style="font-style:italic"><?php echo $remark ?></span>
+                                <span class="price-new" style="color: black; font-size: 16px"><?php echo $remark ?></span>
                             </div>
+                            <div style="color: Black; font-size: 13px; font-style: normal; padding: 0px 0px 20px 50px;">
+                                <!-- AddThis Button BEGIN -->
+                                <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+                                    <a class="addthis_button_facebook"></a>
+                                    <a class="addthis_button_twitter"></a>
+                                    <a class="addthis_button_email"></a>
+                                    <a class="addthis_button_print"></a>
+                                    <a class="addthis_button_gmail"></a>
+                                </div>
+                                <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+								<script type="text/javascript" src="../Templates/Scripts/addthis_widget.js"></script>
+                                <!-- AddThis Button END -->
+                            </div>    
                         </div>
                     </div>
                 </div>
@@ -468,7 +468,7 @@ $(document).ready(function () {
     <div class="info-product">
     	<div class="product-header">	
             <div>
-                Thông tin sản phẩm
+                Thông tin sản phẩm:
             </div>
     	</div>
         <div class="detailsInfor">
@@ -483,7 +483,7 @@ $(document).ready(function () {
     <div class="info-product">
     	<div class="product-header">	
             <div>
-                Hướng dẫn
+                Hướng dẫn sử dụng:
             </div>
     	</div>
         <div class="detailsInfor">
