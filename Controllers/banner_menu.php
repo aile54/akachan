@@ -1,4 +1,4 @@
-<?php
+ <?php
 	include_once('../Controllers/news.php');
 	$titleNews = new News();
 	$result_title = $titleNews->SelectTitle();
