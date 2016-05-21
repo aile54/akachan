@@ -1,4 +1,5 @@
 <? include('counter.php')?>
+<? include('../Admin/library/functions/functions.php')?>
 <style>	
 	#counter_visitors .control-group {
 		margin: 0 0 5px 0;
