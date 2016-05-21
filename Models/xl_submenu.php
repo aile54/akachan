@@ -68,7 +68,8 @@
 			{
 				$conditions[1] = 'pro.catid1 = cat1.cat1id';
 				$conditions[2] = 'pro.catid2 = cat2.cat2id';
-				//$conditions[3] = 'pro.catid3 = cat3.cat3id';
+				//Nếu bỏ điều kiện này thì sản phẩm ở mục category sẽ load sai.
+				$conditions[3] = 'pro.catid3 = cat3.cat3id';
 				$order = array('Order By Rand() LIMIT 0, 12');
 			}
 			else if ($flag == 3)
@@ -128,7 +129,7 @@
 			{
 				$conditions[1] = 'pro.catid1 = cat1.cat1id';
 				$conditions[2] = 'pro.catid2 = cat2.cat2id';
-				//$conditions[3] = 'pro.catid3 = cat3.cat3id';
+				$conditions[3] = 'pro.catid3 = cat3.cat3id';
 			}
 			else if ($flag == 3)
 			{
