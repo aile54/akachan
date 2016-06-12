@@ -384,7 +384,7 @@ $(document).ready(function () {
                             ?>
                             </div>
                             <div class="clear"></div>                     
-                            <div class="productcart"  style="float:right; margin-top:-15%">
+                            <div class="productcart"  style="float:right; margin-top: 0%">
                                 <div class="upcart">
                                     <div class="prod-row">
                                         <div class="cart-top">	

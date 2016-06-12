@@ -17,6 +17,7 @@ $(document).ready(function () {
 			}
 			if($isExist)
 			{
+				//var_dump($result);
 				for($i = 0; $i < count($result); $i++)
 				{
 			?>
@@ -41,7 +42,7 @@ $(document).ready(function () {
 				{
 			?>
             <div class="item">
-                <a>
+                <a href='<?php echo $result[$i]["url"]?>'>
                     <img src="../<?php echo $result[$i]['image'] ?>" alt="../<?php echo $result[$i]['name'] ?>" />
                 </a>
             </div>

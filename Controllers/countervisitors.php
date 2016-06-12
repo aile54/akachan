@@ -1,5 +1,4 @@
 <? include('counter.php')?>
-<? include('../Admin/library/functions/functions.php')?>
 <style>	
 	#counter_visitors .control-group {
 		margin: 0 0 5px 0;
@@ -37,7 +36,7 @@
         <div class="control-group">
             <label class="control-label">Lượt truy đang truy cập:</label>
             <div class="controls">
-            	<?php echo ($row_set->online+online()) ?>
+            	<?php echo ($row_set->online+online1()) ?>
             </div>
         </div>
         <div class="control-group">
