@@ -36,7 +36,7 @@
         <div class="control-group">
             <label class="control-label">Lượt truy đang truy cập:</label>
             <div class="controls">
-            	<?php echo ($row_set->online+online()) ?>
+            	<?php echo ($row_set->online+online1()) ?>
             </div>
         </div>
         <div class="control-group">

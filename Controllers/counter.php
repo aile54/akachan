@@ -1,5 +1,18 @@
 <?php		
+	function online1()
+	{
+	$tg=time();
+	$tgout=900;
+	$tgnew=$tg - $tgout;
 	
+	mysql_query("insert into online(tgtmp,ip,local) values('$tg','$_SERVER[REMOTE_ADDR]','$_SERVER[PHP_SELF]')");
+	
+	mysql_query("delete from online where tgtmp < $tgnew ");
+	
+	$on=mysql_query("SELECT DISTINCT ip FROM online WHERE local='$_SERVER[PHP_SELF]'");
+	return mysql_num_rows($on);
+	
+	}
 		function getRealIpAddr()
 		{
 			if (!empty($_SERVER['HTTP_CLIENT_IP']))  //check ip from share internet

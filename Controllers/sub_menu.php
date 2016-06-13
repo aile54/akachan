@@ -88,6 +88,7 @@
 	}
 	
 	$DisplayActive = '';
+	//var_dump(count($result_submenu));
 	for($i=0; $i < count($result_submenu); $i++)
 	{
 		if($flag == 4)
@@ -106,7 +107,8 @@
 																	$result_submenu[$i]['cat2id'],
 																	$result_submenu[$i]['cat3id'],
 																	$flag);
-																
+			//var_dump($result_submenu[$i]['cat3id']);	
+			$product_detail_submenu = null;
 			$product_detail_submenu = $xl_submenu_db->getProduct_detail_submenu($result_submenu[$i]['cat1id'],
 																	$result_submenu[$i]['cat2id'],
 																	$result_submenu[$i]['cat3id'],
