@@ -73,7 +73,7 @@
         <table class="noborder" style="margin-top:5px; width:100%">
         	<tbody>
 				<tr>
-					<td style="padding: 0 20px 15px">
+					<td colspan="2" style="padding: 0 20px 15px">
 						Hãy cung cấp cho chúng tôi địa chỉ Email tài khoản đăng kí của quý khách để lấy lại mật khẩu.
 					</td>
 				</tr>
@@ -87,7 +87,7 @@
 					</td>
                 </tr>
 				<tr>
-					<td style="padding: 15px 30px 0px; font-size: 12px;">
+					<td colspan="2" style="padding: 15px 30px 0px; font-size: 12px;">
 						** Chúng tôi sẽ gửi mật khẩu mới vào Email này trong thời gian sớm nhất. Vui lòng kiểm tra & tiếp tục mua hàng. Cảm ơn!
 					</td>
 				</tr>

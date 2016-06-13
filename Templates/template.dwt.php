@@ -541,10 +541,11 @@
 		});
 		$(document).ready(function () {	
 			$('.btnAddToCart').on('click', function () {
+			debugger;
 				var textName = $(this).text();
 				//$(this).text('Chờ');
 				var cart = $('.cart');
-				var imgtodrag = $(this).parent().parent().parent().parent().find('img').eq(0);
+				var imgtodrag = $(this).closest("form").find('img').eq(0);
 				if(imgtodrag.length == 0)
 				{
 					imgtodrag = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('img').eq(0);
@@ -587,7 +588,7 @@
 				{
 					$(this).text(textName);
 				}		
-				var buyproduct = $(this).parent().parent().parent().parent().find('.buyproduct');
+				var buyproduct = $(this).closest("form").find('.buyproduct');
 				if(buyproduct.length == 0)
 				{
 					buyproduct = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('.buyproduct');
