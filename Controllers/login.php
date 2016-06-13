@@ -74,16 +74,16 @@
         	<tbody>
 				<tr>
 					<td style="padding: 0 20px 15px">
-						Hãy cung cấp cho chúng tôi địa chỉ Email hoặc tài khoản đăng kí của quý khách để lấy lại mật khẩu.
+						Hãy cung cấp cho chúng tôi địa chỉ Email tài khoản đăng kí của quý khách để lấy lại mật khẩu.
 					</td>
 				</tr>
             	<tr>
 					<td align="center"> 
                     	<i class="icon-envelope" style="position: absolute; z-index: 1; margin: 11px 0px 0px 8px;"></i>
-						<input type="text" name="username" id="username" size='25' placeholder="Email" />
+						<input type="text" name="email" id="email" size='25' placeholder="Email" />
                     </td>
 					<td> 
-						<div id="usernameError" class="mustInput"></div> 
+						<div id="emailError" class="mustInput"></div> 
 					</td>
                 </tr>
 				<tr>
@@ -244,49 +244,35 @@
 	
 	function sendForgot()
 	{
-		$("#forgotBody input:text#username").select();
-		var username = $("#forgotBody input:text#username").val();
-		var cmnd = $("#forgotBody input:text#cmnd").val();
-		var pass = $("#forgotBody input:password#pass").val();
+		$("#forgotBody input:text#email").select();
+		var email = $("#forgotBody input:text#email").val();
 		clearError();
 		
 		var errorNull = "Bắt buộc nhập";
-		var errorNumber = "Phải là số";
-		var errorChar9 = "Ít nhất 9 kí tự";
-		
+		var errorEmail = "Email không hợp lệ";
+				
 		var IsValid = true;
-		// username
-		if(!$.trim(username))
+		
+		// email
+		if(!$.trim(email))
 		{
-			$("#forgotBody div#usernameError").text(errorNull);
+			$("#forgotBody div#emailError").text(errorNull);
 			IsValid = false;
 		}
-		// pass
-		if(!$.trim(pass))
+		else
 		{
-			$("#forgotBody div#passError").text(errorNull);
-			IsValid = false;
-		}
-		// cmnd
-		if(!$.trim(cmnd))
-		{
-			$("#forgotBody div#cmndError").text(errorNull);
-			IsValid = false;
-		}
-		else if(!$.isNumeric($.trim(cmnd)))
-		{
-			$("#forgotBody div#cmndError").text(errorNumber);
-			IsValid = false;
-		}
-		else if($.trim(cmnd).length < 9)
-		{
-			$("#forgotBody div#cmndError").text(errorChar9);
-			IsValid = false;
+			var atpos = $.trim(email).indexOf("@");
+			var dotpos = $.trim(email).lastIndexOf(".");
+			if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=$.trim(email).length)
+			{
+				$("#regisBody div#emailError").text(errorEmail);
+				IsValid = false;
+			}
 		}
 		
 		if(IsValid)
 		{
-			$.post("../Models/xl_forgotPassword.php", { username: username, pass: pass, cmnd: cmnd })
+			/*$.post("../Models/xl_forgotPassword.php", { username: username, pass: pass, cmnd: cmnd })
 				.done(function(data) {
 					var result = $.parseJSON(data);
 					if(result == "NotExisted")
@@ -314,7 +300,8 @@
 				  })
 				.success(function() {
 					//alert( "finished" );
-				});
+				});*/
+			alert("Send an email");	
 		}
 	}
 	
