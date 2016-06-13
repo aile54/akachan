@@ -85,39 +85,6 @@
                 e.preventDefault();
                 $(this).closest(".dialog").dialog("close");
             });
-
-            $(function () {
-                var button = $('#loginButton');
-                var box = $('#loginBox');
-                var form = $('#loginForm');
-                button.removeAttr('href');
-                button.mouseup(function (login) {
-                    box.toggle();
-                    button.toggleClass('active');
-                    $("#username").focus();
-                });
-                form.mouseup(function () {
-                    return false;
-                });
-                $(this).mouseup(function (login) {
-                    if (!($(login.target).parent('#loginButton').length > 0)) {
-                        button.removeClass('active');
-                        box.hide();
-                    }
-                });
-            });
-
-            $(".changedisplay a").click(function () {
-                $("#logindisplay").slideDown('slow');
-                $(".changedisplay").slideUp('slow');
-				$(".search-menu").select();
-            });
-
-            $(".closedisplay").click(function () {
-                $("#logindisplay").slideUp('slow');
-                $(".changedisplay").slideDown('slow');
-				$(".search-menu").select();
-            });
 			
             $("#block_inquiry").mouseover(function () {
                 $("#block_inquiry").animate({ width: "190px" }, { queue: false, duration: 500 })

@@ -12,13 +12,14 @@
 	}
 	
 	//user
-	$username = $_POST["username"];
-	$pass = md5($_POST["pass"]);
 	$name = $_POST["name"];
-	$address = $_POST["address"];
+	$facebookname = $_POST["facebookname"];
 	$phone = $_POST["phone"];
+	$username = $_POST["username"];
+	$address = $_POST["address"];
 	$email = $_POST["email"];
-	$cmnd = $_POST["cmnd"];
+	$pass = md5($_POST["password"]);
+	$password2 = md5($_POST["password2"]);
 	
 	$name_nn = $name;
 	$address_nn = $address;
@@ -38,10 +39,10 @@
 	else
 	{
 		$tbl = "user";
-		$field = "username, pass, name, address, phone, email, cmnd,"
+		$field = "username, pass, name, address, phone, email, "
 				." name_nn, address_nn, phone_nn, email_nn";
 		$values = "('" . $username . "', '" . $pass . "', '"
-						. $name . "', '" . $address . "', '" . $phone . "', '" . $email . "', '" . $cmnd . "', '"
+						. $name . "', '" . $address . "', '" . $phone . "', '" . $email . "', '"
 						. $name_nn . "', '" . $address_nn . "', '" . $phone_nn . "', '" . $email_nn . "'),";
 		$values = substr(substr($values,0,-2),1);
 		
