@@ -8,14 +8,14 @@
         <!-- Search Box -->
         <div style="padding-top:3px; float:left">
             <form name="search-box" action="../Views/Search_result.php" class="form-search-box">
-                <input type="text" name="q" value="" class="search-textbox" placeholder="Bạn cần tìm gì?" autocomplete="off" role="textbox">
+                <input type="text" name="q" value="" class="search-textbox" placeholder="Bạn cần tìm gì?" autocomplete="off" role="textbox" style="width: 120px;padding: 4px 6px 15px;">
                 <input type="submit" hidden="hidden" />
             </form>
         </div>
         <a class="icon" style="float:right" onclick='$("[name=search-box]").submit();'></a>
         <div class="clear"></div>
     </div>
-    <div class="span4" style="float: right; width: auto;">
+    <div class="span4" style="float: right; width: auto;margin-left: 0px;">
     	<?php
     	if($result_setting != null && count($result_setting) > 0)
 			{
@@ -84,7 +84,7 @@
                 <div class="phone">
                     <img src="../Templates/Content/images/phone.png" style="margin-top: 8px; margin-right: 5px;
                         float: left">
-                    <strong style="margin-top: 4px; margin-right: 20px; float: right; color: black">
+                    <strong style="margin-top: 4px; float: right; color: black">
                         <?php echo $phone;?>
                     </strong>
                 </div>
