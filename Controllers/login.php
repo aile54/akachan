@@ -62,7 +62,7 @@
 <!-- ================================ END Login Display ================================ -->
 <!-- ================= ForgotPassword Dialog =============== -->
 <div id="forgotModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none; width: 20%";>
+    aria-hidden="true" style="display: none; ">
     <div class="modal-header cusheader">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="reloadDone()">
             ×</button>
@@ -272,7 +272,30 @@
 		
 		if(IsValid)
 		{
-			$.post("../Models/xl_forgotPassword.php", { email })
+			$.ajax({ url: '../Models/xl_forgotPassword.php',
+					 data: {email: $("#forgotBody input:text#email").val()},
+					 type: 'post',
+					 success: function(output) {
+								  //alert(output);
+								  if(output == "NotExisted")
+								{
+									$("#forgotBody div#emailError").text("Email không tồn tại!");
+								}
+								else if (output == "Success")
+								{
+									$("div#message h3").text("Đã cấp lại mật khẩu! Vui lòng kiểm tra mail!");
+									$("#forgotModal").modal("hide");
+									$("#MessageModal").modal("show");
+								}
+								else if (output == "Fail")
+								{
+									$("div#message h3").text("Có lỗi, hiện tại không thể cấp lại mật khẩu! Vui lòng liên hệ!");
+									$("#forgotModal").modal("hide");
+									$("#MessageModal").modal("show");
+								}
+							  }
+				});
+			/*$.post("../Models/xl_forgotPassword.php", { email })
 				.done(function(data) {
 					var result = $.parseJSON(data);
 					if(result == "NotExisted")
@@ -299,7 +322,7 @@
 				  })
 				.success(function() {
 					//alert( "finished" );
-				});
+				});*/
 		}
 	}
 	
@@ -404,7 +427,7 @@
 		
 		if(IsValid)
 		{
-			$.post("../Models/xl_register.php", { name, facebookname, phone, username, address, email, password, password2 })
+			/*$.post("../Models/xl_register.php", { name, facebookname, phone, username, address, email, password, password2 })
 				.done(function(data) {
 					var result = $.parseJSON(data);
 					if(result == "isExisted")
@@ -430,7 +453,7 @@
 					$("#MessageModal").modal("show");
 				  })
 				.success(function() {
-				});
+				});*/
 		}
 	}
 </script>

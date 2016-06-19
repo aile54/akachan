@@ -182,7 +182,7 @@ class table{
 			$str = "insert into $this->_name($field) value($value)";
 			
 			$res = mysql_query($str);
-			var_dump($str);
+			//var_dump($str);
 			if($res){
 				return $res;
 			}else return "<h1 style='color:#FF0000'>"."InsertObject Error!"."</h1>";
