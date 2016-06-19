@@ -39,10 +39,10 @@
 	else
 	{
 		$tbl = "user";
-		$field = "username, pass, name, address, phone, email, "
+		$field = "username, pass, name, address, phone, email, FacebookName,"
 				." name_nn, address_nn, phone_nn, email_nn";
 		$values = "('" . $username . "', '" . $pass . "', '"
-						. $name . "', '" . $address . "', '" . $phone . "', '" . $email . "', '"
+						. $name . "', '" . $address . "', '" . $phone . "', '" . $email . "',  '" . $facebookname . "',  '"
 						. $name_nn . "', '" . $address_nn . "', '" . $phone_nn . "', '" . $email_nn . "'),";
 		$values = substr(substr($values,0,-2),1);
 		
