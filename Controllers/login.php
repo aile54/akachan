@@ -277,17 +277,19 @@
 					 type: 'post',
 					 success: function(output) {
 								  //alert(output);
-								  if(output == "NotExisted")
+								  var result = JSON.parse(output);
+								  //alert(result);
+								  if(result == "NotExisted")
 								{
 									$("#forgotBody div#emailError").text("Email không tồn tại!");
 								}
-								else if (output == "Success")
+								else if (result == "Success")
 								{
-									$("div#message h3").text("Đã cấp lại mật khẩu! Vui lòng kiểm tra mail!");
+									$("div#message h3").text("Mật khẩu mới đã được gửi qua email của bạn. Vui lòng kiểm tra email!");
 									$("#forgotModal").modal("hide");
 									$("#MessageModal").modal("show");
 								}
-								else if (output == "Fail")
+								else if (result == "Fail")
 								{
 									$("div#message h3").text("Có lỗi, hiện tại không thể cấp lại mật khẩu! Vui lòng liên hệ!");
 									$("#forgotModal").modal("hide");
@@ -425,8 +427,41 @@
 			IsValid = false;
 		}
 		
+		alert(IsValid);
 		if(IsValid)
 		{
+			$.ajax({ url: '../Models/xl_register.php',
+					 data: {name: $("#regisBody input:text#name").val(),
+					 		facebookname: $("#regisBody input:text#facebookname").val(),
+							phone:$("#regisBody input:text#phone").val(),
+							username:$("#regisBody input:text#username").val(),
+							address:$("#regisBody input:text#address").val(),
+							email:$("#regisBody input:text#email").val(),
+							password:$("#regisBody input:password#password").val(),
+							password2: $("#regisBody input:password#password2").val()},
+					 type: 'post',
+					 success: function(output) {
+								  	//alert(output);
+								  	var result = JSON.parse(output);
+								  	//alert(result);
+								  	if(result == "isExisted")
+									{
+										$("#regisBody div#usernameError").text("Tên đăng nhập đã tồn tại");
+									}
+									else if (result == "isExistedEmail")
+									{
+										$("#regisBody div#emailError").text("Email đã tồn tại");
+									}
+									else if(result)
+									{
+										AjaxLogin(username, password);
+									}
+									else
+									{
+										$("#regisBody div#usernameError").text("Đăng ký thất bại!");
+									}
+							  }
+				});
 			/*$.post("../Models/xl_register.php", { name, facebookname, phone, username, address, email, password, password2 })
 				.done(function(data) {
 					var result = $.parseJSON(data);
