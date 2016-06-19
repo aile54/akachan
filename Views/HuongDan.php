@@ -543,6 +543,7 @@
 		});
 		$(document).ready(function () {	
 			$('.btnAddToCart').on('click', function () {
+			debugger;
 				var textName = $(this).text();
 				//$(this).text('Chờ');
 				var cart = $('.cart');
