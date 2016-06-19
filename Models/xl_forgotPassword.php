@@ -5,12 +5,10 @@
 	
 	class xl_forgotPassword extends database
 	{
-		function userExists($username, $cmnd)
+		function emailExists($email)
 		{
-			$username = mysql_real_escape_string($username);
-			$cmnd = mysql_real_escape_string($cmnd);
-			$sql = sprintf("SELECT email, name FROM user WHERE username = '" . $username . "' AND cmnd = '" . $cmnd . "';");
-			//echo $sql;
+			$email = mysql_real_escape_string($email);
+			$sql = sprintf("SELECT * FROM user WHERE email = '" . $email . "';"); 
 			return mysql_query($sql);
 		}
 		
@@ -24,15 +22,14 @@
 			return $randomString;
 		}
 	}
-	$username = $_POST['username'];
-	$pass = $_POST['pass'];
-	$cmnd = $_POST['cmnd'];
+	
+	$email = $_POST['email'];
 	$xl_forgotPassword = new xl_forgotPassword();
 	$returnCode = "";
 	$updateIsOK = false;
-	if(!empty($username) && !is_null($username) && !empty($cmnd) && !is_null($cmnd))
+	if(!empty($email) && !is_null($email))
 	{
-		$query = $xl_forgotPassword->userExists($username, $cmnd);
+		$query = $xl_forgotPassword->emailExists($email);
 		@$row = mysql_fetch_array($query);
 		if($row == false)
 		{
@@ -40,50 +37,32 @@
 		}
 		else
 		{
-			$query = "UPDATE user SET pass = '" . md5($pass) . "' " .
-											 "WHERE username = '" . $username . "' AND cmnd = '" . $cmnd . "';";
-			mysql_query("SET character_set_client=utf8");
-			mysql_query("SET character_set_connection=utf8");
-			//echo $query;
-			$updateIsOK = mysql_query($query);
-			if($updateIsOK)
+			// Close đến khi dùng dc send mail
+			$email = $row["email"];
+			$name = $row["name"];
+			
+			$to_mail = $email;
+			$to_name = $name;
+			
+			$newpass = $xl_forgotPassword->generateRandomString(10);
+			
+			$chude = "[Akachan shop] Cap lai mat khau";
+			$content = "Mật khẩu mới của bạn: ". $newpass ."<br/>";
+			$content .= "Vui lòng đăng nhập để thay đổi lại mật khẩu! <br/>";
+			$hoten = "";
+			$send_mail = send_mail($to_mail,$to_name,$chude,$content,$hoten);
+			if($send_mail)
 			{
+				$query = "UPDATE user SET pass = '" . md5($newpass) . "', " .
+										 "WHERE username = " . $username;
+				mysql_query("SET character_set_client=utf8");
+				mysql_query("SET character_set_connection=utf8");
+				mysql_query($query);
 				$returnCode = "Success";
 			}
 			else
 			{
 				$returnCode = "Fail";
-			}
-					
-			// Close đến khi dùng dc send mail
-			if(false)
-			{
-				$email = $row["email"];
-				$name = $row["name"];
-				
-				$to_mail = $email;
-				$to_name = $name;
-				
-				$newpass = $xl_forgotPassword->generateRandomString(10);
-				
-				$chude = "[Akachan shop] Cap lai mat khau";
-				$content = "Mật khẩu mới của bạn: ". $newpass ."<br/>";
-				$content .= "Vui lòng đăng nhập để thay đổi lại mật khẩu! <br/>";
-				$hoten = "";
-				$send_mail = send_mail($to_mail,$to_name,$chude,$content,$hoten);
-				if($send_mail)
-				{
-					$query = "UPDATE user SET pass = '" . md5($newpass) . "', " .
-											 "WHERE username = " . $username;
-					mysql_query("SET character_set_client=utf8");
-					mysql_query("SET character_set_connection=utf8");
-					mysql_query($query);
-					$returnCode = "Success";
-				}
-				else
-				{
-					$returnCode = "Fail";
-				}
 			}
 		}
 	}

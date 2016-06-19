@@ -9,6 +9,13 @@
 			$sql = sprintf("SELECT username FROM user WHERE username = '" . $username . "';"); 
 			return mysql_num_rows(mysql_query($sql)) > 0;
 		}
+		
+		function emailExists($email)
+		{
+			$email = mysql_real_escape_string($email);
+			$sql = sprintf("SELECT email FROM user WHERE email = '" . $email . "';"); 
+			return mysql_num_rows(mysql_query($sql)) > 0;
+		}
 	}
 	
 	//user
@@ -32,7 +39,7 @@
 	
 	$xl_register = new xl_register();
 	
-	if(empty($username) || is_null($username) || $xl_register->userExists($username))
+	if(empty($username) || is_null($username) || $xl_register->userExists($username) || $xl_register->emailExists($email))
 	{
 		$error = true;
 	}
@@ -56,7 +63,14 @@
 	if($error)
 	{
 		// nếu error = true
-		echo json_encode("isExisted");
+		if($xl_register->userExists($username))
+		{
+			echo json_encode("isExisted");
+		}
+		else
+		{
+			echo json_encode("isExistedEmail");
+		}
 	}
 	else
 	{

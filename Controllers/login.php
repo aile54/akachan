@@ -7,7 +7,7 @@
 </div>
 
 <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none; width: 20%";>
+    aria-hidden="true" style="display: none;">
     <div class="modal-header cusheader">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="reloadDone()">
             ×</button>
@@ -101,7 +101,7 @@
 <!-- ====================== End=============================== -->
 <!-- ================= Register Dialog =============== -->
 <div id="regisModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none; width: 522px;">
+    aria-hidden="true" style="display: none;">
     <div class="modal-header cusheader">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="reloadDone()">
             ×</button>
@@ -272,13 +272,12 @@
 		
 		if(IsValid)
 		{
-			/*$.post("../Models/xl_forgotPassword.php", { username: username, pass: pass, cmnd: cmnd })
+			$.post("../Models/xl_forgotPassword.php", { email })
 				.done(function(data) {
 					var result = $.parseJSON(data);
 					if(result == "NotExisted")
 					{
-						$("#forgotBody div#usernameError").text("Tên đăng nhập không tồn tại!");
-						$("#forgotBody div#cmndError").text("CMND không đúng!");
+						$("#forgotBody div#emailError").text("Email không tồn tại!");
 					}
 					else if (result == "Success")
 					{
@@ -300,8 +299,7 @@
 				  })
 				.success(function() {
 					//alert( "finished" );
-				});*/
-			alert("Send an email");	
+				});
 		}
 	}
 	
@@ -412,6 +410,10 @@
 					if(result == "isExisted")
 					{
 						$("#regisBody div#usernameError").text("Tên đăng nhập đã tồn tại");
+					}
+					else if (result == "isExistedEmail")
+					{
+						$("#regisBody div#emailError").text("Email đã tồn tại");
 					}
 					else if(result)
 					{
