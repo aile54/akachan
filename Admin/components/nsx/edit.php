@@ -9,7 +9,7 @@
 		if(test_isset1('nsx','alias',$_POST['name'],$id)==0){
 			$field = array('name','image','ordering','alias');
 			
-			$img = edit_img('../','uploads/nsx/','nsx','image',$_POST['tmpimage'],$id,180,84);
+			$img = edit_img('../','Images/Brand/','nsx','image',$_POST['tmpimage'],$id,180,84);
 			
 			$values = array(
 						format($_POST["name"],0) ,
@@ -30,7 +30,7 @@
 	$res = $tbl->loadOne('id='.$id);
 	if($res){
 			$row=mysql_fetch_array($res);
-			$thumb_img = get_thumb('uploads/nsx/',$row['image']);
+			$thumb_img = get_thumb('../Images/Brand/',$row['image']);
 ?>
 <div id="center-column">
 			<div class="top-bar">
