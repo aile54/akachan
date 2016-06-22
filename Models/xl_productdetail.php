@@ -10,7 +10,7 @@
 			$fieldName = array('pro.id','pro.mavach','pro.name','img.name AS color', 'pro.status',
 								'IF(img.image IS NULL, pro.image, IF(img.image = "", pro.image, img.image)) image',
 								'pro.catid3','tp.id AS tbid', 'pro.details', 'pro.huongdan',
-								'tp.proid', 'tp.price AS tbprice', 'tp.size AS tbsize', 'pro.ghichu',
+								'tp.proid', 'tp.price AS tbprice', 'tp.size AS tbsize', 'pro.ghichu', 'pro.URL',
 								'tp.`price_promo` AS tbprice_promo, pro.promo, pro.nsx as nsxID,
 								 nsx.`name` as nsxName, nsx.`image` as nsxImg, pro.love as love');
 			$table = array ('products AS pro 

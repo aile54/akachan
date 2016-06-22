@@ -622,6 +622,16 @@
 	<?php include_once("../Models/function.php"); ?>    
 </head>
 <body onLoad="">
+<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- END -->
     <div style="display: none; position: absolute; z-index: 110; left: -800px" id="trailimageid">
     </div>
     <div id="global-common-message" class="commonMessage">

@@ -1,8 +1,15 @@
 <?php
 	require_once('../Models/xl_huongdan.php');
 	$id_news = $_GET['id'];
-	$xl_slide_db = new xl_hd_db();
-	$result = $xl_slide_db->GetHD($id_news);
+	$key = $_GET['key'];
+	if($key == "menu"){
+		$xl_slide_db = new xl_hd_db();
+		$result = $xl_slide_db->GetHD($id_news);
+	}
+	else{
+		$xl_slide_db = new xl_hd_db();
+		$result = $xl_slide_db->getInfo($id_news);
+	}
 	//var_dump($result);
 ?>
 	<section id="content">

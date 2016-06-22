@@ -1,15 +1,13 @@
 <?php 
-	include_once('../Templates/Plugin/jcart/jcart.php');	
-	if (!isset($_SESSION)) {
-	  session_start();
-	}
+	include_once('../Templates/Plugin/jcart/jcart.php');
+	session_start();
 	require_once('../Models/loader.php');
 ?>
-<html><!-- InstanceBegin template="/Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="../Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
     <meta charset="UTF-8">
     <!-- InstanceBeginEditable name="doctitle" -->
-    <title>Góc Chia Sẻ</title>
+    <title>Akachan Shop</title>
     <!-- InstanceEndEditable -->
      
     <?php
@@ -632,6 +630,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- END -->
+    
     <div style="display: none; position: absolute; z-index: 110; left: -800px" id="trailimageid">
     </div>
     <div id="global-common-message" class="commonMessage">
@@ -670,15 +669,13 @@
                     </p>
                 </div>
                 <!-- InstanceBeginEditable name="EditRegion3" -->
-                
+                <?php include_once("../Controllers/banner_menu.php"); ?>
 				<!-- InstanceEndEditable -->
 
               <div id="clearbetween">
                 </div>
                 <!-- InstanceBeginEditable name="Main" -->
-                	<?php 
-						require_once('../Controllers/brand_detail.php'); 
-					?>
+                Main
                 <!-- InstanceEndEditable -->
                 <div id="clearbetween">
                 </div>
@@ -723,5 +720,6 @@
     <!-- ==============Counter Visitors============== -->
     <?php include_once("../Controllers/countervisitors.php"); ?> 
     <!-- ================================ END Counter Visitors ================================ -->
+    
 </body>
 <!-- InstanceEnd --></html>

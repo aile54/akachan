@@ -1,3 +1,8 @@
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-576abf001771b77c"></script>
+
+
 <?php
 	require_once('../Models/xl_productdetail.php');
 	$id = $result[0]['id'];
@@ -53,6 +58,7 @@
 	$nsxID = $result[0]['nsxID'];
 	$nsx = $result[0]['nsxImg'];
 	$numberlove = $result[0]['love'];
+	$URL = $result[0]['URL'];
 	if($nsx == null || $nsx == "")
 	{
 		$nsx = "Templates/Content/images/Brand/default.png";
@@ -430,16 +436,23 @@ $(document).ready(function () {
                                 <span class="price-new" style="color: black; font-size: 16px"><?php echo $remark ?></span>
                             </div>
                             <div style="color: Black; font-size: 13px; font-style: normal; padding: 0px 0px 20px 50px;">
+                            	<!-- test facebook like -->
+                                <div class="fb-like" 
+                                	data-href="<?php echo $URL; ?>" 
+                                    data-layout="button_count" 
+                                    data-action="like" 
+                                    data-show-faces="true" 
+                                    data-share="false" style="float:left;"></div>
+                                    
+									<!-- Go to www.addthis.com/dashboard to customize your tools -->
+									<div class="addthis_native_toolbox"></div>
+
                                 <!-- AddThis Button BEGIN -->
-                                <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
-                                    <a class="addthis_button_facebook"></a>
-                                    <a class="addthis_button_twitter"></a>
-                                    <a class="addthis_button_email"></a>
-                                    <a class="addthis_button_print"></a>
-                                    <a class="addthis_button_gmail"></a>
+                           <!--     <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+                                    <a class="addthis_counter addthis_pill_style"></a>
                                 </div>
                                 <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-								<script type="text/javascript" src="../Templates/Scripts/addthis_widget.js"></script>
+								<script type="text/javascript" src="../Templates/Scripts/addthis_widget.js"></script>-->
                                 <!-- AddThis Button END -->
                             </div>    
                         </div>
