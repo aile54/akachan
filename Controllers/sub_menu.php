@@ -255,6 +255,7 @@
                                                 {
                                                     if(file_exists('../'.$arrIma[$z]))
                                                     {
+														$image = $arrIma[$z];
                                                         echo $arrIma[$z];
                                                         break;
                                                     }
@@ -272,6 +273,7 @@
                                             ?>" 
                                             alt="" 
                                             onmouseover="showtrail('../<?php 
+																		$image = $product_detail_submenu[$j]['image'];
                                                                         if($product_detail_submenu[$j]['image'] != ''
                                                                         && $product_detail_submenu[$j]['image'] != null)
                                                                         {
@@ -288,13 +290,15 @@
                                                                                 
                                                                                 if(($z + 1) == $n)
                                                                                 {
-                                                                                    echo "Templates/img/no photo.gif";
+																					$image = "Templates/img/no photo.gif";
+                                                                                    echo $image;
                                                                                 }
                                                                             }
                                                                         }
                                                                         else
                                                                         {
-                                                                            echo "Templates/img/no photo.gif";
+																			$image = "Templates/img/no photo.gif";
+																			echo $image;
                                                                         }
                                                                         ?>',
                                                                         '<?php echo $product_detail_submenu[$j]['name']?>','',
@@ -410,14 +414,16 @@
                                         <?php 
                                             $id = $product_detail_submenu[$j]['id'];
                                             $name = $product_detail_submenu[$j]['name'];
-                                        ?>   
+											$price = $IsPromo ? $priceNew : $priceOld;
+                                        ?> 
                                         <input type="hidden" name="jcartToken" value="<?php echo $_SESSION['jcartToken'];?>" />
                                         <input type="hidden" name="my-item-id" value="<?php echo $id ?>" />
                                         <input type="hidden" name="my-item-name" value="<?php echo $name ?>" />
                                         <input type="hidden" name="my-item-price" value="<?php echo ($price == "" ? 0 : $price) ?>" />
                                         <input type="hidden" name="my-item-size" value="<?php echo $product_detail_submenu[$j]['tbsize']?>" />
                                         <input type="hidden" name="my-item-color" value="<?php echo $product_detail_submenu[$j]['color']?>" />
-                                        <input type="hidden" name="my-item-url" value="" />
+										<input type="hidden" name="my-item-url" value="./Detail.php?id=<?php echo $id?>" />
+										<input type="hidden" name="my-item-image" value="<?php echo $image ?>" id="my-item-image" />
                                         <input type="hidden" name="my-item-qty" value="1" size="3" />                                           
                                         <input class="buyproduct" type="submit" name="my-add-button" value="add to cart" style="display:none;" />
                                     </form>

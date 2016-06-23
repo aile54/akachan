@@ -90,6 +90,7 @@
                                         ?>
                                         <img class="image-wrap" 
                                             src="../<?php 
+												$image = $items[$range_num[$i]]['image'];
 												if($items[$range_num[$i]]['image'] != ''
 												&& $items[$range_num[$i]]['image'] != null)
 												{
@@ -100,19 +101,22 @@
 													{
 														if(file_exists('../'.$arrIma[$z]))
 														{
+															$image = $arrIma[$z];
 															echo $arrIma[$z];
 															break;
 														}
 														
 														if(($z + 1) == $n)
 														{
-															echo "Templates/img/no photo.gif";
+															$image = "Templates/img/no photo.gif";
+															echo $image;
 														}
 													}
 												}
 												else
 												{
-													echo "Templates/img/no photo.gif";
+													$image = "Templates/img/no photo.gif";
+													echo $image;
 												}
 											?>" 
                                             alt="" 
@@ -251,14 +255,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>   
+                                        </div>
+										<?php 
+											$price = $IsPromo ? $priceNew : $priceOld;
+										?>  
                                         <input type="hidden" name="jcartToken" value="<?php echo $_SESSION['jcartToken'];?>" />
                                         <input type="hidden" name="my-item-id" value="<?php echo $id ?>" />
                                         <input type="hidden" name="my-item-name" value="<?php echo $items[$range_num[$i]]['name'] ?>" />
                                         <input type="hidden" name="my-item-price" value="<?php echo ($price == "" ? 0 : $price) ?>" />
                                         <input type="hidden" name="my-item-size" value="<?php echo $items[$range_num[$i]]['tbsize']?>" />
                                         <input type="hidden" name="my-item-color" value="<?php echo $items[$range_num[$i]]['color']?>" />
-                                        <input type="hidden" name="my-item-url" value="" />
+										<input type="hidden" name="my-item-url" value="./Detail.php?id=<?php echo $id?>" />
+							            <input type="hidden" name="my-item-image" value="<?php echo $image ?>" id="my-item-image" />
                                         <input type="hidden" name="my-item-qty" value="1" size="3" />                                           
                                         <input class="buyproduct" type="submit" name="my-add-button" value="add to cart" style="display:none;" />
                                     </form>

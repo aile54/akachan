@@ -63,6 +63,7 @@
                                         }
                                         ?>
                                         <img class="image-wrap" src="../<?php
+																	$image = $items[$i]['image'];
 																	if($items[$i]['image'] != ''
 																	&& $items[$i]['image'] != null 
 																	&& file_exists('../'.@$items[$i]['image']))
@@ -71,7 +72,8 @@
 																	}
 																	else
 																	{
-																		echo "Templates/img/no photo.gif";
+																		$image = "Templates/img/no photo.gif";
+																		echo $image;
 																	}
 																	?>" alt="" 
                                             onmouseover="showtrail('../<?php
@@ -83,7 +85,8 @@
 																	}
 																	else
 																	{
-																		echo "Templates/img/no photo.gif";
+																		$image = "Templates/img/no photo.gif";
+																		echo $image;
 																	}
 																	?>',
                                             '<?php echo $items[$i]['name']?>','',
@@ -195,14 +198,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>  
+                                    </div>    
+									<?php 
+										$id = $items[$i]['id'];
+										$price = $IsPromo ? $priceNew : $priceOld;
+									?> 
                                     <input type="hidden" name="jcartToken" value="<?php echo $_SESSION['jcartToken'];?>" />
                                     <input type="hidden" name="my-item-id" value="<?php echo $items[$i]['id']?>" />
                                     <input type="hidden" name="my-item-name" value="<?php echo $items[$i]['name']?>" />
-                                    <input type="hidden" name="my-item-price" value="<?php echo $price?>" />
+                                    <input type="hidden" name="my-item-price" value="<?php echo ($price == "" ? 0 : $price) ?>" />
                                     <input type="hidden" name="my-item-size" value="<?php echo $items[$i]['tbsize']?>" />
                                     <input type="hidden" name="my-item-color" value="<?php echo $items[$i]['color']?>" />
-                                    <input type="hidden" name="my-item-url" value="" />
+									<input type="hidden" name="my-item-url" value="./Detail.php?id=<?php echo $id?>" />
+									<input type="hidden" name="my-item-image" value="<?php echo $image ?>" id="my-item-image" />
                                     <input type="hidden" name="my-item-qty" value="1" size="3" />                                           
                                     <input class="buyproduct" type="submit" name="my-add-button" value="add to cart" style="display:none;" />
                                  </form>

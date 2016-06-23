@@ -46,6 +46,7 @@
 									{
 										if(file_exists('../'.$arrIma[$z]))
 										{
+											$image = $arrIma[$z];
 											echo $arrIma[$z];
 											break;
 										}

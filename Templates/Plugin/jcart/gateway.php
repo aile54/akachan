@@ -92,6 +92,7 @@ else {
 			$queryString .= '&amount_' . $count . '=' . urlencode($item['price']);
 			$queryString .= '&size' . $count . '=' . urlencode($item['size']);
 			$queryString .= '&color' . $count . '=' . urlencode($item['color']);
+			$queryString .= '&image' . $count . '=' . urlencode($item['image']);
 			$queryString .= '&quantity_' . $count . '=' . urlencode($item['qty']);
 
 			// Increment the counter

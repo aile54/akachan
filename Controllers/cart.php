@@ -35,7 +35,7 @@ if (!isset($_SESSION)) {
 
 <!-- ================ Modal for Detail ================ -->
 <div id="DetailCartModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none; width: 750px; left: 44%">
+    aria-hidden="true" style="display: none; width: 800px; left: 40%">
     <div class="modal-header cusheader">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="reloadDone()">
             ×</button>
@@ -49,7 +49,8 @@ if (!isset($_SESSION)) {
         </div>
     </div>
     <div class="modal-footer">
-        <input type="button" value="Tiếp tục >>" onClick="goSendCart()" class="btn btn-success">
+        <input type="button" value="<< Gian hàng" data-dismiss="modal" aria-hidden="true" class="btn btn-success" style="float:left;">
+        <input type="button" value="Gửi đơn hàng >>" onClick="goSendCart()" class="btn btn-success">
     </div>
 </div>
 <!-- ================ ================== ================ -->
@@ -186,12 +187,12 @@ if (!isset($_SESSION)) {
 		var ele = $("div.checkUsingInfor input:checkbox");
 		if(ele.is(':checked')){
 			ele.prop('checked', true);
-			$("table.table_nn").hide("fade", 500);
+			$("table.table_nn").hide("slow");
 			clearInput_nn();
 			clearError_nn();
 		}else{
 			ele.prop('checked', false);
-			$("table.table_nn").show("fade", 500);
+			$("table.table_nn").show("slow");
 		}
 	}
 	function sendCart()

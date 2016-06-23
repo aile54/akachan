@@ -39,110 +39,114 @@ if(count($items) > 0)
 						$SalePercent = intval((($priceOld - $priceNew)/$priceOld)*100);
 					}
 			?>
-                    <li class="">
-        			<form method="post" action="" class="jcart">
-                    <a class="" href="Detail.php?id=<?php echo $items[$range_num[$i]]['id']?>" 
-                    			title="<?php echo $items[$range_num[$i]]['name']?>">
-						<?php if ($IsPromo)
-						{
-						?>
-						<div>
-							<div class = "numberSale"><?php echo '  '.$SalePercent."%" ?></div>
-						</div>
-						<?php
-						}
-						?>
-                        <img class="image-wrap" 
-                        	src="../<?php 
-								if($items[$range_num[$i]]['image'] != ''
-								&& $items[$range_num[$i]]['image'] != null)
-								{
-									$arrIma = explode("(*_^)", $items[$range_num[$i]]['image']);
-									//var_dump($arrIma);
-									$n = count($arrIma);
-									for($z=0; $z<$n; $z++)
+				<li class="">
+					<form method="post" action="" class="jcart"> 
+						<a class="" href="Detail.php?id=<?php echo $items[$range_num[$i]]['id']?>" 
+									title="<?php echo $items[$range_num[$i]]['name']?>">
+							<?php if ($IsPromo)
+							{
+							?>
+							<div>
+								<div class = "numberSale"><?php echo '  '.$SalePercent."%" ?></div>
+							</div>
+							<?php
+							}
+							?>
+							<img class="image-wrap" 
+								src="../<?php 
+									$image = $items[$range_num[$i]]['image'];
+									if($items[$range_num[$i]]['image'] != ''
+									&& $items[$range_num[$i]]['image'] != null)
 									{
-										if(file_exists('../'.$arrIma[$z]))
+										$arrIma = explode("(*_^)", $items[$range_num[$i]]['image']);
+										//var_dump($arrIma);
+										$n = count($arrIma);
+										for($z=0; $z<$n; $z++)
 										{
-											echo $arrIma[$z];
-											break;
-										}
-										
-										if(($z + 1) == $n)
-										{
-											echo "Templates/img/no photo.gif";
+											if(file_exists('../'.$arrIma[$z]))
+											{
+												$image = $arrIma[$z];
+												echo $arrIma[$z];
+												break;
+											}
+											
+											if(($z + 1) == $n)
+											{
+												$image = "Templates/img/no photo.gif";
+												echo $image;
+											}
 										}
 									}
-								}
-								else
-								{
-									echo "Templates/img/no photo.gif";
-								} 
-							?>" 
-                            alt="" 
-                            onmouseover="showtrail('../<?php 
-														if($items[$range_num[$i]]['image'] != ''
-														&& $items[$range_num[$i]]['image'] != null)
-														{
-															$arrIma = explode("(*_^)", $items[$range_num[$i]]['image']);
-															//var_dump($arrIma);
-															$n = count($arrIma);
-															for($z=0; $z<$n; $z++)
+									else
+									{
+										$image = "Templates/img/no photo.gif";
+										echo $image;
+									} 
+								?>" 
+								alt="" 
+								onmouseover="showtrail('../<?php 
+															if($items[$range_num[$i]]['image'] != ''
+															&& $items[$range_num[$i]]['image'] != null)
 															{
-																if(file_exists('../'.$arrIma[$z]))
+																$arrIma = explode("(*_^)", $items[$range_num[$i]]['image']);
+																//var_dump($arrIma);
+																$n = count($arrIma);
+																for($z=0; $z<$n; $z++)
 																{
-																	echo $arrIma[$z];
-																	break;
+																	if(file_exists('../'.$arrIma[$z]))
+																	{
+																		echo $arrIma[$z];
+																		break;
+																	}
+																	
+																	if(($z + 1) == $n)
+																	{
+																		echo "Templates/img/no photo.gif";
+																	}
 																}
-																
-																if(($z + 1) == $n)
+															}
+															else
+															{
+																echo "Templates/img/no photo.gif";
+															} 
+															?>',
+															'<?php echo $items[$range_num[$i]]['name']?>','',
+															'<?php 
+																if ($price == null
+																	|| $price == ''
+																	|| $price == '0')
 																{
-																	echo "Templates/img/no photo.gif";
+																	echo "Liên hệ để biết giá!";
 																}
-															}
-														}
-														else
-														{
-															echo "Templates/img/no photo.gif";
-														} 
-														?>',
-                            							'<?php echo $items[$range_num[$i]]['name']?>','',
-                                                        '<?php 
-															if ($price == null
-																|| $price == ''
-																|| $price == '0')
-															{
-																echo "Liên hệ để biết giá!";
-															}
-															else
-															{
-																echo number_format($price)." VNĐ";
-															}
-														?>',
-                                                        '<?php  
-															if ($items[$range_num[$i]]['tbsize'] == null
-																|| $items[$range_num[$i]]['tbsize'] == '')
-															{
-																echo "n/a";
-															}
-															else
-															{
-																echo $items[$range_num[$i]]['tbsize'];
-															}
-														?>',
-                                                        '<?php  
-															if ($items[$range_num[$i]]['color'] == null
-																|| $items[$range_num[$i]]['color'] == '')
-															{
-																echo "n/a";
-															}
-															else
-															{
-																echo $items[$range_num[$i]]['color'];
-															}
-														?>'); "
-                            onmouseout="hidetrail();" border="0" align="middle"/>
-                    </a>
+																else
+																{
+																	echo number_format($price)." VNĐ";
+																}
+															?>',
+															'<?php  
+																if ($items[$range_num[$i]]['tbsize'] == null
+																	|| $items[$range_num[$i]]['tbsize'] == '')
+																{
+																	echo "n/a";
+																}
+																else
+																{
+																	echo $items[$range_num[$i]]['tbsize'];
+																}
+															?>',
+															'<?php  
+																if ($items[$range_num[$i]]['color'] == null
+																	|| $items[$range_num[$i]]['color'] == '')
+																{
+																	echo "n/a";
+																}
+																else
+																{
+																	echo $items[$range_num[$i]]['color'];
+																}
+															?>'); "
+								onmouseout="hidetrail();" border="0" align="middle"/>
+						</a>
                         <div class="info home">
                             <div class="vertical" style="margin: 0 auto;">
                                 <div>
@@ -218,18 +222,19 @@ if(count($items) > 0)
                         </div>         
 						<?php 
                             $id = $items[$range_num[$i]]['id'];
-                            $price = $items[$range_num[$i]]['tbprice'];
-                        ?>   
-                        <input type="hidden" name="jcartToken" value="<?php echo $_SESSION['jcartToken'];?>" />
-                        <input type="hidden" name="my-item-id" value="<?php echo $id ?>" />
-                        <input type="hidden" name="my-item-name" value="<?php echo $name ?>" />
-                        <input type="hidden" name="my-item-price" value="<?php echo ($price == "" ? 0 : $price) ?>" />
-                        <input type="hidden" name="my-item-size" value="<?php echo $items[$range_num[$i]]['tbsize']?>" />
-                        <input type="hidden" name="my-item-color" value="<?php echo $items[$range_num[$i]]['color']?>" />
-                        <input type="hidden" name="my-item-url" value="" />
-                        <input type="hidden" name="my-item-qty" value="1" size="3" />                                           
-                        <input class="buyproduct" type="submit" name="my-add-button" value="add to cart" style="display:none;" />
-                    </form>
+                            $price = $IsPromo ? $priceNew : $priceOld;
+                        ?> 
+						<input type="hidden" name="jcartToken" value="<?php echo $_SESSION['jcartToken'];?>" />
+						<input type="hidden" name="my-item-id" value="<?php echo $id ?>" />
+						<input type="hidden" name="my-item-name" value="<?php echo $name ?>" />
+						<input type="hidden" name="my-item-price" value="<?php echo ($price == "" ? 0 : $price) ?>" />
+						<input type="hidden" name="my-item-size" value="<?php echo $items[$range_num[$i]]['tbsize']?>" />
+						<input type="hidden" name="my-item-color" value="<?php echo $items[$range_num[$i]]['color']?>" />
+						<input type="hidden" name="my-item-url" value="./Detail.php?id=<?php echo $id?>" />
+                        <input type="hidden" name="my-item-image" value="<?php echo $image ?>" id="my-item-image" />
+						<input type="hidden" name="my-item-qty" value="1" size="3" />                                           
+						<input class="buyproduct" type="submit" name="my-add-button" value="add to cart" style="display:none;" />
+					</form>
               </li>
             <?php } ?>      
         </ul>

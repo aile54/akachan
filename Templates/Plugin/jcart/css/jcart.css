@@ -10,13 +10,13 @@ http://conceptlogic.com/jcart/
 
 #jcart-error { text-align:center; padding:5px; }
 
-#jcart table { width:100%; border:0; background:#fff; border-collapse:collapse; }
+#jcart table { width:100%; border:0; background:#fff; border-collapse:collapse; margin-top: 25px; }
 #jcart thead {  }
-#jcart-title {  }
+#jcart-title { font-size: 15px; }
 #jcart tbody {  }
 #jcart tfoot {  }
 #jcart tr {  }
-#jcart th { background:#ccffcc }
+#jcart th { }
 #jcart th, #jcart td { padding:5px; border:0; border:solid 1px #ccc; vertical-align:middle; text-align:left; font-weight:normal; }
 #jcart #jcart-empty { text-align:center; }
 

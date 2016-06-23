@@ -446,7 +446,10 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>       
+		<?php 
+			$price = $IsPromo ? $priceNew : $priceOld;
+		?> 
         <form method="post" action="" class="jcart">            
             <input type="hidden" name="jcartToken" value="<?php echo $_SESSION['jcartToken'];?>" />
             <input type="hidden" name="my-item-id" value="<?php echo $id ?>" id="my-item-id" />
@@ -454,7 +457,8 @@ $(document).ready(function () {
             <input type="hidden" name="my-item-price" value="<?php echo ($price == "" ? 0 : $price) ?>" id="my-item-price" />
             <input type="hidden" name="my-item-size" value="<?php echo $sizeCart ?>" id="my-item-size" />
             <input type="hidden" name="my-item-color" value="<?php echo $colorCart ?>" id="my-item-color" />
-            <input type="hidden" name="my-item-url" value="" />
+            <input type="hidden" name="my-item-image" value="<?php echo $image ?>" id="my-item-image" />
+            <input type="hidden" name="my-item-url" value="./Detail.php?id=<?php echo $id?>" />
             <input type="hidden" name="my-item-qty" value="1" size="3" />                                           
            	<input class="buyproduct" type="submit" name="my-add-button" value="add to cart" style="display:none;" />
 		</form>

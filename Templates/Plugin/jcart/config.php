@@ -21,8 +21,9 @@ $config['item']['id']             = 'my-item-id';    // Item id
 $config['item']['name']           = 'my-item-name';    // Item name
 $config['item']['price']          = 'my-item-price';    // Item price
 $config['item']['qty']            = 'my-item-qty';    // Item quantity
-$config['item']['size']          = 'my-item-size';    // Item price
-$config['item']['color']          = 'my-item-color';    // Item price
+$config['item']['size']          = 'my-item-size';    // Item size
+$config['item']['color']          = 'my-item-color';    // Item color
+$config['item']['image']          = 'my-item-image';    // Item image
 $config['item']['url']            = 'my-item-url';    // Item URL (optional)
 $config['item']['add']            = 'my-add-button';    // Add to cart button
 
@@ -43,6 +44,10 @@ $config['csrfToken']              = false;
 
 // Override default cart text
 $config['text']['cartTitle']      = '';    // Tổng số hàng
+$config['text']['cartTitleDetail1']= '';    // Cảm ơn Quý khách...
+$config['text']['cartTitleDetail2']= '';    // Cảm ơn Quý khách...
+$config['text']['cartTitleDetail3']= '';    // Cảm ơn Quý khách...
+$config['text']['cartTitleDetail4']= '';    // Cảm ơn Quý khách...
 $config['text']['singleItem']     = '';    // Item
 $config['text']['multipleItems']  = '';    // Items
 $config['text']['subtotal']       = '';    // Subtotal

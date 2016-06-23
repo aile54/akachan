@@ -10,7 +10,7 @@ class database {
                 //$db_user = "hangnhat_chobe";	//---- Your database username.
                 //$db_pass = "hYhnTR34^";	//---- Your database password.
 				$db_user = "root";
-				$db_pass = "root";
+				$db_pass = "";
 		$this->_connection = @mysql_connect($db_host,$db_user,$db_pass);
 		if (!$this->_connection ) 
 		{

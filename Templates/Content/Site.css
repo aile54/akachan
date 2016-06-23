@@ -1057,6 +1057,7 @@ ul
     border-radius: 4px 4px 4px 4px;
     width: 20%; 
 	min-height: 318px;
+	max-height: 337px;
 	/*height: 290px;*/
 	/* 	border-color: rgba(0, 0, 0, 0.2); 	box-shadow: 0 1px 1px 1px rgba(70,70,70, 0.2); 	border: 1px solid; 	*/
 }
@@ -3471,10 +3472,11 @@ cursor: pointer;
 	width: 330px;
 }
 
-td.jcart-item-qty input{ 
+td.jcart-item-qty input { 
 	width: 70px;
 	text-align:right;
 	margin: 10px 0px 10px 10px;
+	padding-right: 10px !important;
 }
 
 .jcart-item-price {

@@ -12,8 +12,9 @@ class Jcart {
    private $items     = array();
    private $names     = array();
    private $prices    = array();
-   private $sizes    = array();
+   private $sizes     = array();
    private $colors    = array();
+   private $images    = array();
    private $qtys      = array();
    private $urls      = array();
    private $subtotal  = 0;
@@ -38,8 +39,9 @@ class Jcart {
          $item['id']       = $tmpItem;
          $item['name']     = $this->names[$tmpItem];
          $item['price']    = $this->prices[$tmpItem];
-         $item['size']    = $this->sizes[$tmpItem];
+         $item['size']     = $this->sizes[$tmpItem];
          $item['color']    = $this->colors[$tmpItem];
+         $item['image']    = $this->images[$tmpItem];
          $item['qty']      = $this->qtys[$tmpItem];
          $item['url']      = $this->urls[$tmpItem];
          $item['subtotal'] = $item['price'] * $item['qty'];
@@ -56,12 +58,13 @@ class Jcart {
    * @param float $price
    * @param string $size
    * @param string $color
+   * @param string $image
    * @param mixed $qty
    * @param string $url
    *
    * @return mixed
    */
-   private function add_item($id, $name, $price, $size, $color, $qty = 1, $url) {
+   private function add_item($id, $name, $price, $size, $color, $image, $qty = 1, $url) {
 	  $id = $id . $size . $color;
       $validPrice = false;
       $validQty = false;
@@ -97,6 +100,7 @@ class Jcart {
             $this->prices[$id] = $price;
             $this->sizes[$id] = $size;
             $this->colors[$id] = $color;
+            $this->images[$id] = $image;
             $this->qtys[$id]   = $qty;
             $this->urls[$id]   = $url;
          }
@@ -286,8 +290,9 @@ class Jcart {
       $id    = $config['item']['id'];
       $name  = $config['item']['name'];
       $price = $config['item']['price'];
-      $size = $config['item']['size'];
+      $size  = $config['item']['size'];
       $color = $config['item']['color'];
+      $image = $config['item']['image'];
       $qty   = $config['item']['qty'];
       $url   = $config['item']['url'];
       $add   = $config['item']['add'];
@@ -300,6 +305,7 @@ class Jcart {
          $price = $_POST[$price];
          $size = $_POST[$size];
          $color = $_POST[$color];
+         $image = $_POST[$image];
          $qty   = $_POST[$qty];
          $url   = $_POST[$url];
 
@@ -321,6 +327,7 @@ class Jcart {
       $name  = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
       $size  = filter_var($size, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
       $color  = filter_var($color, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
+      $image  = filter_var($image, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
       $url   = filter_var($url, FILTER_SANITIZE_URL);
 
       // Round the quantity if necessary
@@ -330,7 +337,7 @@ class Jcart {
 
       // Add an item
       if (isset($_POST[$add])) {
-         $itemAdded = $this->add_item($id, $name, $price, $size, $color, $qty, $url);
+         $itemAdded = $this->add_item($id, $name, $price, $size, $color, $image, $qty, $url);
          // If not true the add item function returns the error type
          if ($itemAdded !== true) {
             $errorType = $itemAdded;
@@ -498,21 +505,18 @@ class Jcart {
       echo tab(1) . "<form method='post' action='$checkout'>\n";
       echo tab(2) . "<fieldset>\n";
       echo tab(3) . "<input type='hidden' name='jcartToken' value='{$_SESSION['jcartToken']}' />\n";
+	  echo tab(3) . "<strong id='jcart-title' title='$this->itemCount'>{$config['text']['cartTitle']} ($this->itemCount $itemsText)</strong>\n";
+	  echo tab(3) . "<p>{$config['text']['cartTitleDetail1']} <br> {$config['text']['cartTitleDetail2']} <br> {$config['text']['cartTitleDetail3']} <br> {$config['text']['cartTitleDetail4']}</p>";
       echo tab(3) . "<table border='1' style='border-right:none' id = 'jcartTable' >\n";
       echo tab(4) . "<thead>\n";
-      echo tab(5) . "<tr style='color:#0066DA'>\n";
-      echo tab(6) . "<th colspan='6'>\n";
-  
-	  echo tab(7) . "<strong id='jcart-title' title='$this->itemCount'>{$config['text']['cartTitle']}</strong> ($this->itemCount $itemsText)\n";
+      echo tab(5) . "<tr hidden>\n";
+      echo tab(6) . "<th colspan='7'>\n";
 	  echo tab(6) . "</th>\n";
 	  echo tab(5) . "</tr>". "\n";
 	  if($this->itemCount > 0) {
-		  echo tab(5) . "<tr>\n";
-		  echo tab(6) . "<th style='text-align: center;'>\n";
-		  echo tab(7) . "<strong style = 'font-size: 15px;'>Số lượng</strong>\n";
-		  echo tab(6) . "</th>\n";
-		  echo tab(6) . "<th style='text-align: center;'>\n";
-		  echo tab(7) . "<strong style = 'font-size: 15px;'>Tên hàng</strong>\n";
+		  echo tab(5) . "<tr style='background-color: lightgray'>\n";
+		  echo tab(6) . "<th style='text-align: center;' colspan='2'>\n";
+		  echo tab(7) . "<strong style = 'font-size: 15px;'>Sản phẩm</strong>\n";
 		  echo tab(6) . "</th>\n";
 		  echo tab(6) . "<th style='text-align: center;'>\n";
 		  echo tab(7) . "<strong style = 'font-size: 15px;'>Size</strong>\n";
@@ -520,8 +524,14 @@ class Jcart {
 		  echo tab(6) . "<th style='text-align: center;'>\n";
 		  echo tab(7) . "<strong style = 'font-size: 15px;'>Màu</strong>\n";
 		  echo tab(6) . "</th>\n";
-		  echo tab(6) . "<th style='text-align: center;' colspan='2'>\n";
+		  echo tab(6) . "<th style='text-align: center;'>\n";
 		  echo tab(7) . "<strong style = 'font-size: 15px;'>Giá</strong>\n";
+		  echo tab(6) . "</th>\n";
+		  echo tab(6) . "<th style='text-align: center;'>\n";
+		  echo tab(7) . "<strong style = 'font-size: 15px;'>Số lượng</strong>\n";
+		  echo tab(6) . "</th>\n";
+		  echo tab(6) . "<th style='text-align: center;'>\n";
+		  echo tab(7) . "<strong style = 'font-size: 15px;'>Tổng</strong>\n";
 		  echo tab(6) . "</th>\n";
 		  echo tab(5) . "</tr>". "\n";
 	  }
@@ -530,8 +540,8 @@ class Jcart {
       
       // Display the cart footer
       echo tab(4) . "<tfoot>\n";
-      echo tab(5) . "<tr style='color:#0066DA'>\n";
-      echo tab(6) . "<th colspan='4'>\n";
+      echo tab(5) . "<tr>\n";
+      echo tab(6) . "<th colspan='6' style='border-bottom: none'>\n";
 
       // If this is the checkout hide the cart checkout button
       if ($isCheckout !== true) {
@@ -545,8 +555,12 @@ class Jcart {
 
       echo tab(7) . "<span id='jcart-subtotal'>{$config['text']['subtotal']}: \n";
       echo tab(6) . "</th>\n";
-	  echo tab(6) . "<th style='text-align: right' > <strong>" . number_format($this->subtotal) . "</span>\n";
-	  echo tab(6) . "<th> <strong>$currencySymbol</strong></th>\n";
+	  echo tab(6) . "<th style='text-align: right' rowspan='2'> <strong>" . number_format($this->subtotal) . "</span>\n";
+      echo tab(5) . "</tr>\n";
+      echo tab(5) . "<tr>\n";
+      echo tab(6) . "<th colspan='6' style='border-top: none; color: #E46D0D'>\n";
+	  echo tab(7) . "LƯU Ý: ĐƠN HÀNG TRÊN CHƯA BAO GỒM <u>PHÍ SHIP</u>";
+      echo tab(6) . "</th>\n";
       echo tab(5) . "</tr>\n";
       echo tab(4) . "</tfoot>\n";         
       
@@ -557,34 +571,46 @@ class Jcart {
 
          // Display line items
          foreach($this->get_contents() as $item)   {
+		    //echo "<pre style='width:100%'>";
+		    //print_r($item);
+			//echo $item['image'];
+		   	//echo "</pre>";
             echo tab(5) . "<tr>\n";
-            echo tab(6) . "<td class='jcart-item-qty'>\n";
-            echo tab(7) . "<input name='jcartItemId[]' type='hidden' value='{$item['id']}' />\n";
-            echo tab(7) . "<input id='jcartItemQty-{$item['id']}' name='jcartItemQty[]' size='2' type='text' value='{$item['qty']}' />\n";
-            echo tab(6) . "</td>\n";
-            echo tab(6) . "<td class='jcart-item-name'>\n";
+            echo tab(6) . "<td style='text-align: center; width: 30%'>\n";
 
             if ($item['url']) {
-               echo tab(7) . "<a href='{$item['url']}'>{$item['name']}</a>\n";
+               	echo tab(7) . "<a href='{$item['url']}'><img src='../{$item['image']}' style='width:100%' /></a>\n";
+				echo tab(6) . "</td>\n";
+				echo tab(6) . "<td class='jcart-item-name'>\n";
+               	echo tab(7) . "<div style-'float: right'><a href='{$item['url']}'>{$item['name']}</a></div>\n";
             }
             else {
-               echo tab(7) . $item['name'] . "\n";
+               	echo tab(7) . "<img src='../{$item['image']}' style='width:100%' />\n";
+				echo tab(6) . "</td>\n";
+				echo tab(6) . "<td class='jcart-item-name'>\n";
+               	echo tab(7) . $item['name'] . "\n";
             }
             echo tab(7) . "<input name='jcartItemName[]' type='hidden' value='{$item['name']}' />\n";
             echo tab(6) . "</td>\n";
 			
 			echo tab(6) . "<td class='jcart-item-size'>\n";
-            echo tab(7) . $item['size'] . "\n";
+            echo tab(7) . $item['size'] == 0 ? "" : $item['size'] . "\n";
             echo tab(7) . "<input name='jcartItemSize[]' type='hidden' value='{$item['size']}' />\n";
             echo tab(6) . "</td>\n";
 			echo tab(6) . "<td class='jcart-item-color'>\n";
             echo tab(7) . $item['color'] . "\n";
             echo tab(7) . "<input name='jcartItemColor[]' type='hidden' value='{$item['color']}' />\n";
             echo tab(6) . "</td>\n";
-            
+            echo tab(6) . "<td class=''>\n";
+			echo tab(7) . "<span>" . number_format($item['price']) . "</span>";
+			echo tab(7) . "<input name='jcartItemPrice[]' type='hidden' value='{$item['price']}' />\n";
+            echo tab(6) . "</td>\n";
+            echo tab(6) . "<td class='jcart-item-qty'>\n";
+            echo tab(7) . "<input name='jcartItemId[]' type='hidden' value='{$item['id']}' />\n";
+            echo tab(7) . "<input id='jcartItemQty-{$item['id']}' name='jcartItemQty[]' size='2' type='text' value='{$item['qty']}' />\n";
+            echo tab(6) . "</td>\n";
 			echo tab(6) . "<td class='jcart-item-price'>\n";
-            echo tab(7) . "<span>" . number_format($item['subtotal']) . "</span><input name='jcartItemPrice[]' type='hidden' value='{$item['price']}' />\n</td>\n";
-			echo tab(7) . "<td > $currencySymbol </td>\n";
+            echo tab(7) . "<span>" . number_format($item['subtotal']) . "</span></td>\n";
             echo tab(7) . "<td style = 'border: none; width:73px'><a class='jcart-remove' href='?jcartRemove={$item['id']}'><img src='../Templates/Content/images/Cart/removeCart.png' style='width:24px; float: left; padding: 5px 10px 0 2px' /></a>\n";
             echo tab(6) . "</td>\n";
             echo tab(5) . "</tr>\n";
@@ -593,7 +619,7 @@ class Jcart {
 
       // The cart is empty
       else {
-         echo tab(5) . "<tr><td id='jcart-empty' colspan='5'>{$config['text']['emptyMessage']}</td></tr>\n";
+         echo tab(5) . "<tr><td id='jcart-empty' colspan='6'>{$config['text']['emptyMessage']}</td></tr>\n";
       }
       echo tab(4) . "</tbody>\n";
       echo tab(3) . "</table>\n\n";
