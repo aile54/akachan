@@ -6,7 +6,7 @@
 			
 			$field = 'id,name,image,ordering,alias';
 			
-			$str_img= upload_img('image','../uploads/nsx/',180,84);
+			$str_img= upload_img('image','../Images/Brand/',180,84);
 						
 			// values
 			// format($str,$isComma=1)

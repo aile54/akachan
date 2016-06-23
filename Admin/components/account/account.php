@@ -40,7 +40,7 @@
 					{
 						$values = array(format($_POST["name"],0),format($crypt,0));
 						$res = $tbl->updateObject($field,$values,'id=1');
-						var_dump($res);
+						//var_dump($res);
 						if($res)
 						{
 							echo "Update thành công!!!!";

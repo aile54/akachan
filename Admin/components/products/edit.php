@@ -107,7 +107,8 @@
 							format(isCheck($_POST["chome"]),0),
 							format(isCheck($_POST["chogiadinh"]),0),
 							format($_POST["huongdan"],0),
-							format(rand_name($_POST["name"],$id),0)
+							format(rand_name($_POST["name"],$id),0),
+							format(rand_name($_POST["url"],$id),0)
 							);
 			
 			// updateObject($field=array(),$value=array(),$where)
@@ -344,6 +345,10 @@
 						<td class="first"><strong>SP được yêu thích</strong></td>
 						<td colspan="3" class="last"><input type="checkbox" name="like" <?php loadChecked($row['liked']); ?> /></td>
 					</tr>
+                    <tr>
+                        <td class="first"><strong>URL</strong></td>
+                        <td colspan="3" class="last"><input name="url" type="text" class="text" id="url" value="<?php echo $row['URL']; ?>"/></td>
+                    </tr>
                     <tr class="bg" style="display:none">
 						<td class="first"></td>
 						<td colspan="3" class="last"><input type="checkbox" name="chobe" <?php loadChecked($row['chobe']); ?> /> Cho bé <input type="checkbox" name="chome" <?php loadChecked($row['chome']); ?> /> Cho mẹ <input type="checkbox" name="chogiadinh" <?php loadChecked($row['chogiadinh']); ?> /> Cho gia đình</td>

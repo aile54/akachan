@@ -753,7 +753,7 @@ ul
 	-moz-box-shadow: 4px 2px 10px rgba(0,149,218,0.5);	
 	-webkit-box-shadow: 4px 2px 10px rgba(0,149,218,0.5);	
 	*/
-    font-family: UVNBaiSau_R;
+    font-family: Calibri;
 }
 
 .groupProduct-header div
@@ -3034,7 +3034,8 @@ div.infornews
     font-weight: bold;
     margin: 0px 5px;
     padding: 5px;
-    color: red;
+    color: #0066DA;
+	font-family:Calibri;
 }
 
 .groupTransport

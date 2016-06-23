@@ -107,7 +107,9 @@
 		
 		function countProduct_detail_submenu($cat1id, $cat2id, $cat3id, $flag){
 			$fieldName = array('count(*)');
-			$table = array ('products as pro',
+			$table = array ('products AS pro 
+					 LEFT JOIN (SELECT id, proid, IFNULL(MAX(price), 0) AS price, price_promo, size FROM tabprice GROUP BY proid) AS tp ON pro.`id` = tp.`proid`
+					 LEFT JOIN img AS img ON pro.`id` = img.`proid`',
 					"(SELECT id AS cat1id, name AS cat1name, image AS cat1img 
 						FROM category1 
 						WHERE category1.id = $cat1id) as cat1",
@@ -116,10 +118,8 @@
 						WHERE category2.id = $cat2id) as cat2",
 					"(SELECT id AS cat3id, name AS cat3name, image AS cat3img 
 						FROM category3 
-						WHERE category3.id = $cat3id) as cat3",
-					'(SELECT id as tbid, proid, IFNULL(MAX(price),0) as tbprice, size as tbsize, price_promo as tbprice_promo 
-						FROM tabprice GROUP BY proid) as tp');
-			$conditions = array('pro.id = tp.proid');
+						WHERE category3.id = $cat3id) as cat3");
+			$conditions = array('1= 1');
 			if ($flag == 1)
 			{
 				$conditions[1] = 'pro.catid1 = cat1.cat1id';
@@ -141,6 +141,7 @@
 			$query = $this->createQuery($fieldName, $table, $conditions);
 			$this->setQuery($query);
 			$result = $this->loadResult(); 
+			//echo $query;
 			return $result;
 		}
 		

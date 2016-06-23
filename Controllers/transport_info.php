@@ -50,7 +50,9 @@
                 </div>
             </div>
             <div class="transport-content">
-                <?php echo $result_transport_info[0]['details']; ?>
+                <?php echo $result_transport_info[0]['Display']; ?>
+                        <a href="HuongDan.php?id=<?php echo $result_transport_info[0]['id'] ?>&key=footer" style="color:#FFFFFF">
+                        ...</a>
             </div>
         </div>
         <div class="transport">
@@ -63,7 +65,9 @@
             <div class="transport-content">
                 <div>
                     <div class="transport-content-details">							
-                        <?php echo $result_transport_info[1]['details']; ?>
+                        <?php echo $result_transport_info[1]['Display']; ?>
+                        <a href="HuongDan.php?id=<?php echo $result_transport_info[1]['id'] ?>&key=footer" style="color:#FFFFFF">
+                        ...</a>
                     </div>
                 </div>
             </div>
@@ -78,7 +82,9 @@
             <div class="transport-content">
                 <div>
                     <div class="transport-content-details">
-                        <?php echo $result_transport_info[2]['details']; ?>
+                        <?php echo $result_transport_info[2]['Display']; ?>
+                        <a href="HuongDan.php?id=<?php echo $result_transport_info[2]['id'] ?>&key=footer" style="color:#FFFFFF">
+                        ...</a>
                     </div>
                 </div>
             </div>

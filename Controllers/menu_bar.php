@@ -81,7 +81,7 @@ function divScroll()
                     {
                 ?>
                         <div class="menu_title">
-                            <a href="HuongDan.php?id=<?php echo $resultHDan[$j]["id"] ?>" 
+                            <a href="HuongDan.php?id=<?php echo $resultHDan[$j]["id"] ?>&key=menu" 
                                                 title="<?php echo $resultHDan[$j]["name"] ?>">
                                 <?php echo $resultHDan[$j]["name"] ?>
                             </a>

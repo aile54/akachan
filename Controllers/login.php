@@ -62,7 +62,7 @@
 <!-- ================================ END Login Display ================================ -->
 <!-- ================= ForgotPassword Dialog =============== -->
 <div id="forgotModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true" style="display: none; width: 20%";>
+    aria-hidden="true" style="display: none; ">
     <div class="modal-header cusheader">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="reloadDone()">
             ×</button>
@@ -272,7 +272,32 @@
 		
 		if(IsValid)
 		{
-			$.post("../Models/xl_forgotPassword.php", { email })
+			$.ajax({ url: '../Models/xl_forgotPassword.php',
+					 data: {email: $("#forgotBody input:text#email").val()},
+					 type: 'post',
+					 success: function(output) {
+								  //alert(output);
+								  var result = JSON.parse(output);
+								  //alert(result);
+								  if(result == "NotExisted")
+								{
+									$("#forgotBody div#emailError").text("Email không tồn tại!");
+								}
+								else if (result == "Success")
+								{
+									$("div#message h3").text("Mật khẩu mới đã được gửi qua email của bạn. Vui lòng kiểm tra email!");
+									$("#forgotModal").modal("hide");
+									$("#MessageModal").modal("show");
+								}
+								else if (result == "Fail")
+								{
+									$("div#message h3").text("Có lỗi, hiện tại không thể cấp lại mật khẩu! Vui lòng liên hệ!");
+									$("#forgotModal").modal("hide");
+									$("#MessageModal").modal("show");
+								}
+							  }
+				});
+			/*$.post("../Models/xl_forgotPassword.php", { email })
 				.done(function(data) {
 					var result = $.parseJSON(data);
 					if(result == "NotExisted")
@@ -299,7 +324,7 @@
 				  })
 				.success(function() {
 					//alert( "finished" );
-				});
+				});*/
 		}
 	}
 	
@@ -402,9 +427,42 @@
 			IsValid = false;
 		}
 		
+		alert(IsValid);
 		if(IsValid)
 		{
-			$.post("../Models/xl_register.php", { name, facebookname, phone, username, address, email, password, password2 })
+			$.ajax({ url: '../Models/xl_register.php',
+					 data: {name: $("#regisBody input:text#name").val(),
+					 		facebookname: $("#regisBody input:text#facebookname").val(),
+							phone:$("#regisBody input:text#phone").val(),
+							username:$("#regisBody input:text#username").val(),
+							address:$("#regisBody input:text#address").val(),
+							email:$("#regisBody input:text#email").val(),
+							password:$("#regisBody input:password#password").val(),
+							password2: $("#regisBody input:password#password2").val()},
+					 type: 'post',
+					 success: function(output) {
+								  	//alert(output);
+								  	var result = JSON.parse(output);
+								  	//alert(result);
+								  	if(result == "isExisted")
+									{
+										$("#regisBody div#usernameError").text("Tên đăng nhập đã tồn tại");
+									}
+									else if (result == "isExistedEmail")
+									{
+										$("#regisBody div#emailError").text("Email đã tồn tại");
+									}
+									else if(result)
+									{
+										AjaxLogin(username, password);
+									}
+									else
+									{
+										$("#regisBody div#usernameError").text("Đăng ký thất bại!");
+									}
+							  }
+				});
+			/*$.post("../Models/xl_register.php", { name, facebookname, phone, username, address, email, password, password2 })
 				.done(function(data) {
 					var result = $.parseJSON(data);
 					if(result == "isExisted")
@@ -430,7 +488,7 @@
 					$("#MessageModal").modal("show");
 				  })
 				.success(function() {
-				});
+				});*/
 		}
 	}
 </script>

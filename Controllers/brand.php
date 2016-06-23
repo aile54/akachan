@@ -8,27 +8,29 @@
     <div class="groupProduct">					
         <div class="groupBrand-header">
             <div>
-                Các thương hiệu có mặt tại Akachan-shop
+                <a href="../Views/Brand.php" >
+                	Các thương hiệu có mặt tại Akachan-shop
+                </a>
             </div>
         </div>
         <div class="groupProduct-content marginCenter" id="featured_products">
             <!-- in our example the container has id="my-als-list" thus ALS is initialized like this -->
             
             <script type="text/javascript">
-				$(document).ready(function(){
-					$("#demo3").als({
-						visible_items: 8,
-						scrolling_items: 2,
-						orientation: "horizontal",
-						circular: "yes",
-						autoscroll: "yes",
-						interval: 5000,
-						speed: 400,
-						easing: "linear",
-						direction: "right",
-						start_from: 1
-					});
-				});	
+                $(document).ready(function(){
+                    $("#demo3").als({
+                        visible_items: 8,
+                        scrolling_items: 2,
+                        orientation: "horizontal",
+                        circular: "yes",
+                        autoscroll: "yes",
+                        interval: 5000,
+                        speed: 400,
+                        easing: "linear",
+                        direction: "right",
+                        start_from: 1
+                    });
+                });	
             </script>
 
             <!-- define a container with class "als-container": this will be the object binded to ALS; we suggest to give it an ID
@@ -40,7 +42,7 @@
                 they define the buttons "previous" and "next"; within the <span> you can use images or simple text -->	
                 
                 <span class="als-prev" data-id="als-prev_3">
-                	<img src="../Templates/Content/images/icon/back.ico" alt="prev" title="previous" width="25px">
+                    <img src="../Templates/Content/images/icon/back.ico" alt="prev" title="previous" width="25px">
                 </span>
                 
                 <!-- define a container with class "als-viewport": this will be the viewport for the list visible elements -->
@@ -51,7 +53,7 @@
                     it can be a classic <ul> element or even a <div> element -->
                     
                     <ul class="als-wrapper">
-						<?php 
+                        <?php 
                             for($i = 0; $i < count($result); $i++)
                             {
                                 $alias = $result[$i]['alias'];
@@ -86,7 +88,7 @@
                     </ul> <!-- als-wrapper end -->
                 </div> <!-- als-viewport end -->
                 <span class="als-next" data-id="als-next_3">
-                	<img src="../Templates/Content/images/icon/next.ico" alt="next" title="next" width="25px">
+                    <img src="../Templates/Content/images/icon/next.ico" alt="next" title="next" width="25px">
                 </span>
             </div> <!-- als-container end -->
             

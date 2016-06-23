@@ -114,7 +114,7 @@ $( document ).ready(function() {
 						}
 					}
 					
-					xmlhttp.open("GET","../Models/captcha_code.php?reset=1",true);
+					xmlhttp.open("GET","../../Models/captcha_code.php?reset=1",true);
 					xmlhttp.send();
 			</script>
 			<?php

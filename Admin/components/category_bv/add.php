@@ -4,7 +4,7 @@
 	if(isset($_POST["done"])){
 		if(test_isset1('category_bv','alias',$_POST['name'])==0){	
 			
-			$field = 'id,name,image,details,ordering,alias';
+			$field = 'id,name,image,details,display,ordering,alias';
 			
 			$str_img= upload_img('image','../Images/Category_bv/',231,49);
 						
@@ -15,6 +15,7 @@
 			$values.= format($_POST["name"],1);
 			$values.= format(str_replace('../','',$str_img),1);
 			$values.= format($_POST["details"],1);
+			$values.= format($_POST["detailsDisplay"],1);
 			$values.= format($_POST['ordering'],1);
 			$values.= format(convert($_POST["name"]),0);
 			
@@ -67,6 +68,19 @@
 						oEdit2.height="100%";		
 						oEdit2.cmdAssetManager = "modalDialogShow('/inv/assetmanager/assetmanager.php',640,400)"; //Command to open the Asset Manager add-on.
 						oEdit2.REPLACE("details");//Specify the id of the textarea here
+						</script></td>
+					</tr>
+                    <tr class="bg">
+						<td class="first"><strong>Nội dung (Hiển thị)</strong></td>
+						<td colspan="2" class="last editor">
+                        	<textarea name="detailsDisplay" cols="80" rows="2" id="detailsDisplay" style="width: 100%" ></textarea>
+                        <script> //STEP 2: Replace the textarea (txtContent)
+						var oEdit3 = new InnovaEditor("oEdit3");
+						oEdit3.arrStyle=[["BODY",false,"","font-family:Tahoma,Arial,Helvetica;font-size:10pt"]];
+						oEdit3.width="100%";//You can also use %, for example: oEdit1.width="100%"
+						oEdit3.height="100%";		
+						oEdit3.cmdAssetManager = "modalDialogShow('/inv/assetmanager/assetmanager.php',640,400)"; //Command to open the Asset Manager add-on.
+						oEdit3.REPLACE("detailsDisplay");//Specify the id of the textarea here
 						</script></td>
 					</tr>
                     <tr>

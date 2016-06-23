@@ -7,7 +7,7 @@
 	
 	if(isset($_POST["done"])){
 		if(test_isset1('category_bv','alias',$_POST['name'],$id)==0){
-			$field = array('name','image','details','ordering','alias');
+			$field = array('name','image','details','display','ordering','alias');
 			
 			$img = edit_img('../','Images/Category_bv/','category_bv','image',$_POST['tmpimage'],$id,231,49);
 			
@@ -15,6 +15,7 @@
 						format($_POST["name"],0) ,
 						format($img,0) ,
 						format($_POST["details"],0) ,
+						format($_POST["detailsDisplay"],0),
 						format($_POST['ordering'],0),
 						format(convert($_POST["name"]),0)
 						);
@@ -31,6 +32,7 @@
 	$res = $tbl->loadOne('id='.$id);
 	if($res){
 			$row=mysql_fetch_array($res);
+			//var_dump($row);
 			$thumb_img = get_thumb('Images/Category_bv/',$row['image']);
 ?>
 <div id="center-column">
@@ -66,7 +68,8 @@
 					</tr>
                     <tr class="bg">
 						<td class="first"><strong>Details</strong></td>
-						<td colspan="2" class="last editor"><textarea name="details" cols="80" rows="2" id="details" style="width: 100%"><?php echo $row['details']
+						<td colspan="2" class="last editor">
+                        <textarea name="details" cols="80" rows="2" id="details" style="width: 100%"><?php echo $row['details']
 						; ?></textarea>
                         <script> //STEP 2: Replace the textarea (txtContent)
 						var oEdit2 = new InnovaEditor("oEdit2");
@@ -75,6 +78,21 @@
 						oEdit2.height="100%";		
 						oEdit2.cmdAssetManager = "modalDialogShow('/inv/assetmanager/assetmanager.php',640,400)"; //Command to open the Asset Manager add-on.
 						oEdit2.REPLACE("details");//Specify the id of the textarea here
+						</script></td>
+					</tr>
+                    <tr class="bg">
+						<td class="first"><strong>Nội dung (Hiển thị)</strong></td>
+						<td colspan="2" class="last editor">
+                        	<textarea name="detailsDisplay" cols="80" rows="2" id="detailsDisplay" style="width: 100%" >
+                            	<?php echo $row['Display']; ?>
+                            </textarea>
+                        <script> //STEP 2: Replace the textarea (txtContent)
+						var oEdit3 = new InnovaEditor("oEdit3");
+						oEdit3.arrStyle=[["BODY",false,"","font-family:Tahoma,Arial,Helvetica;font-size:10pt"]];
+						oEdit3.width="100%";//You can also use %, for example: oEdit1.width="100%"
+						oEdit3.height="100%";		
+						oEdit3.cmdAssetManager = "modalDialogShow('/inv/assetmanager/assetmanager.php',640,400)"; //Command to open the Asset Manager add-on.
+						oEdit3.REPLACE("detailsDisplay");//Specify the id of the textarea here
 						</script></td>
 					</tr>
 					<tr>

@@ -4,7 +4,8 @@
 	if(isset($_POST["done"])){
 		if(test_isset1('products','mavach',$_POST['mavach'])==0){		
 			// get field
-			$field = 'id,catid1,catid2,catid3,chuyenmucid,name,mavach,ghichu,nsx,status,image,color,details,new,promo,typical,featured,liked,chobe,chome,chogiadinh,huongdan,alias';
+			$field = 'id,catid1,catid2,catid3,chuyenmucid,name,mavach,ghichu,nsx,status,image,color,
+			details,new,promo,typical,featured,liked,chobe,chome,chogiadinh,huongdan,url,alias';
 			
 			// upload file
 			// uploadFile($file,$auto=1,$dir='uploads/images/')
@@ -45,6 +46,7 @@
 			// get values
 			// format
 			// format($str,$isComma=1)
+		
 			$id = $tbl->getLastId()+1;
 			$values = format($id,1);
 			$values.= format($_POST["catid1"],1);
@@ -68,6 +70,7 @@
 			$values.= format(isCheck(isset($_POST["chome"])),1);
 			$values.= format(isCheck(isset($_POST["chogiadinh"])),1);
 			$values.= format($_POST["huongdan"],1);
+			$values.= format($_POST["url"],1);
 			$values.= format(rand_name($_POST["name"],$id),0);
 			//echo $values;
 			// insertObject($field,$value)
@@ -243,6 +246,10 @@
             <tr class="bg">
                 <td class="first"><strong>SP được yêu thích</strong></td>
                 <td colspan="3" class="last"><input type="checkbox" name="like" /></td>
+            </tr>
+            <tr>
+                <td class="first"><strong>URL</strong></td>
+                <td colspan="3" class="last"><input name="url" type="text" class="text" id="url" /></td>
             </tr>
             <tr class="bg" style="display:none">
                 <td class="first">&nbsp;</td>

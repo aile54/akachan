@@ -1,6 +1,6 @@
 <?php
-include "class.phpmailer.php"; 
-include "class.smtp.php";
+include_once "class.phpmailer.php"; 
+include_once "class.smtp.php";
 
 function send_gmail($from_email, $from_email_pass, $to_email, $to_name, $subject, $content, $from_name='')
 {

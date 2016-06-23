@@ -108,6 +108,7 @@
 																	$result_submenu[$i]['cat3id'],
 																	$flag);
 			//var_dump($result_submenu[$i]['cat3id']);	
+//			var_dump("</br>");	
 			$product_detail_submenu = null;
 			$product_detail_submenu = $xl_submenu_db->getProduct_detail_submenu($result_submenu[$i]['cat1id'],
 																	$result_submenu[$i]['cat2id'],
@@ -460,6 +461,7 @@
                             }
                             else if($flag == 3 || $flag == 5 || $flag == 4)
                             { 
+								//echo $total;
                                 if($pages != 1){
                             ?>
                                     <div class="phan_trang" style="width:775px; text-align:center">
