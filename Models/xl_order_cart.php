@@ -30,6 +30,9 @@
 	$phone = $_POST["phone"];
 	$email = $_POST["email"];
 	$loinhan = !empty($_POST["loinhan"]) ? $_POST["loinhan"] : 'NULL';
+	$paidtype = $_POST["paidtype"];
+	$shiptype = $_POST["shiptype"];
+	$coupon = $_POST["coupon"];
 	
 	$name_nn = $_POST["name_nn"];
 	$address_nn = $_POST["address_nn"];
@@ -75,15 +78,17 @@
 												   '" . $email_nn . "',
 												   '" . $loinhan . "',
 												   '" . $ngaygiao . "',
-												   '" . $ngaydat . "')";
+												   '" . $ngaydat . "',
+												   '" . $shiptype . "',
+												   '" . $paidtype . "',
+												   '" . $coupon . "')";
 		mysql_query("SET character_set_client=utf8");
 		mysql_query("SET character_set_connection=utf8");
 		$insertOk = mysql_query($query);
-		
 		if($insertOk)
 		{												   
 			$orderid = mysql_insert_id();
-						
+			
 			foreach ($jcart->get_contents() as $item) {
 				$productid = !empty($item['id']) ? $item['id'] : 'NULL';
 				$quantity = !empty($item['qty']) ? $item['qty'] : 'NULL';

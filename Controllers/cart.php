@@ -61,81 +61,108 @@ if (!isset($_SESSION)) {
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onClick="reloadDone()">
             ×</button>
         <h3 id="myModalLabel" style="font-size: 23px; margin-top: 5px;">
-            Nhập thông tin cá nhân
+            GỬI ĐƠN HÀNG
         </h3>
     </div>
     <div class="modal-body" id="ordercartBody">
     	<table class="noborder" style="margin-top:5px;">
         	<tbody>
-                <tr>
-                	<td colspan = "3">               	
-                        <img src="../Templates/Content/images/Layout/customer-icon.png" style="width:24px; float: left; padding: 5px 10px 0 2px" />
-                        <h4 style="color:#0093d0;">Thông tin đặt hàng: </h4>
+				<tr>
+                	<td> <b>Thông tin khách hàng</b> </td>
+				</tr>
+				<tr>
+                	<td align="center"> 
+                        <i class="icon-envelope" style="position: absolute; z-index: 1; margin: 11px 0px 0px 8px;"></i>
+                    	<input type="text" name="email" id="email" placeholder="Email" /> 
+                    </td>
+                    <td> 
+                    	<div id="emailError" class="mustInput"></div> 
+                    </td>
+				</tr>
+				<?php if(isset($_SESSION['userid']) && !empty($_SESSION['userid']))
+				{
+				}
+				else
+				{
+				?>
+				<tr>
+                	<td> 
+						Bạn đã đăng kí tài khoản? Vui lòng 
+						<b>
+							<a data-toggle="modal" href="#loginModal" title="Đăng nhập" style="text-decoration: none;" onclick="$('#CustomerDetailCartModal').modal('hide')">
+								ĐĂNG NHẬP
+							</a>
+						</b>
+					</td>
+				</tr>
+				<?php
+				}
+				?>
+            	<tr>
+                	<td align="center"> 
+                    	<i class="icon-user" style="position: absolute; z-index: 1; margin: 11px 0px 0px 8px;"></i>
+                        <input type="text" name="name" id="name" size='25' placeholder="Họ & Tên" />
+                    </td>
+                    <td> 
+                    	<div id="nameError" class="mustInput"></div> 
                     </td>
                 </tr>
             	<tr>
-                	<td> Họ và tên<span class="mustInput"> (*) </span>: </td>
-                	<td> <input type="text" id="name" /> </td>
-                    <td> <div id="nameError" class="mustInput"></div> </td>
-                </tr>
-            	<tr>
-                	<td> Địa chỉ<span class="mustInput"> (*) </span>: </td>
-                	<td> <input type="text" id="address" /> </td>
-                    <td> <div id="addressError" class="mustInput"></div> </td>
-                </tr>
-            	<tr>
-                	<td> ĐT di động<span class="mustInput"> (*) </span>: </td>
-                	<td> <input type="text" id="phone" /> </td>
-                    <td> <div id="phoneError" class="mustInput"></div> </td>
-                </tr>
-            	<tr>
-                	<td> Email<span class="mustInput"> (*) </span>: </td>
-                	<td> <input type="text" id="email" /> </td>
-                    <td> <div id="emailError" class="mustInput"></div> </td>
-                </tr>
-                <tr>
-                	<td> Lời nhắn: </td>
-                	<td> <textarea id="loinhan"></textarea> </td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="checkUsingInfor" >
-        	<input type="checkbox" onClick="checkUsingInfor()" style="margin: -2px 5px 0 0;"> Thông tin đặt hàng là thông tin nhận hàng
-       	</div>
-    	<table class="noborder table_nn" style="margin-top:5px;">
-        	<tbody>
-                <tr>
-                	<td colspan = "3">
-                        <img src="../Templates/Content/images/Layout/address-icon.png" style="width:24px; float: left; padding: 5px 10px 0 2px" />
-                        <h4 style="color:#0093d0;">Thông tin nhận hàng: </h4>
+                	<td align="center"> 
+                    	<i class="icon-book" style="position: absolute; z-index: 1; margin: 11px 0px 0px 8px;"></i>
+                        <input type="text" name="phone" id="phone" placeholder="Số điện thoại" /> 
+                    </td>
+                    <td> 
+                    	<div id="phoneError" class="mustInput"></div> 
                     </td>
                 </tr>
             	<tr>
-                	<td> Họ và tên người nhận: </td>
-                	<td> <input type="text" id="name_nn" /> </td>
-                    <td> <div id="name_nnError" class="mustInput"></div> </td>
+                	<td align="center"> 
+                        <i class="icon-home" style="position: absolute; z-index: 1; margin: 11px 0px 0px 8px;"></i>
+                    	<input type="text" name="address" id="address" placeholder="Địa chỉ" /> 
+                    </td>
+                    <td> 
+                    	<div id="addressError" class="mustInput"></div> 
+                    </td>
                 </tr>
-            	<tr>
-                	<td> Địa chỉ người nhận: </td>
-                	<td> <input type="text" id="address_nn" /> </td>
-                    <td> <div id="address_nnError" class="mustInput"></div> </td>
-                </tr>
-            	<tr>
-                	<td> ĐT di động người nhận: </td>
-                	<td> <input type="text" id="phone_nn" /> </td>
-                    <td> <div id="phone_nnError" class="mustInput"></div> </td>
-                </tr>
-            	<tr>
-                	<td> Email người nhận: </td>
-                	<td> <input type="text" id="email_nn" /> </td>
-                    <td> <div id="email_nnError" class="mustInput"></div> </td>
-                </tr>
+				<tr>
+                	<td> <b>Cách thức giao hàng</b> </td>
+				</tr>
+				<tr>
+                	<td> <label for=""><input type="radio" id="shipType" name="shipType" value="1" style="margin: 0px" checked/> Giao hàng tận nhà </label> </td>
+				</tr>
+				<tr>
+                	<td> <b>Phương thức thanh toán</b> </td>
+				</tr>
+				<tr>
+                	<td> <label for=""><input type="radio" id="paidType" name="paidType" value="1" style="margin: 0px" checked/> Thanh toán trực tiếp (tiền mặt) </label> </td>
+				</tr>
+				<tr>
+                	<td> <label for=""><input type="radio" id="paidType" name="paidType" value="2" style="margin: 0px"/> Tài khoản ngân hàng </label>	</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td> <b>Nhập mã ưu đãi:<b> <input type="text" name="coupon" id="coupon" placeholder="Điền mã ưu đãi" maxlength="20"/> </td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+                	<td> <b>Thông tin bổ sung</b> </td>
+				</tr>
+				<tr>
+                	<td> Nếu bạn muốn thêm ghi chú về đơn hàng của bạn, xin vui lòng nhập vào đây </td>
+				</tr>
+				<tr>
+                	<td> <textarea class="form-control" cols="5" id="loinhan" style="width:100%"></textarea> </td>
+				</tr>
             </tbody>
         </table>
     </div>
     <div class="modal-footer">
-        <input type="button" value="<< Quay lại" onClick="backCart()" class="btn btn-success">
+        <input type="button" value="<< Quay lại" onClick="backCart()" class="btn btn-success" style="float: left">
         <input type="button" value="Xác nhận" onClick="sendCart()" class="btn btn-success">
     </div>
 </div>
@@ -167,8 +194,6 @@ if (!isset($_SESSION)) {
 		if($("div#jcart").has("td#jcart-empty").length == 0)
 		{
 			$("#DetailCartModal").modal("hide");
-			$("div.checkUsingInfor input:checkbox").prop('checked', false);
-			checkUsingInfor();
 			clearError();
 			clearInput();
 			clearInput_nn();
@@ -182,19 +207,6 @@ if (!isset($_SESSION)) {
 		$("#CustomerDetailCartModal").modal("hide");
 		$("#DetailCartModal").modal("show");
 	}
-	function checkUsingInfor()
-	{
-		var ele = $("div.checkUsingInfor input:checkbox");
-		if(ele.is(':checked')){
-			ele.prop('checked', true);
-			$("table.table_nn").hide("slow");
-			clearInput_nn();
-			clearError_nn();
-		}else{
-			ele.prop('checked', false);
-			$("table.table_nn").show("slow");
-		}
-	}
 	function sendCart()
 	{
 		$("#ordercartBody input:text#name").select();
@@ -203,20 +215,14 @@ if (!isset($_SESSION)) {
 		var phone = $("#ordercartBody input:text#phone").val();
 		var email = $("#ordercartBody input:text#email").val();
 		var loinhan = $("#ordercartBody textarea#loinhan").val();
+		var shiptype = $("#ordercartBody #shipType:checked").val();
+		var paidtype = $("#ordercartBody #paidType:checked").val();
+		var coupon = $("#ordercartBody input:text#coupon").val();
 		
-		var name_nn = $("#ordercartBody input:text#name_nn").val();
-		var address_nn = $("#ordercartBody input:text#address_nn").val();
-		var phone_nn = $("#ordercartBody input:text#phone_nn").val();
-		var email_nn = $("#ordercartBody input:text#email_nn").val();
-		
-		
-		var check = $("div.checkUsingInfor input:checkbox");
-		if(check.is(':checked')){
-			name_nn = name;
-			address_nn = address;
-			phone_nn = phone;
-			email_nn = email;
-		}
+		var name_nn = name;
+		var address_nn = address;
+		var phone_nn = phone;
+		var email_nn = email;
 		
 		var IsValid = true;
 		
@@ -274,60 +280,9 @@ if (!isset($_SESSION)) {
 			}
 		}
 		
-		if(!check.is(':checked')){
-			clearError_nn();
-			// name
-			if(!$.trim(name_nn))
-			{
-				$("#ordercartBody div#name_nnError").text(errorNull);
-				IsValid = false;
-			}
-			
-			// address
-			if(!$.trim(address_nn))
-			{
-				$("#ordercartBody div#address_nnError").text(errorNull);
-				IsValid = false;
-			}
-			
-			// phone
-			if(!$.trim(phone_nn))
-			{
-				$("#ordercartBody div#phone_nnError").text(errorNull);
-				IsValid = false;
-			}
-			else if(!$.isNumeric($.trim(phone_nn)))
-			{
-				$("#ordercartBody div#phone_nnError").text(errorNumber);
-				IsValid = false;
-			}
-			else if($.trim(phone_nn).length < 7)
-			{
-				$("#ordercartBody div#phone_nnError").text(errorChar7);
-				IsValid = false;
-			}
-			
-			// email
-			if(!$.trim(email_nn))
-			{
-				$("#ordercartBody div#email_nnError").text(errorNull);
-				IsValid = false;
-			}
-			else
-			{
-				var atpos = $.trim(email_nn).indexOf("@");
-				var dotpos = $.trim(email_nn).lastIndexOf(".");
-				if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=$.trim(email_nn).length)
-				{
-					$("#ordercartBody div#email_nnError").text(errorEmail);
-					IsValid = false;
-				}
-			}
-		}
 		if(IsValid)
 		{
-			$.post("../Models/xl_order_cart.php", { name: name, address: address, phone: phone, email: email, loinhan: loinhan,
-											name_nn: name_nn, address_nn: address_nn, phone_nn: phone_nn, email_nn: email_nn })
+			$.post("../Models/xl_order_cart.php", { name, address, phone, email, loinhan, name_nn, address_nn, phone_nn, email_nn, shiptype, paidtype, coupon })
 				.done(function(data) {
 					var result = $.parseJSON(data);
 					if(result)
@@ -378,6 +333,9 @@ if (!isset($_SESSION)) {
 					$("#ordercartBody input:text#address_nn").val(address_nn);
 					$("#ordercartBody input:text#phone_nn").val(phone_nn);
 					$("#ordercartBody input:text#email_nn").val(email_nn);
+					
+					$("#ordercartBody #shipType").prop("checked", true);
+					$($("#ordercartBody #paidType:first-child")[0]).prop("checked", true);
 				}
 			})
 			.fail(function() {
@@ -413,6 +371,7 @@ if (!isset($_SESSION)) {
 		$("input#email").val("");
 		$("textarea#loinhan").val("");
 		$("input#cmnd").val("");
+		$("input#coupon").val("");
 	}
 	
 	function clearError_nn()

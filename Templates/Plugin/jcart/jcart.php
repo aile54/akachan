@@ -65,7 +65,7 @@ class Jcart {
    * @return mixed
    */
    private function add_item($id, $name, $price, $size, $color, $image, $qty = 1, $url) {
-	  $id = $id . $size . $color;
+	  $id = $id;
       $validPrice = false;
       $validQty = false;
 

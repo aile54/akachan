@@ -86,7 +86,6 @@ else {
 		$queryString .= '&notify_url=' . urlencode($config['paypal']['notifyUrl']);
 		
 		foreach ($jcart->get_contents() as $item) {
-
 			$queryString .= '&item_number_' . $count . '=' . urlencode($item['id']);
 			$queryString .= '&item_name_' . $count . '=' . urlencode($item['name']);
 			$queryString .= '&amount_' . $count . '=' . urlencode($item['price']);
