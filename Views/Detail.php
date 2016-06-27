@@ -5,7 +5,7 @@
 	}
 	require_once('../Admin/library/loader.php');
 ?>
-<html><!-- InstanceBegin template="/Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="../Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
     <meta charset="UTF-8">
     <!-- InstanceBeginEditable name="doctitle" -->
@@ -58,7 +58,7 @@
     <link href="../Templates/Content/jquery-ui.css" rel="stylesheet" type="text/css">
     <link href="../Templates/Content/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="../Templates/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="../Templates/Plugin/jcart/css/jcart.css">
+	<link rel="stylesheet" type="text/css" href="Plugin/jcart/css/jcart.css">
     <script type="text/javascript">
         $(document).ready(function () {
             $('.carousel').carousel({
@@ -633,6 +633,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- END -->
+    
     <div style="display: none; position: absolute; z-index: 110; left: -800px" id="trailimageid">
     </div>
     <div id="global-common-message" class="commonMessage">
@@ -722,5 +723,6 @@
     <!-- ==============Counter Visitors============== -->
     <?php include_once("../Controllers/countervisitors.php"); ?> 
     <!-- ================================ END Counter Visitors ================================ -->
+    
 </body>
 <!-- InstanceEnd --></html>

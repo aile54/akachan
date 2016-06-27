@@ -8,7 +8,7 @@ if(count($items) > 0)
 <section id="content">
 <div class="groupProduct" style="padding:10px 0px 0px 0px">
     <div class="product-header" >
-        <div>
+        <div style="font-family: calibri;">
             CÓ THỂ BẠN QUAN TÂM
         </div>
     </div>

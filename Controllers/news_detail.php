@@ -1,3 +1,5 @@
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-576abf001771b77c"></script>
 <style>
 ul#others li a {
     color: #000066;
@@ -22,22 +24,35 @@ ul#others li a:hover {
                 <div class = "header-news">
                     <?php echo $result[0]['name']?>
                     
-					<script>
+					<!--<script>
                         $(document).ready(function() {
                             new Share(".share-button");
                         });
                     </script>
                     <div style="color: Black; font-size: 13px; font-style: normal; padding: 0px 15px 0px 0px; float:right">
                         <div class ="share-button"></div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
+        
         <div class="detailsnews">
             <div class="newsdetails-info">
                 <div class="infonews">
                     <?php echo $result[0]['detailsInfo'] ?>
                 </div>
+                
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_native_toolbox" style="float:right;"></div>
+                <!-- test facebook like -->
+                    <div class="fb-like" 
+                        data-href="<?php echo $result[0]['URL']; ?>" 
+                        data-layout="button_count" 
+                        data-action="like" 
+                        data-show-faces="true" 
+                        style="float:right;"></div>
+                        
+                    
                 <div class="details-Info">
 					<?php
 						?>

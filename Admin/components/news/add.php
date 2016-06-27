@@ -4,7 +4,7 @@
 	if(isset($_POST["done"])){
 			
 			// get field
-			$field = 'id,name,details,image,hot,date_add,alias,lang';
+			$field = 'id,name,details,image,hot,date_add,alias,url,lang';
 			
 			$str_img= upload_img('image','../Images/News/',250,163);
 			
@@ -17,6 +17,7 @@
 			$values.= format(isCheck(isset($_POST["hot"])),1);
 			$values.= format(time(),1);
 			$values.= format(rand_name($_POST["name"],$id),1);
+			$values.= format($_POST["url"],1);
 			$values.= format('0',0);
 			
 			// insertObject($field,$value)
@@ -84,6 +85,10 @@
 						<td width="135" class="first"><strong>Hình ảnh</strong></td>
 						<td colspan="3" class="last"><input name="image" type="file" id="image"  /> </td>
 					</tr>
+                    <tr>
+                        <td class="first"><strong>URL</strong></td>
+                        <td colspan="3" class="last"><input name="url" type="text" class="text" id="url" /></td>
+                    </tr>
                     <tr>
 						<td class="first"><strong>Hot</strong></td>
 						<td class="last"><input name="hot" type="checkbox"/></td>

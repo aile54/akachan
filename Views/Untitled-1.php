@@ -56,6 +56,7 @@
     <link href="../Templates/Content/jquery-ui.css" rel="stylesheet" type="text/css">
     <link href="../Templates/Content/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="../Templates/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="Plugin/jcart/css/jcart.css">
     <script type="text/javascript">
         $(document).ready(function () {
             $('.carousel').carousel({

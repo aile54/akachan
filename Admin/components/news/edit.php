@@ -6,7 +6,7 @@
 	
 	if(isset($_POST["done"])){
 						
-			$field = array('catid','name','details','image','hot','date_add','alias');
+			$field = array('catid','name','details','image','hot','date_add','alias','url');
 			
 			$img = edit_img('../','Images/News/','news','image',$_POST['tmpimage'],$id,250,163);		
 
@@ -17,7 +17,8 @@
 						format($img,0) ,
 						format(isCheck(isset($_POST["hot"])),0),
 						format(strtotime(date('H:i:s ').$_POST["date_add"]),0),
-						format(rand_name($_POST["name"],$id),0)
+						format(rand_name($_POST["name"],$id),0),
+						format($_POST["url"],0) ,
 						);
 			// insertObject($field,$value)
 			$res = $tbl->updateObject($field,$values,'id='.$id);
@@ -97,6 +98,10 @@ if($res){
                                 <img style="cursor:pointer;" src="js/calendar/images/calendar.gif" onClick="displayCalendar(document.forms[0].date_add,'dd-mm-yyyy',this)" >
                     	</td>
 					</tr>
+                    <tr>
+                        <td class="first"><strong>URL</strong></td>
+                        <td colspan="3" class="last"><input name="url" type="text" class="text" id="url" value="<?php echo $row['URL']; ?>"/></td>
+                    </tr>
                     <tr>
 						<td class="first"><strong>Hot</strong></td>
 						<td class="last"><input name="hot" type="checkbox" id="hot" <?php loadChecked($row['hot']) ?> /></td>
