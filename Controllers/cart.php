@@ -188,6 +188,27 @@ if (!isset($_SESSION)) {
     </div>
 </div>
 <!-- ================ ================= ================ -->
+<!-- ================ Modal for Confirm ================ -->
+<div id="confirmBuyProductModel" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="display: none; width: 500px">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+        <h3 id="myModalLabel" style="font-size: 20px;">
+            Cám ơn bạn vừa thêm sản phẩm vào giỏ hàng
+        </h3>
+    </div>
+    <div class="modal-body" id="">
+		<a href="../index.php">
+			<img class="logoImage" id="logo" src="../Templates/Content/images/logo/1383069169logo.png">
+		</a>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" value="Thanh toán ngay" onclick="$('#DetailCartModal').modal('show')" data-dismiss="modal" class="btn btn-success">
+        <input type="button" value="Tiếp tục mua"  data-dismiss="modal" class="btn btn-success">
+    </div>
+</div>
+<!-- ================ ================= ================ -->
 <script>
 	function goSendCart()
 	{

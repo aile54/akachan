@@ -548,10 +548,6 @@
 				//$(this).text('Chờ');
 				var cart = $('.cart');
 				var imgtodrag = $(this).closest("form").find('img').eq(0);
-				if(imgtodrag.length == 0)
-				{
-					imgtodrag = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('img').eq(0);
-				}
 				if (imgtodrag) {
 					var imgclone = imgtodrag.clone()
 						.offset({
@@ -589,13 +585,11 @@
 				if($(this).text() != textName)
 				{
 					$(this).text(textName);
-				}		
-				var buyproduct = $(this).closest("form").find('.buyproduct');
-				if(buyproduct.length == 0)
-				{
-					buyproduct = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('.buyproduct');
 				}
+				var buyproduct = $(this).closest("form").find('.buyproduct');
 				buyproduct.click();
+				
+				$("#confirmBuyProductModel").modal("show");
 			});	
 		});		
 	  			
@@ -623,7 +617,7 @@
 	<?php include_once("../Models/function.php"); ?>    
 </head>
 <body onLoad="">
-<!-- Load Facebook SDK for JavaScript -->
+	<!-- Load Facebook SDK for JavaScript -->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -633,6 +627,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- END -->
+    
     <div style="display: none; position: absolute; z-index: 110; left: -800px" id="trailimageid">
     </div>
     <div id="global-common-message" class="commonMessage">
@@ -721,5 +716,6 @@
     <!-- ==============Counter Visitors============== -->
     <?php include_once("../Controllers/countervisitors.php"); ?> 
     <!-- ================================ END Counter Visitors ================================ -->
+    
 </body>
 <!-- InstanceEnd --></html>

@@ -56,6 +56,7 @@
     <link href="../Templates/Content/jquery-ui.css" rel="stylesheet" type="text/css">
     <link href="../Templates/Content/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="../Templates/Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../Templates/Plugin/jcart/css/jcart.css">
     <script type="text/javascript">
         $(document).ready(function () {
             $('.carousel').carousel({
@@ -545,10 +546,6 @@
 				//$(this).text('Chờ');
 				var cart = $('.cart');
 				var imgtodrag = $(this).closest("form").find('img').eq(0);
-				if(imgtodrag.length == 0)
-				{
-					imgtodrag = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('img').eq(0);
-				}
 				if (imgtodrag) {
 					var imgclone = imgtodrag.clone()
 						.offset({
@@ -586,13 +583,11 @@
 				if($(this).text() != textName)
 				{
 					$(this).text(textName);
-				}		
-				var buyproduct = $(this).closest("form").find('.buyproduct');
-				if(buyproduct.length == 0)
-				{
-					buyproduct = $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('.buyproduct');
 				}
+				var buyproduct = $(this).closest("form").find('.buyproduct');
 				buyproduct.click();
+				
+				$("#confirmBuyProductModel").modal("show");
 			});	
 		});		
 	  			
