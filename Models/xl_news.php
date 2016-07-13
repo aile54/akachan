@@ -16,7 +16,7 @@
 		function GetNews($id)
 		{
 			$result = array();
-			$fieldName = array('name', 'details', 'id', 'image', 'detailsInfo');
+			$fieldName = array('name', 'details', 'id', 'image', 'detailsInfo', 'URL');
 			$table = array("news");
 			$condition = array("id = $id");
 			$query = $this->createQuery($fieldName, $table, $condition);

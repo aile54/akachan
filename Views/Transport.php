@@ -5,7 +5,7 @@
 	}
 	require_once('../Admin/library/loader.php');
 ?>
-<html><!-- InstanceBegin template="/Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="../Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>
     <meta charset="UTF-8">
     <!-- InstanceBeginEditable name="doctitle" -->

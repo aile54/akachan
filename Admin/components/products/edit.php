@@ -108,7 +108,7 @@
 							format(isCheck($_POST["chogiadinh"]),0),
 							format($_POST["huongdan"],0),
 							format(rand_name($_POST["name"],$id),0),
-							format(rand_name($_POST["url"],$id),0)
+							format($_POST["url"],0)
 							);
 			
 			// updateObject($field=array(),$value=array(),$where)

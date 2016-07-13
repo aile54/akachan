@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- TemplateBeginEditable name="doctitle" -->
-    <title>Akachan Shop</title>
+    <title>Akachan Shop 1</title>
     <!-- TemplateEndEditable -->
      
     <?php
