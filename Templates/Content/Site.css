@@ -3680,7 +3680,7 @@ table.noborder td
 	font-size: 12px;
 	font-weight: bold;
 	padding-left: 20px;
-	text-decoration: underline overline line-through;
+	text-decoration: line-through;
 }
 
 .numberSaleDetail
