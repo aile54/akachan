@@ -547,7 +547,15 @@
 				var textName = $(this).text();
 				//$(this).text('Chờ');
 				var cart = $('.cart');
-				var imgtodrag = $(this).closest("form").find('img').eq(0);
+				
+				var $this = $(this).closest("form");
+				if($this == null || $this == undefined)
+				{
+					$this = $(this).closest(".zoom-wrapper");
+				}
+				
+				var imgtodrag = $this.find('img').eq(0);
+				
 				if (imgtodrag) {
 					var imgclone = imgtodrag.clone()
 						.offset({
@@ -586,7 +594,7 @@
 				{
 					$(this).text(textName);
 				}
-				var buyproduct = $(this).closest("form").find('.buyproduct');
+				var buyproduct = $this.find('.buyproduct');
 				buyproduct.click();
 				
 				$("#confirmBuyProductModel").modal("show");
