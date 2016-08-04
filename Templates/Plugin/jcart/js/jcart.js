@@ -191,7 +191,7 @@ $(function() {
 		});
 
 		// Update an item in the cart
-		container.delegate('[name="jcartItemQty[]"]', 'keyup', function(){
+		container.delegate('[name="jcartItemQty[]"]', 'input', function(){
 			update($(this));
 		});
 
