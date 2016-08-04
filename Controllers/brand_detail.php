@@ -5,7 +5,7 @@
             <div class="groupProduct">
                 <div class="groupProduct-header">
                     <div>
-                            Các Thương Hiệu Có Mặt Tại Akachan-shop
+                            Các Thương Hiệu Có Mặt Tại AkachanShop - Hangnhatchobe.com
                     </div>
                 </div>
                 <div class="groupProduct-content marginCenter" id="featured_products">

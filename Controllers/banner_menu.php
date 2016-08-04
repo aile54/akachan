@@ -10,7 +10,7 @@
             <div id="lbsupport">
             </div>
         </a>
-        <marquee behavior="scroll"  direction="up" scrollamount="2" height="220px"  style="margin-top:-6px" onMouseOver="this.stop()" onMouseOut="this.start()">
+        <marquee behavior="scroll"  direction="up" scrollamount="2" height="220px"  style="margin-top:15px" onMouseOver="this.stop()" onMouseOut="this.start()">
         <div id="chatlist" >
             <ul>
             	<?php
