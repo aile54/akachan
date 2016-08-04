@@ -70,7 +70,14 @@
 					</tr>					
 					<tr class="bg">
 						<td class="first"><strong>Lời nhắn</strong></td>
-						<td colspan="2" class="last"><?php echo $row['loinhan']; ?></td>
+						<td colspan="2" class="last">
+							<?php 
+								if($row['loinhan'] != 'NULL')
+								{
+									echo $row['loinhan']; 
+								}
+							?>
+                        </td>
 					</tr>
                     <tr>
                     	<td colspan="3"><hr /></td>
@@ -156,39 +163,56 @@
 		$sum_gia='';
 			while($rowDetails=mysql_fetch_array($resDetails)){
 				$sum_sl +=$rowDetails['quantity'];
-				$sum_gia +=$rowDetails['total'];
+				//$sum_gia +=$rowDetails['total'];
+				$sum_gia = 0;
 	
 ?>
                               <tr>
 						        <td>
 								<?php 
-									
+									//var_dump($rowDetails['productid']);
 									$tbl_price = new table('tabprice');
-									$res_price = $tbl_price -> loadOne('id='.$rowDetails['productid']);
+									$res_price = $tbl_price -> loadOne('proid='.$rowDetails['productid']);
 									$row_price = mysql_fetch_object($res_price);
-									
-									if(!is_null($rowDetails['color']))
+									if($rowDetails['color'] != 'undefined' && $rowDetails['color'] != 'NULL')
 									{
+										//var_dump($rowDetails);
 										$tbl_color = new table('img');
 										//var_dump($rowDetails);
-										$res_color = $tbl_color->loadOne('id='.$rowDetails['color']);
-										//var_dump($res_color);
+										$res_color = $tbl_color->loadOne('proid='.$rowDetails['color']);
+										
 										$row_color = mysql_fetch_object($res_color);
 									}
-									else $row_color = null;
-									
+									else 
+										$row_color = null;
+										
 									$tblPro = new table('products');
-									$resPro = $tblPro->loadOne('id='.$row_price->proid);
+									$resPro = $tblPro->loadOne('id='.$rowDetails['productid']);
 									$rowPro = mysql_fetch_array($resPro);
+									//var_dump($row_price);
+									$pricePro = 0;
+									if($row_price)
+									{
+										$pricePro = $row_price->price;
+										if($row_price->price_promo!=0)
+											$pricePro = $row_price->price_promo;
+										
+										$sum_gia += ($rowDetails['quantity'] * $pricePro);
+									}
 									
-									$pricePro = $row_price->price;
-									if($row_price->price_promo!=0)
-										$pricePro = $row_price->price_promo;
 									echo $rowPro['name']; ?>                                </td>
-                                <td><?php echo $row_price->size; ?></td>
+                                <td>
+									<?php 
+										if($row_price)
+											echo $row_price->size; 
+									?>
+                                </td>
                                 <td>
 									<?php
-										if(!is_null($row_color)) echo $row_color->name; 
+										if($row_color) 
+										{
+											echo $row_color->name; 
+										}
 									?>
                                 </td>
 						        <td><?php echo number_format($pricePro); ?> VNĐ</td>
