@@ -17,6 +17,31 @@
     <div class="modal-body" id="loginBody">
         <table class="noborder" style="margin-top:5px; width:100%">
         	<tbody>
+				<tr>
+					<td colspan="2">
+						Sửa đổi hồ sơ, xem xét đơn đặt hàng của bạn, cập nhật yêu thích của bạn và nhiều hơn nữa. Đăng nhập hoặc tạo một tài khoản để bắt đầu.
+						<a id="click-collapseInformationLogin" onclick="$('#collapseInformationLogin').slideDown(); $(this).hide(500);" style="cursor: pointer">Xem thêm</a>
+						<div id="collapseInformationLogin" style="display: none">
+							<br />
+							Bằng cách tạo tài khoản, bạn sẽ có những lợi ích:
+							<ul style="list-style-type: circle;">
+								<li style="margin-left: 25px;">
+									Xem và theo dõi đơn đặt hàng của bạn
+								</li>
+								<li style="margin-left: 25px;">
+									Thanh toán các đơn hàng nhanh hơn
+								</li>
+								<li style="margin-left: 25px;">
+									Tạo danh sách ưa thích để chia sẽ với bạn bè
+								</li>
+								<li style="margin-left: 25px;">
+									Viết đánh giá sản phẩm và bài bình luận
+								</li>
+							</ul>
+						<a onclick="$('#collapseInformationLogin').slideUp(); $('#click-collapseInformationLogin').show(500)" style="cursor: pointer">Thu gọn</a>
+						</div>
+					</td>
+				</tr>
             	<tr>
                 	<td colspan="2"> 
                     	<div id="errorMsg" style="color: red; font-size: 16px; font-style: normal;">

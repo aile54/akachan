@@ -61,6 +61,9 @@
 	<link rel="stylesheet" type="text/css" href="../Templates/Plugin/jcart/css/jcart.css">
     <script type="text/javascript">
         $(document).ready(function () {
+			$(this).bind("contextmenu selectstart", function(e) {
+                e.preventDefault();
+            });
             $('.carousel').carousel({
                 interval: 10000
             });
