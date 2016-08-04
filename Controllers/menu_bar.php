@@ -69,7 +69,7 @@ function divScroll()
             <a href="Contact.php"><em>Liên Hệ</em></a>
         </li>
         <li class="menubar">
-            <a href="Contact.php"><em>Khuyến Mãi</em></a>
+            <a href="sub_menu.php?cid=pro"><em>Khuyến Mãi</em></a>
         </li>
     </ul>
     <!-- Detail dropdownmenu -->

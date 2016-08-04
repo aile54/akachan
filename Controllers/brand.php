@@ -9,7 +9,7 @@
         <div class="groupBrand-header">
             <div>
                 <a href="../Views/Brand.php" >
-                	Các thương hiệu có mặt tại Akachan-shop
+                	Các thương hiệu có mặt tại AkachanShop – Hangnhatchobe.com
                 </a>
             </div>
         </div>
