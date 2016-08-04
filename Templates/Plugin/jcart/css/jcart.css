@@ -4,7 +4,7 @@ http://conceptlogic.com/jcart/
 */
 
 #jcart * { margin:0; padding:0; font-family:arial, tahoma, verdana, sans-serif; }
-#jcart, #jcart input, #jcart-tooltip { font-size:12px; }
+#jcart, #jcart input, #jcart-tooltip { font-size:15px; }
 
 #jcart fieldset { border:0; }
 

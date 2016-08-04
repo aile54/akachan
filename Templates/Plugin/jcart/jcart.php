@@ -607,7 +607,7 @@ class Jcart {
             echo tab(6) . "</td>\n";
             echo tab(6) . "<td class='jcart-item-qty'>\n";
             echo tab(7) . "<input name='jcartItemId[]' type='hidden' value='{$item['id']}' />\n";
-            echo tab(7) . "<input id='jcartItemQty-{$item['id']}' name='jcartItemQty[]' size='2' type='text' value='{$item['qty']}' />\n";
+            echo tab(7) . "<input id='jcartItemQty-{$item['id']}' name='jcartItemQty[]' size='2' type='number' value='{$item['qty']}' />\n";
             echo tab(6) . "</td>\n";
 			echo tab(6) . "<td class='jcart-item-price'>\n";
             echo tab(7) . "<span>" . number_format($item['subtotal']) . "</span></td>\n";

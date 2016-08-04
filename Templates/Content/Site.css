@@ -3473,11 +3473,11 @@ cursor: pointer;
 	width: 330px;
 }
 
-td.jcart-item-qty input { 
+td.jcart-item-qty input {
 	width: 70px;
 	text-align:right;
 	margin: 10px 0px 10px 10px;
-	padding-right: 10px !important;
+	padding: 15px 5px 15px 15px !important;
 }
 
 .jcart-item-price {
